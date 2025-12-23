@@ -1,0 +1,268 @@
+{
+  "klines": {
+    "BTCUSDT": {
+      "binance": {
+        "file": "data/raw/klines/binance_BTCUSDT_30m.csv",
+        "count": 1393,
+        "start": "2025-11-01 00:00:00",
+        "end": "2025-11-30 00:00:00"
+      },
+      "bybit": {
+        "file": "data/raw/klines/bybit_BTCUSDT_30m.csv",
+        "count": 1000,
+        "start": "2025-11-09 04:30:00",
+        "end": "2025-11-30 00:00:00"
+      },
+      "okx": {
+        "file": "data/raw/klines/okx_BTCUSDT_30m.csv",
+        "count": 300,
+        "start": "2025-11-23 18:00:00",
+        "end": "2025-11-29 23:30:00"
+      },
+      "huobi": {
+        "file": "data/raw/klines/huobi_BTCUSDT_30m.csv",
+        "count": 2000,
+        "start": "2025-10-31 22:00:00",
+        "end": "2025-12-12 13:30:00"
+      },
+      "kucoin": {
+        "file": "data/raw/klines/kucoin_BTCUSDT_30m.csv",
+        "count": 1392,
+        "start": "2025-11-01 00:00:00",
+        "end": "2025-11-29 23:30:00"
+      }
+    },
+    "ETHUSDT": {
+      "binance": {
+        "file": "data/raw/klines/binance_ETHUSDT_30m.csv",
+        "count": 1393,
+        "start": "2025-11-01 00:00:00",
+        "end": "2025-11-30 00:00:00"
+      },
+      "bybit": {
+        "file": "data/raw/klines/bybit_ETHUSDT_30m.csv",
+        "count": 1000,
+        "start": "2025-11-09 04:30:00",
+        "end": "2025-11-30 00:00:00"
+      },
+      "okx": {
+        "file": "data/raw/klines/okx_ETHUSDT_30m.csv",
+        "count": 300,
+        "start": "2025-11-23 18:00:00",
+        "end": "2025-11-29 23:30:00"
+      },
+      "huobi": {
+        "file": "data/raw/klines/huobi_ETHUSDT_30m.csv",
+        "count": 2000,
+        "start": "2025-10-31 22:00:00",
+        "end": "2025-12-12 13:30:00"
+      },
+      "kucoin": {
+        "file": "data/raw/klines/kucoin_ETHUSDT_30m.csv",
+        "count": 1392,
+        "start": "2025-11-01 00:00:00",
+        "end": "2025-11-29 23:30:00"
+      }
+    },
+    "BNBUSDT": {
+      "binance": {
+        "file": "data/raw/klines/binance_BNBUSDT_30m.csv",
+        "count": 1393,
+        "start": "2025-11-01 00:00:00",
+        "end": "2025-11-30 00:00:00"
+      },
+      "bybit": {
+        "file": "data/raw/klines/bybit_BNBUSDT_30m.csv",
+        "count": 1000,
+        "start": "2025-11-09 04:30:00",
+        "end": "2025-11-30 00:00:00"
+      },
+      "okx": {
+        "file": "data/raw/klines/okx_BNBUSDT_30m.csv",
+        "count": 300,
+        "start": "2025-11-23 18:00:00",
+        "end": "2025-11-29 23:30:00"
+      },
+      "huobi": {
+        "file": "data/raw/klines/huobi_BNBUSDT_30m.csv",
+        "count": 2000,
+        "start": "2025-10-31 22:00:00",
+        "end": "2025-12-12 13:30:00"
+      },
+      "kucoin": {
+        "file": "data/raw/klines/kucoin_BNBUSDT_30m.csv",
+        "count": 1392,
+        "start": "2025-11-01 00:00:00",
+        "end": "2025-11-29 23:30:00"
+      }
+    },
+    "SOLUSDT": {
+      "binance": {
+        "file": "data/raw/klines/binance_SOLUSDT_30m.csv",
+        "count": 1393,
+        "start": "2025-11-01 00:00:00",
+        "end": "2025-11-30 00:00:00"
+      },
+      "bybit": {
+        "file": "data/raw/klines/bybit_SOLUSDT_30m.csv",
+        "count": 1000,
+        "start": "2025-11-09 04:30:00",
+        "end": "2025-11-30 00:00:00"
+      },
+      "okx": {
+        "file": "data/raw/klines/okx_SOLUSDT_30m.csv",
+        "count": 300,
+        "start": "2025-11-23 18:00:00",
+        "end": "2025-11-29 23:30:00"
+      },
+      "huobi": {
+        "file": "data/raw/klines/huobi_SOLUSDT_30m.csv",
+        "count": 2000,
+        "start": "2025-10-31 22:00:00",
+        "end": "2025-12-12 13:30:00"
+      },
+      "kucoin": {
+        "file": "data/raw/klines/kucoin_SOLUSDT_30m.csv",
+        "count": 1392,
+        "start": "2025-11-01 00:00:00",
+        "end": "2025-11-29 23:30:00"
+      }
+    },
+    "ADAUSDT": {
+      "binance": {
+        "file": "data/raw/klines/binance_ADAUSDT_30m.csv",
+        "count": 1393,
+        "start": "2025-11-01 00:00:00",
+        "end": "2025-11-30 00:00:00"
+      },
+      "bybit": {
+        "file": "data/raw/klines/bybit_ADAUSDT_30m.csv",
+        "count": 1000,
+        "start": "2025-11-09 04:30:00",
+        "end": "2025-11-30 00:00:00"
+      },
+      "okx": {
+        "file": "data/raw/klines/okx_ADAUSDT_30m.csv",
+        "count": 300,
+        "start": "2025-11-23 18:00:00",
+        "end": "2025-11-29 23:30:00"
+      },
+      "huobi": {
+        "file": "data/raw/klines/huobi_ADAUSDT_30m.csv",
+        "count": 2000,
+        "start": "2025-10-31 22:00:00",
+        "end": "2025-12-12 13:30:00"
+      },
+      "kucoin": {
+        "file": "data/raw/klines/kucoin_ADAUSDT_30m.csv",
+        "count": 1392,
+        "start": "2025-11-01 00:00:00",
+        "end": "2025-11-29 23:30:00"
+      }
+    }
+  },
+  "funding_rates": {
+    "BTCUSDT": {
+      "binance": {
+        "file": "data/raw/funding_rates/binance_BTCUSDT_funding_rate.csv",
+        "count": 87,
+        "start": "2025-11-01 00:00:00.001000",
+        "end": "2025-11-29 16:00:00.001000",
+        "avg_rate": 4.9808965517241375e-05
+      },
+      "bybit": {
+        "file": "data/raw/funding_rates/bybit_BTCUSDT_funding_rate.csv",
+        "count": 200,
+        "start": "2025-10-07 00:00:00",
+        "end": "2025-12-12 08:00:00",
+        "avg_rate": 3.173535e-05
+      }
+    },
+    "ETHUSDT": {
+      "binance": {
+        "file": "data/raw/funding_rates/binance_ETHUSDT_funding_rate.csv",
+        "count": 87,
+        "start": "2025-11-01 00:00:00.001000",
+        "end": "2025-11-29 16:00:00.001000",
+        "avg_rate": 4.688356321839081e-05
+      },
+      "bybit": {
+        "file": "data/raw/funding_rates/bybit_ETHUSDT_funding_rate.csv",
+        "count": 200,
+        "start": "2025-10-07 00:00:00",
+        "end": "2025-12-12 08:00:00",
+        "avg_rate": 1.98279e-05
+      }
+    },
+    "BNBUSDT": {
+      "binance": {
+        "file": "data/raw/funding_rates/binance_BNBUSDT_funding_rate.csv",
+        "count": 87,
+        "start": "2025-11-01 00:00:00.001000",
+        "end": "2025-11-29 16:00:00.001000",
+        "avg_rate": 5.738045977011494e-06
+      },
+      "bybit": {
+        "file": "data/raw/funding_rates/bybit_BNBUSDT_funding_rate.csv",
+        "count": 200,
+        "start": "2025-10-07 00:00:00",
+        "end": "2025-12-12 08:00:00",
+        "avg_rate": 9.809050000000002e-06
+      }
+    },
+    "SOLUSDT": {
+      "binance": {
+        "file": "data/raw/funding_rates/binance_SOLUSDT_funding_rate.csv",
+        "count": 87,
+        "start": "2025-11-01 00:00:00.001000",
+        "end": "2025-11-29 16:00:00.001000",
+        "avg_rate": -9.32632183908046e-06
+      },
+      "bybit": {
+        "file": "data/raw/funding_rates/bybit_SOLUSDT_funding_rate.csv",
+        "count": 200,
+        "start": "2025-10-07 00:00:00",
+        "end": "2025-12-12 08:00:00",
+        "avg_rate": -5.409964999999998e-05
+      }
+    },
+    "ADAUSDT": {
+      "binance": {
+        "file": "data/raw/funding_rates/binance_ADAUSDT_funding_rate.csv",
+        "count": 87,
+        "start": "2025-11-01 00:00:00.001000",
+        "end": "2025-11-29 16:00:00.001000",
+        "avg_rate": 4.360229885057472e-05
+      },
+      "bybit": {
+        "file": "data/raw/funding_rates/bybit_ADAUSDT_funding_rate.csv",
+        "count": 200,
+        "start": "2025-10-07 00:00:00",
+        "end": "2025-12-12 08:00:00",
+        "avg_rate": -5.776199999999994e-06
+      }
+    }
+  },
+  "download_time": "2025-12-12T21:58:49.752800",
+  "config": {
+    "symbols": [
+      "BTCUSDT",
+      "ETHUSDT",
+      "BNBUSDT",
+      "SOLUSDT",
+      "ADAUSDT"
+    ],
+    "interval": "30m",
+    "start_date": "2025-11-01",
+    "end_date": "2025-11-30",
+    "exchanges": [
+      "binance",
+      "bybit",
+      "okx",
+      "huobi",
+      "kucoin",
+      "gate",
+      "bitget"
+    ]
+  }
+}

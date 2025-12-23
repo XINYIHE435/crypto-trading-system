@@ -1,0 +1,58 @@
+{
+  "BTCUSDT_30m": {
+    "symbol": "BTCUSDT",
+    "timeframe": "30m",
+    "total_trades": 40,
+    "win_rate": 0.65,
+    "total_return": 0.004314574554910563,
+    "total_pnl": 43.14574554910563,
+    "avg_profit": 1.0786436387276406,
+    "max_profit": 17.693720793084676,
+    "max_loss": -12.89092573525971,
+    "max_drawdown": 0,
+    "sharpe_ratio": 0,
+    "exchange_stats": {}
+  },
+  "BTCUSDT_1h": {
+    "symbol": "BTCUSDT",
+    "timeframe": "1h",
+    "total_trades": 128,
+    "win_rate": 0.6171875,
+    "total_return": 0.016417072276765456,
+    "total_pnl": 164.17072276765455,
+    "avg_profit": 1.282583771622301,
+    "max_profit": 22.616858146588115,
+    "max_loss": -17.347440738352788,
+    "max_drawdown": 0,
+    "sharpe_ratio": 0,
+    "exchange_stats": {}
+  },
+  "ETHUSDT_30m": {
+    "symbol": "ETHUSDT",
+    "timeframe": "30m",
+    "total_trades": 52,
+    "win_rate": 0.6153846153846154,
+    "total_return": 0.006679170902341151,
+    "total_pnl": 66.79170902341151,
+    "avg_profit": 1.284455942757914,
+    "max_profit": 17.24144291863092,
+    "max_loss": -16.867932790024504,
+    "max_drawdown": 0,
+    "sharpe_ratio": 0,
+    "exchange_stats": {}
+  },
+  "ETHUSDT_1h": {
+    "symbol": "ETHUSDT",
+    "timeframe": "1h",
+    "total_trades": 168,
+    "win_rate": 0.6071428571428571,
+    "total_return": 0.025309155272522664,
+    "total_pnl": 253.09155272522665,
+    "avg_profit": 1.5064973376501585,
+    "max_profit": 26.401346880907365,
+    "max_loss": -23.403997739373615,
+    "max_drawdown": 0,
+    "sharpe_ratio": 0,
+    "exchange_stats": {}
+  }
+}

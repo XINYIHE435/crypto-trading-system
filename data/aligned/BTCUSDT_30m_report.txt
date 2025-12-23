@@ -1,0 +1,149 @@
+=== BTCUSDT 30m 数据集报告 ===
+文件路径: data/aligned/BTCUSDT_30m_aligned.csv
+数据行数: 300
+时间范围: 2025-11-23 18:00:00 - 2025-11-29 23:30:00
+列数: 63
+
+包含的交易所数据列:
+  binance: binance_open, binance_high, binance_low, binance_close, binance_volume, binance_quote_volume, binance_funding_rate
+  bybit: bybit_open, bybit_high, bybit_low, bybit_close, bybit_volume, bybit_quote_volume, bybit_funding_rate
+  funding: funding_diff_kuok, funding_arbitrage_kuok, funding_diff_kuhu, funding_arbitrage_kuhu, funding_diff_kubi, funding_arbitrage_kubi, funding_diff_kuby, funding_arbitrage_kuby, funding_diff_okhu, funding_arbitrage_okhu, funding_diff_okbi, funding_arbitrage_okbi, funding_diff_okby, funding_arbitrage_okby, funding_diff_hubi, funding_arbitrage_hubi, funding_diff_huby, funding_arbitrage_huby, funding_diff_biby, funding_arbitrage_biby
+  huobi: huobi_open, huobi_high, huobi_low, huobi_close, huobi_volume, huobi_quote_volume, huobi_funding_rate
+  kucoin: kucoin_open, kucoin_high, kucoin_low, kucoin_close, kucoin_volume, kucoin_quote_volume, kucoin_funding_rate
+  okx: okx_open, okx_high, okx_low, okx_close, okx_volume, okx_quote_volume, okx_funding_rate
+
+价差统计:
+  price_spread_kuok:
+    平均值: -208.140667
+    标准差: 200.582755
+    最大值: 18.700000
+    最小值: -1257.800000
+  relative_spread_kuok:
+    平均值: -0.235014
+    标准差: 0.228042
+    最大值: 0.020478
+    最小值: -1.420197
+  price_spread_kuhu:
+    平均值: -211.438333
+    标准差: 201.876431
+    最大值: 16.990000
+    最小值: -1245.380000
+  relative_spread_kuhu:
+    平均值: -0.238721
+    标准差: 0.229599
+    最大值: 0.018606
+    最小值: -1.406173
+  price_spread_kubi:
+    平均值: -210.164500
+    标准差: 201.195605
+    最大值: 13.750000
+    最小值: -1265.590000
+  relative_spread_kubi:
+    平均值: -0.237249
+    标准差: 0.228689
+    最大值: 0.015057
+    最小值: -1.428992
+  price_spread_kuby:
+    平均值: -208.879333
+    标准差: 201.008415
+    最大值: 22.700000
+    最小值: -1277.400000
+  relative_spread_kuby:
+    平均值: -0.235796
+    标准差: 0.228503
+    最大值: 0.024974
+    最小值: -1.442327
+
+资金费率统计:
+  kucoin_funding_rate:
+    平均费率: 0.000000
+    标准差: 0.000000
+    最大费率: 0.000000
+    最小费率: 0.000000
+    非零数据点: 0/300
+  okx_funding_rate:
+    平均费率: 0.000000
+    标准差: 0.000000
+    最大费率: 0.000000
+    最小费率: 0.000000
+    非零数据点: 0/300
+  huobi_funding_rate:
+    平均费率: 0.000000
+    标准差: 0.000000
+    最大费率: 0.000000
+    最小费率: 0.000000
+    非零数据点: 0/300
+  binance_funding_rate:
+    平均费率: 0.000010
+    标准差: 0.000031
+    最大费率: 0.000060
+    最小费率: -0.000053
+    非零数据点: 300/300
+  bybit_funding_rate:
+    平均费率: -0.000014
+    标准差: 0.000029
+    最大费率: 0.000034
+    最小费率: -0.000097
+    非零数据点: 300/300
+
+资金费率套利机会:
+  funding_arbitrage_kuok:
+    平均套利收益: 0.000000
+    标准差: 0.000000
+    最大收益: 0.000000
+    最小收益: 0.000000
+    正收益机会: 0/300 (0.0%)
+  funding_arbitrage_kuhu:
+    平均套利收益: 0.000000
+    标准差: 0.000000
+    最大收益: 0.000000
+    最小收益: 0.000000
+    正收益机会: 0/300 (0.0%)
+  funding_arbitrage_kubi:
+    平均套利收益: -0.000246
+    标准差: 0.000751
+    最大收益: 0.001270
+    最小收益: -0.001442
+    正收益机会: 142/300 (47.3%)
+  funding_arbitrage_kuby:
+    平均套利收益: 0.000324
+    标准差: 0.000698
+    最大收益: 0.002326
+    最小收益: -0.000818
+    正收益机会: 224/300 (74.7%)
+  funding_arbitrage_okhu:
+    平均套利收益: 0.000000
+    标准差: 0.000000
+    最大收益: 0.000000
+    最小收益: 0.000000
+    正收益机会: 0/300 (0.0%)
+  funding_arbitrage_okbi:
+    平均套利收益: -0.000246
+    标准差: 0.000751
+    最大收益: 0.001270
+    最小收益: -0.001442
+    正收益机会: 142/300 (47.3%)
+  funding_arbitrage_okby:
+    平均套利收益: 0.000324
+    标准差: 0.000698
+    最大收益: 0.002326
+    最小收益: -0.000818
+    正收益机会: 224/300 (74.7%)
+  funding_arbitrage_hubi:
+    平均套利收益: -0.000246
+    标准差: 0.000751
+    最大收益: 0.001270
+    最小收益: -0.001442
+    正收益机会: 142/300 (47.3%)
+  funding_arbitrage_huby:
+    平均套利收益: 0.000324
+    标准差: 0.000698
+    最大收益: 0.002326
+    最小收益: -0.000818
+    正收益机会: 224/300 (74.7%)
+  funding_arbitrage_biby:
+    平均套利收益: 0.000570
+    标准差: 0.000765
+    最大收益: 0.001850
+    最小收益: -0.001442
+    正收益机会: 237/300 (79.0%)

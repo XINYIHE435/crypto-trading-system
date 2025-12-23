@@ -1,0 +1,125 @@
+# 套利系统配置文件
+# 跨交易所套利系统参数配置
+
+# 基本配置
+system:
+  name: "跨交易所套利系统"
+  version: "1.0.0"
+  log_level: "INFO"
+
+# 交易参数配置
+trading:
+  # 利润相关参数
+  min_profit_threshold: 0.002      # 最小利润阈值 (0.2%)
+  min_price_diff: 0.001           # 最小价差要求 (0.1%)
+
+  # 手续费配置
+  trading_fee_rate: 0.001         # 交易手续费率 (0.1%)
+  # 不同交易所的手续费可以单独配置
+  exchange_fees:
+    okx: 0.001                    # OKX手续费
+    binance: 0.001                # Binance手续费
+    bybit: 0.001                  # Bybit手续费
+
+  # 持仓管理
+  max_position_size: 10000        # 最大单笔持仓大小 (USDT)
+  max_positions: 5                # 最大同时持仓数量
+  position_timeout: 3600          # 持仓超时时间 (秒, 1小时)
+
+# 风险管理配置
+risk_management:
+  max_drawdown: 0.05              # 最大回撤限制 (5%)
+  max_risk_per_trade: 0.02       # 单笔交易最大风险 (2%)
+  max_account_usage: 0.3          # 单笔最大资金占用比例 (30%)
+  stop_loss_threshold: 0.03      # 止损阈值 (3%)
+
+# 监控配置
+monitoring:
+  price_update_interval: 30       # 价格更新间隔 (秒)
+  opportunity_check_interval: 60  # 套利机会检查间隔 (秒)
+  volume_threshold: 1000          # 最小交易量阈值
+
+# 支持的交易所配置
+exchanges:
+  okx:
+    enabled: true
+    priority: 1
+    api_endpoint: "https://www.okx.com"
+
+  binance:
+    enabled: true
+    priority: 2
+    api_endpoint: "https://api.binance.com"
+
+  bybit:
+    enabled: true
+    priority: 3
+    api_endpoint: "https://api.bybit.com"
+
+# 支持的交易对配置
+symbols:
+  # 主要加密货币对
+  major_pairs:
+    - "BTCUSDT"
+    - "ETHUSDT"
+    - "BNBUSDT"
+
+  # 热门山寨币对
+  altcoin_pairs:
+    - "XRPUSDT"
+    - "DOGEUSDT"
+    - "SOLUSDT"
+    - "ADAUSDT"
+    - "AVAXUSDT"
+    - "MATICUSDT"
+    - "LINKUSDT"
+
+# 数据配置
+data:
+  # 数据存储路径
+  raw_data_path: "data/raw/"
+  aligned_data_path: "data/aligned/"
+  metadata_path: "data/metadata/"
+
+  # 数据更新配置
+  auto_update: true
+  update_interval: 300            # 数据更新间隔 (秒, 5分钟)
+  data_retention_days: 30         # 数据保留天数
+
+# 回测配置
+backtesting:
+  default_start_date: "2024-11-01"
+  default_end_date: "2024-12-31"
+  initial_balance: 100000         # 初始账户余额 (USDT)
+  commission_rate: 0.001          # 回测手续费率
+
+# 通知配置
+notifications:
+  enabled: false
+  methods:
+    email:
+      enabled: false
+      smtp_server: ""
+      smtp_port: 587
+      username: ""
+      password: ""
+      recipients: []
+
+    webhook:
+      enabled: false
+      url: ""
+      headers: {}
+
+# 性能配置
+performance:
+  max_concurrent_requests: 10     # 最大并发请求数
+  request_timeout: 30             # 请求超时时间 (秒)
+  retry_attempts: 3               # 重试次数
+  retry_delay: 1                  # 重试延迟 (秒)
+
+# 调试配置
+debug:
+  enabled: false
+  log_trades: true
+  log_opportunities: true
+  save_performance_data: false

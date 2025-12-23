@@ -1,0 +1,1890 @@
+{
+  "report_time": "2025-12-12T22:02:00.437441",
+  "summary": {
+    "kline_data": {
+      "total_files": 25,
+      "total_records": 30425,
+      "total_size_mb": 2.3000000000000003,
+      "exchanges_covered": 5,
+      "symbols_covered": 5
+    },
+    "funding_data": {
+      "total_files": 10,
+      "total_records": 1435,
+      "total_size_mb": 0.05,
+      "exchanges_covered": 2,
+      "symbols_covered": 5
+    }
+  },
+  "kline_analysis": {
+    "total_files": 25,
+    "total_records": 30425,
+    "total_size_mb": 2.3000000000000003,
+    "exchanges": {
+      "binance": {
+        "files": 5,
+        "records": 6965,
+        "size_mb": 0.49,
+        "symbols": {
+          "BTCUSDT": {
+            "size_mb": 0.11,
+            "records": 1393,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-01 00:00:00",
+            "end_time": "2025-11-30 00:00:00",
+            "file_path": "data/raw/klines/binance_BTCUSDT_30m.csv"
+          },
+          "ETHUSDT": {
+            "size_mb": 0.1,
+            "records": 1393,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-01 00:00:00",
+            "end_time": "2025-11-30 00:00:00",
+            "file_path": "data/raw/klines/binance_ETHUSDT_30m.csv"
+          },
+          "BNBUSDT": {
+            "size_mb": 0.09,
+            "records": 1393,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-01 00:00:00",
+            "end_time": "2025-11-30 00:00:00",
+            "file_path": "data/raw/klines/binance_BNBUSDT_30m.csv"
+          },
+          "SOLUSDT": {
+            "size_mb": 0.1,
+            "records": 1393,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-01 00:00:00",
+            "end_time": "2025-11-30 00:00:00",
+            "file_path": "data/raw/klines/binance_SOLUSDT_30m.csv"
+          },
+          "ADAUSDT": {
+            "size_mb": 0.09,
+            "records": 1393,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-01 00:00:00",
+            "end_time": "2025-11-30 00:00:00",
+            "file_path": "data/raw/klines/binance_ADAUSDT_30m.csv"
+          }
+        }
+      },
+      "bybit": {
+        "files": 5,
+        "records": 5000,
+        "size_mb": 0.36000000000000004,
+        "symbols": {
+          "BTCUSDT": {
+            "size_mb": 0.08,
+            "records": 1000,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-09 04:30:00",
+            "end_time": "2025-11-30 00:00:00",
+            "file_path": "data/raw/klines/bybit_BTCUSDT_30m.csv"
+          },
+          "ETHUSDT": {
+            "size_mb": 0.08,
+            "records": 1000,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-09 04:30:00",
+            "end_time": "2025-11-30 00:00:00",
+            "file_path": "data/raw/klines/bybit_ETHUSDT_30m.csv"
+          },
+          "BNBUSDT": {
+            "size_mb": 0.06,
+            "records": 1000,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-09 04:30:00",
+            "end_time": "2025-11-30 00:00:00",
+            "file_path": "data/raw/klines/bybit_BNBUSDT_30m.csv"
+          },
+          "SOLUSDT": {
+            "size_mb": 0.07,
+            "records": 1000,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-09 04:30:00",
+            "end_time": "2025-11-30 00:00:00",
+            "file_path": "data/raw/klines/bybit_SOLUSDT_30m.csv"
+          },
+          "ADAUSDT": {
+            "size_mb": 0.07,
+            "records": 1000,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-09 04:30:00",
+            "end_time": "2025-11-30 00:00:00",
+            "file_path": "data/raw/klines/bybit_ADAUSDT_30m.csv"
+          }
+        }
+      },
+      "okx": {
+        "files": 5,
+        "records": 1500,
+        "size_mb": 0.1,
+        "symbols": {
+          "BTCUSDT": {
+            "size_mb": 0.02,
+            "records": 300,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-23 18:00:00",
+            "end_time": "2025-11-29 23:30:00",
+            "file_path": "data/raw/klines/okx_BTCUSDT_30m.csv"
+          },
+          "ETHUSDT": {
+            "size_mb": 0.02,
+            "records": 300,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-23 18:00:00",
+            "end_time": "2025-11-29 23:30:00",
+            "file_path": "data/raw/klines/okx_ETHUSDT_30m.csv"
+          },
+          "BNBUSDT": {
+            "size_mb": 0.02,
+            "records": 300,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-23 18:00:00",
+            "end_time": "2025-11-29 23:30:00",
+            "file_path": "data/raw/klines/okx_BNBUSDT_30m.csv"
+          },
+          "SOLUSDT": {
+            "size_mb": 0.02,
+            "records": 300,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-23 18:00:00",
+            "end_time": "2025-11-29 23:30:00",
+            "file_path": "data/raw/klines/okx_SOLUSDT_30m.csv"
+          },
+          "ADAUSDT": {
+            "size_mb": 0.02,
+            "records": 300,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-23 18:00:00",
+            "end_time": "2025-11-29 23:30:00",
+            "file_path": "data/raw/klines/okx_ADAUSDT_30m.csv"
+          }
+        }
+      },
+      "huobi": {
+        "files": 5,
+        "records": 10000,
+        "size_mb": 0.8300000000000001,
+        "symbols": {
+          "BTCUSDT": {
+            "size_mb": 0.18,
+            "records": 2000,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-10-31 22:00:00",
+            "end_time": "2025-12-12 13:30:00",
+            "file_path": "data/raw/klines/huobi_BTCUSDT_30m.csv"
+          },
+          "ETHUSDT": {
+            "size_mb": 0.16,
+            "records": 2000,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-10-31 22:00:00",
+            "end_time": "2025-12-12 13:30:00",
+            "file_path": "data/raw/klines/huobi_ETHUSDT_30m.csv"
+          },
+          "BNBUSDT": {
+            "size_mb": 0.15,
+            "records": 2000,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-10-31 22:00:00",
+            "end_time": "2025-12-12 13:30:00",
+            "file_path": "data/raw/klines/huobi_BNBUSDT_30m.csv"
+          },
+          "SOLUSDT": {
+            "size_mb": 0.17,
+            "records": 2000,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-10-31 22:00:00",
+            "end_time": "2025-12-12 13:30:00",
+            "file_path": "data/raw/klines/huobi_SOLUSDT_30m.csv"
+          },
+          "ADAUSDT": {
+            "size_mb": 0.17,
+            "records": 2000,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-10-31 22:00:00",
+            "end_time": "2025-12-12 13:30:00",
+            "file_path": "data/raw/klines/huobi_ADAUSDT_30m.csv"
+          }
+        }
+      },
+      "kucoin": {
+        "files": 5,
+        "records": 6960,
+        "size_mb": 0.52,
+        "symbols": {
+          "BTCUSDT": {
+            "size_mb": 0.11,
+            "records": 1392,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-01 00:00:00",
+            "end_time": "2025-11-29 23:30:00",
+            "file_path": "data/raw/klines/kucoin_BTCUSDT_30m.csv"
+          },
+          "ETHUSDT": {
+            "size_mb": 0.11,
+            "records": 1392,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-01 00:00:00",
+            "end_time": "2025-11-29 23:30:00",
+            "file_path": "data/raw/klines/kucoin_ETHUSDT_30m.csv"
+          },
+          "BNBUSDT": {
+            "size_mb": 0.1,
+            "records": 1392,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-01 00:00:00",
+            "end_time": "2025-11-29 23:30:00",
+            "file_path": "data/raw/klines/kucoin_BNBUSDT_30m.csv"
+          },
+          "SOLUSDT": {
+            "size_mb": 0.1,
+            "records": 1392,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-01 00:00:00",
+            "end_time": "2025-11-29 23:30:00",
+            "file_path": "data/raw/klines/kucoin_SOLUSDT_30m.csv"
+          },
+          "ADAUSDT": {
+            "size_mb": 0.1,
+            "records": 1392,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-01 00:00:00",
+            "end_time": "2025-11-29 23:30:00",
+            "file_path": "data/raw/klines/kucoin_ADAUSDT_30m.csv"
+          }
+        }
+      }
+    },
+    "symbols": {
+      "BTCUSDT": {
+        "files": 5,
+        "records": 6085,
+        "size_mb": 0.5,
+        "exchanges": {
+          "binance": {
+            "size_mb": 0.11,
+            "records": 1393,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-01 00:00:00",
+            "end_time": "2025-11-30 00:00:00",
+            "file_path": "data/raw/klines/binance_BTCUSDT_30m.csv"
+          },
+          "bybit": {
+            "size_mb": 0.08,
+            "records": 1000,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-09 04:30:00",
+            "end_time": "2025-11-30 00:00:00",
+            "file_path": "data/raw/klines/bybit_BTCUSDT_30m.csv"
+          },
+          "okx": {
+            "size_mb": 0.02,
+            "records": 300,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-23 18:00:00",
+            "end_time": "2025-11-29 23:30:00",
+            "file_path": "data/raw/klines/okx_BTCUSDT_30m.csv"
+          },
+          "huobi": {
+            "size_mb": 0.18,
+            "records": 2000,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-10-31 22:00:00",
+            "end_time": "2025-12-12 13:30:00",
+            "file_path": "data/raw/klines/huobi_BTCUSDT_30m.csv"
+          },
+          "kucoin": {
+            "size_mb": 0.11,
+            "records": 1392,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-01 00:00:00",
+            "end_time": "2025-11-29 23:30:00",
+            "file_path": "data/raw/klines/kucoin_BTCUSDT_30m.csv"
+          }
+        }
+      },
+      "ETHUSDT": {
+        "files": 5,
+        "records": 6085,
+        "size_mb": 0.47,
+        "exchanges": {
+          "binance": {
+            "size_mb": 0.1,
+            "records": 1393,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-01 00:00:00",
+            "end_time": "2025-11-30 00:00:00",
+            "file_path": "data/raw/klines/binance_ETHUSDT_30m.csv"
+          },
+          "bybit": {
+            "size_mb": 0.08,
+            "records": 1000,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-09 04:30:00",
+            "end_time": "2025-11-30 00:00:00",
+            "file_path": "data/raw/klines/bybit_ETHUSDT_30m.csv"
+          },
+          "okx": {
+            "size_mb": 0.02,
+            "records": 300,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-23 18:00:00",
+            "end_time": "2025-11-29 23:30:00",
+            "file_path": "data/raw/klines/okx_ETHUSDT_30m.csv"
+          },
+          "huobi": {
+            "size_mb": 0.16,
+            "records": 2000,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-10-31 22:00:00",
+            "end_time": "2025-12-12 13:30:00",
+            "file_path": "data/raw/klines/huobi_ETHUSDT_30m.csv"
+          },
+          "kucoin": {
+            "size_mb": 0.11,
+            "records": 1392,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-01 00:00:00",
+            "end_time": "2025-11-29 23:30:00",
+            "file_path": "data/raw/klines/kucoin_ETHUSDT_30m.csv"
+          }
+        }
+      },
+      "BNBUSDT": {
+        "files": 5,
+        "records": 6085,
+        "size_mb": 0.41999999999999993,
+        "exchanges": {
+          "binance": {
+            "size_mb": 0.09,
+            "records": 1393,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-01 00:00:00",
+            "end_time": "2025-11-30 00:00:00",
+            "file_path": "data/raw/klines/binance_BNBUSDT_30m.csv"
+          },
+          "bybit": {
+            "size_mb": 0.06,
+            "records": 1000,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-09 04:30:00",
+            "end_time": "2025-11-30 00:00:00",
+            "file_path": "data/raw/klines/bybit_BNBUSDT_30m.csv"
+          },
+          "okx": {
+            "size_mb": 0.02,
+            "records": 300,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-23 18:00:00",
+            "end_time": "2025-11-29 23:30:00",
+            "file_path": "data/raw/klines/okx_BNBUSDT_30m.csv"
+          },
+          "huobi": {
+            "size_mb": 0.15,
+            "records": 2000,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-10-31 22:00:00",
+            "end_time": "2025-12-12 13:30:00",
+            "file_path": "data/raw/klines/huobi_BNBUSDT_30m.csv"
+          },
+          "kucoin": {
+            "size_mb": 0.1,
+            "records": 1392,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-01 00:00:00",
+            "end_time": "2025-11-29 23:30:00",
+            "file_path": "data/raw/klines/kucoin_BNBUSDT_30m.csv"
+          }
+        }
+      },
+      "SOLUSDT": {
+        "files": 5,
+        "records": 6085,
+        "size_mb": 0.45999999999999996,
+        "exchanges": {
+          "binance": {
+            "size_mb": 0.1,
+            "records": 1393,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-01 00:00:00",
+            "end_time": "2025-11-30 00:00:00",
+            "file_path": "data/raw/klines/binance_SOLUSDT_30m.csv"
+          },
+          "bybit": {
+            "size_mb": 0.07,
+            "records": 1000,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-09 04:30:00",
+            "end_time": "2025-11-30 00:00:00",
+            "file_path": "data/raw/klines/bybit_SOLUSDT_30m.csv"
+          },
+          "okx": {
+            "size_mb": 0.02,
+            "records": 300,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-23 18:00:00",
+            "end_time": "2025-11-29 23:30:00",
+            "file_path": "data/raw/klines/okx_SOLUSDT_30m.csv"
+          },
+          "huobi": {
+            "size_mb": 0.17,
+            "records": 2000,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-10-31 22:00:00",
+            "end_time": "2025-12-12 13:30:00",
+            "file_path": "data/raw/klines/huobi_SOLUSDT_30m.csv"
+          },
+          "kucoin": {
+            "size_mb": 0.1,
+            "records": 1392,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-01 00:00:00",
+            "end_time": "2025-11-29 23:30:00",
+            "file_path": "data/raw/klines/kucoin_SOLUSDT_30m.csv"
+          }
+        }
+      },
+      "ADAUSDT": {
+        "files": 5,
+        "records": 6085,
+        "size_mb": 0.44999999999999996,
+        "exchanges": {
+          "binance": {
+            "size_mb": 0.09,
+            "records": 1393,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-01 00:00:00",
+            "end_time": "2025-11-30 00:00:00",
+            "file_path": "data/raw/klines/binance_ADAUSDT_30m.csv"
+          },
+          "bybit": {
+            "size_mb": 0.07,
+            "records": 1000,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-09 04:30:00",
+            "end_time": "2025-11-30 00:00:00",
+            "file_path": "data/raw/klines/bybit_ADAUSDT_30m.csv"
+          },
+          "okx": {
+            "size_mb": 0.02,
+            "records": 300,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-23 18:00:00",
+            "end_time": "2025-11-29 23:30:00",
+            "file_path": "data/raw/klines/okx_ADAUSDT_30m.csv"
+          },
+          "huobi": {
+            "size_mb": 0.17,
+            "records": 2000,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-10-31 22:00:00",
+            "end_time": "2025-12-12 13:30:00",
+            "file_path": "data/raw/klines/huobi_ADAUSDT_30m.csv"
+          },
+          "kucoin": {
+            "size_mb": 0.1,
+            "records": 1392,
+            "columns": [
+              "timestamp",
+              "open",
+              "high",
+              "low",
+              "close",
+              "volume",
+              "quote_volume"
+            ],
+            "start_time": "2025-11-01 00:00:00",
+            "end_time": "2025-11-29 23:30:00",
+            "file_path": "data/raw/klines/kucoin_ADAUSDT_30m.csv"
+          }
+        }
+      }
+    },
+    "file_details": {
+      "binance_BTCUSDT": {
+        "size_mb": 0.11,
+        "records": 1393,
+        "columns": [
+          "timestamp",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume",
+          "quote_volume"
+        ],
+        "start_time": "2025-11-01 00:00:00",
+        "end_time": "2025-11-30 00:00:00",
+        "file_path": "data/raw/klines/binance_BTCUSDT_30m.csv"
+      },
+      "binance_ETHUSDT": {
+        "size_mb": 0.1,
+        "records": 1393,
+        "columns": [
+          "timestamp",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume",
+          "quote_volume"
+        ],
+        "start_time": "2025-11-01 00:00:00",
+        "end_time": "2025-11-30 00:00:00",
+        "file_path": "data/raw/klines/binance_ETHUSDT_30m.csv"
+      },
+      "binance_BNBUSDT": {
+        "size_mb": 0.09,
+        "records": 1393,
+        "columns": [
+          "timestamp",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume",
+          "quote_volume"
+        ],
+        "start_time": "2025-11-01 00:00:00",
+        "end_time": "2025-11-30 00:00:00",
+        "file_path": "data/raw/klines/binance_BNBUSDT_30m.csv"
+      },
+      "binance_SOLUSDT": {
+        "size_mb": 0.1,
+        "records": 1393,
+        "columns": [
+          "timestamp",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume",
+          "quote_volume"
+        ],
+        "start_time": "2025-11-01 00:00:00",
+        "end_time": "2025-11-30 00:00:00",
+        "file_path": "data/raw/klines/binance_SOLUSDT_30m.csv"
+      },
+      "binance_ADAUSDT": {
+        "size_mb": 0.09,
+        "records": 1393,
+        "columns": [
+          "timestamp",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume",
+          "quote_volume"
+        ],
+        "start_time": "2025-11-01 00:00:00",
+        "end_time": "2025-11-30 00:00:00",
+        "file_path": "data/raw/klines/binance_ADAUSDT_30m.csv"
+      },
+      "bybit_BTCUSDT": {
+        "size_mb": 0.08,
+        "records": 1000,
+        "columns": [
+          "timestamp",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume",
+          "quote_volume"
+        ],
+        "start_time": "2025-11-09 04:30:00",
+        "end_time": "2025-11-30 00:00:00",
+        "file_path": "data/raw/klines/bybit_BTCUSDT_30m.csv"
+      },
+      "bybit_ETHUSDT": {
+        "size_mb": 0.08,
+        "records": 1000,
+        "columns": [
+          "timestamp",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume",
+          "quote_volume"
+        ],
+        "start_time": "2025-11-09 04:30:00",
+        "end_time": "2025-11-30 00:00:00",
+        "file_path": "data/raw/klines/bybit_ETHUSDT_30m.csv"
+      },
+      "bybit_BNBUSDT": {
+        "size_mb": 0.06,
+        "records": 1000,
+        "columns": [
+          "timestamp",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume",
+          "quote_volume"
+        ],
+        "start_time": "2025-11-09 04:30:00",
+        "end_time": "2025-11-30 00:00:00",
+        "file_path": "data/raw/klines/bybit_BNBUSDT_30m.csv"
+      },
+      "bybit_SOLUSDT": {
+        "size_mb": 0.07,
+        "records": 1000,
+        "columns": [
+          "timestamp",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume",
+          "quote_volume"
+        ],
+        "start_time": "2025-11-09 04:30:00",
+        "end_time": "2025-11-30 00:00:00",
+        "file_path": "data/raw/klines/bybit_SOLUSDT_30m.csv"
+      },
+      "bybit_ADAUSDT": {
+        "size_mb": 0.07,
+        "records": 1000,
+        "columns": [
+          "timestamp",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume",
+          "quote_volume"
+        ],
+        "start_time": "2025-11-09 04:30:00",
+        "end_time": "2025-11-30 00:00:00",
+        "file_path": "data/raw/klines/bybit_ADAUSDT_30m.csv"
+      },
+      "okx_BTCUSDT": {
+        "size_mb": 0.02,
+        "records": 300,
+        "columns": [
+          "timestamp",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume",
+          "quote_volume"
+        ],
+        "start_time": "2025-11-23 18:00:00",
+        "end_time": "2025-11-29 23:30:00",
+        "file_path": "data/raw/klines/okx_BTCUSDT_30m.csv"
+      },
+      "okx_ETHUSDT": {
+        "size_mb": 0.02,
+        "records": 300,
+        "columns": [
+          "timestamp",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume",
+          "quote_volume"
+        ],
+        "start_time": "2025-11-23 18:00:00",
+        "end_time": "2025-11-29 23:30:00",
+        "file_path": "data/raw/klines/okx_ETHUSDT_30m.csv"
+      },
+      "okx_BNBUSDT": {
+        "size_mb": 0.02,
+        "records": 300,
+        "columns": [
+          "timestamp",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume",
+          "quote_volume"
+        ],
+        "start_time": "2025-11-23 18:00:00",
+        "end_time": "2025-11-29 23:30:00",
+        "file_path": "data/raw/klines/okx_BNBUSDT_30m.csv"
+      },
+      "okx_SOLUSDT": {
+        "size_mb": 0.02,
+        "records": 300,
+        "columns": [
+          "timestamp",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume",
+          "quote_volume"
+        ],
+        "start_time": "2025-11-23 18:00:00",
+        "end_time": "2025-11-29 23:30:00",
+        "file_path": "data/raw/klines/okx_SOLUSDT_30m.csv"
+      },
+      "okx_ADAUSDT": {
+        "size_mb": 0.02,
+        "records": 300,
+        "columns": [
+          "timestamp",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume",
+          "quote_volume"
+        ],
+        "start_time": "2025-11-23 18:00:00",
+        "end_time": "2025-11-29 23:30:00",
+        "file_path": "data/raw/klines/okx_ADAUSDT_30m.csv"
+      },
+      "huobi_BTCUSDT": {
+        "size_mb": 0.18,
+        "records": 2000,
+        "columns": [
+          "timestamp",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume",
+          "quote_volume"
+        ],
+        "start_time": "2025-10-31 22:00:00",
+        "end_time": "2025-12-12 13:30:00",
+        "file_path": "data/raw/klines/huobi_BTCUSDT_30m.csv"
+      },
+      "huobi_ETHUSDT": {
+        "size_mb": 0.16,
+        "records": 2000,
+        "columns": [
+          "timestamp",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume",
+          "quote_volume"
+        ],
+        "start_time": "2025-10-31 22:00:00",
+        "end_time": "2025-12-12 13:30:00",
+        "file_path": "data/raw/klines/huobi_ETHUSDT_30m.csv"
+      },
+      "huobi_BNBUSDT": {
+        "size_mb": 0.15,
+        "records": 2000,
+        "columns": [
+          "timestamp",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume",
+          "quote_volume"
+        ],
+        "start_time": "2025-10-31 22:00:00",
+        "end_time": "2025-12-12 13:30:00",
+        "file_path": "data/raw/klines/huobi_BNBUSDT_30m.csv"
+      },
+      "huobi_SOLUSDT": {
+        "size_mb": 0.17,
+        "records": 2000,
+        "columns": [
+          "timestamp",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume",
+          "quote_volume"
+        ],
+        "start_time": "2025-10-31 22:00:00",
+        "end_time": "2025-12-12 13:30:00",
+        "file_path": "data/raw/klines/huobi_SOLUSDT_30m.csv"
+      },
+      "huobi_ADAUSDT": {
+        "size_mb": 0.17,
+        "records": 2000,
+        "columns": [
+          "timestamp",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume",
+          "quote_volume"
+        ],
+        "start_time": "2025-10-31 22:00:00",
+        "end_time": "2025-12-12 13:30:00",
+        "file_path": "data/raw/klines/huobi_ADAUSDT_30m.csv"
+      },
+      "kucoin_BTCUSDT": {
+        "size_mb": 0.11,
+        "records": 1392,
+        "columns": [
+          "timestamp",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume",
+          "quote_volume"
+        ],
+        "start_time": "2025-11-01 00:00:00",
+        "end_time": "2025-11-29 23:30:00",
+        "file_path": "data/raw/klines/kucoin_BTCUSDT_30m.csv"
+      },
+      "kucoin_ETHUSDT": {
+        "size_mb": 0.11,
+        "records": 1392,
+        "columns": [
+          "timestamp",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume",
+          "quote_volume"
+        ],
+        "start_time": "2025-11-01 00:00:00",
+        "end_time": "2025-11-29 23:30:00",
+        "file_path": "data/raw/klines/kucoin_ETHUSDT_30m.csv"
+      },
+      "kucoin_BNBUSDT": {
+        "size_mb": 0.1,
+        "records": 1392,
+        "columns": [
+          "timestamp",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume",
+          "quote_volume"
+        ],
+        "start_time": "2025-11-01 00:00:00",
+        "end_time": "2025-11-29 23:30:00",
+        "file_path": "data/raw/klines/kucoin_BNBUSDT_30m.csv"
+      },
+      "kucoin_SOLUSDT": {
+        "size_mb": 0.1,
+        "records": 1392,
+        "columns": [
+          "timestamp",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume",
+          "quote_volume"
+        ],
+        "start_time": "2025-11-01 00:00:00",
+        "end_time": "2025-11-29 23:30:00",
+        "file_path": "data/raw/klines/kucoin_SOLUSDT_30m.csv"
+      },
+      "kucoin_ADAUSDT": {
+        "size_mb": 0.1,
+        "records": 1392,
+        "columns": [
+          "timestamp",
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume",
+          "quote_volume"
+        ],
+        "start_time": "2025-11-01 00:00:00",
+        "end_time": "2025-11-29 23:30:00",
+        "file_path": "data/raw/klines/kucoin_ADAUSDT_30m.csv"
+      }
+    }
+  },
+  "funding_analysis": {
+    "total_files": 10,
+    "total_records": 1435,
+    "total_size_mb": 0.05,
+    "exchanges": {
+      "binance": {
+        "files": 5,
+        "records": 435,
+        "size_mb": 0.0,
+        "symbols": {
+          "BTCUSDT": {
+            "size_mb": 0.0,
+            "records": 87,
+            "columns": [
+              "timestamp",
+              "funding_rate",
+              "mark_price"
+            ],
+            "start_time": "2025-11-01 00:00:00.001000",
+            "end_time": "2025-11-29 16:00:00.001000",
+            "avg_rate": 4.9808965517241375e-05,
+            "file_path": "data/raw/funding_rates/binance_BTCUSDT_funding_rate.csv"
+          },
+          "ETHUSDT": {
+            "size_mb": 0.0,
+            "records": 87,
+            "columns": [
+              "timestamp",
+              "funding_rate",
+              "mark_price"
+            ],
+            "start_time": "2025-11-01 00:00:00.001000",
+            "end_time": "2025-11-29 16:00:00.001000",
+            "avg_rate": 4.688356321839081e-05,
+            "file_path": "data/raw/funding_rates/binance_ETHUSDT_funding_rate.csv"
+          },
+          "BNBUSDT": {
+            "size_mb": 0.0,
+            "records": 87,
+            "columns": [
+              "timestamp",
+              "funding_rate",
+              "mark_price"
+            ],
+            "start_time": "2025-11-01 00:00:00.001000",
+            "end_time": "2025-11-29 16:00:00.001000",
+            "avg_rate": 5.738045977011494e-06,
+            "file_path": "data/raw/funding_rates/binance_BNBUSDT_funding_rate.csv"
+          },
+          "SOLUSDT": {
+            "size_mb": 0.0,
+            "records": 87,
+            "columns": [
+              "timestamp",
+              "funding_rate",
+              "mark_price"
+            ],
+            "start_time": "2025-11-01 00:00:00.001000",
+            "end_time": "2025-11-29 16:00:00.001000",
+            "avg_rate": -9.32632183908046e-06,
+            "file_path": "data/raw/funding_rates/binance_SOLUSDT_funding_rate.csv"
+          },
+          "ADAUSDT": {
+            "size_mb": 0.0,
+            "records": 87,
+            "columns": [
+              "timestamp",
+              "funding_rate",
+              "mark_price"
+            ],
+            "start_time": "2025-11-01 00:00:00.001000",
+            "end_time": "2025-11-29 16:00:00.001000",
+            "avg_rate": 4.360229885057472e-05,
+            "file_path": "data/raw/funding_rates/binance_ADAUSDT_funding_rate.csv"
+          }
+        },
+        "avg_rates": {
+          "BTCUSDT": 4.9808965517241375e-05,
+          "ETHUSDT": 4.688356321839081e-05,
+          "BNBUSDT": 5.738045977011494e-06,
+          "SOLUSDT": -9.32632183908046e-06,
+          "ADAUSDT": 4.360229885057472e-05
+        }
+      },
+      "bybit": {
+        "files": 5,
+        "records": 1000,
+        "size_mb": 0.05,
+        "symbols": {
+          "BTCUSDT": {
+            "size_mb": 0.01,
+            "records": 200,
+            "columns": [
+              "timestamp",
+              "funding_rate"
+            ],
+            "start_time": "2025-10-07 00:00:00",
+            "end_time": "2025-12-12 08:00:00",
+            "avg_rate": 3.173535e-05,
+            "file_path": "data/raw/funding_rates/bybit_BTCUSDT_funding_rate.csv"
+          },
+          "ETHUSDT": {
+            "size_mb": 0.01,
+            "records": 200,
+            "columns": [
+              "timestamp",
+              "funding_rate"
+            ],
+            "start_time": "2025-10-07 00:00:00",
+            "end_time": "2025-12-12 08:00:00",
+            "avg_rate": 1.98279e-05,
+            "file_path": "data/raw/funding_rates/bybit_ETHUSDT_funding_rate.csv"
+          },
+          "BNBUSDT": {
+            "size_mb": 0.01,
+            "records": 200,
+            "columns": [
+              "timestamp",
+              "funding_rate"
+            ],
+            "start_time": "2025-10-07 00:00:00",
+            "end_time": "2025-12-12 08:00:00",
+            "avg_rate": 9.809050000000002e-06,
+            "file_path": "data/raw/funding_rates/bybit_BNBUSDT_funding_rate.csv"
+          },
+          "SOLUSDT": {
+            "size_mb": 0.01,
+            "records": 200,
+            "columns": [
+              "timestamp",
+              "funding_rate"
+            ],
+            "start_time": "2025-10-07 00:00:00",
+            "end_time": "2025-12-12 08:00:00",
+            "avg_rate": -5.409964999999998e-05,
+            "file_path": "data/raw/funding_rates/bybit_SOLUSDT_funding_rate.csv"
+          },
+          "ADAUSDT": {
+            "size_mb": 0.01,
+            "records": 200,
+            "columns": [
+              "timestamp",
+              "funding_rate"
+            ],
+            "start_time": "2025-10-07 00:00:00",
+            "end_time": "2025-12-12 08:00:00",
+            "avg_rate": -5.776199999999994e-06,
+            "file_path": "data/raw/funding_rates/bybit_ADAUSDT_funding_rate.csv"
+          }
+        },
+        "avg_rates": {
+          "BTCUSDT": 3.173535e-05,
+          "ETHUSDT": 1.98279e-05,
+          "BNBUSDT": 9.809050000000002e-06,
+          "SOLUSDT": -5.409964999999998e-05,
+          "ADAUSDT": -5.776199999999994e-06
+        }
+      }
+    },
+    "symbols": {
+      "BTCUSDT": {
+        "files": 2,
+        "records": 287,
+        "size_mb": 0.01,
+        "exchanges": {
+          "binance": {
+            "size_mb": 0.0,
+            "records": 87,
+            "columns": [
+              "timestamp",
+              "funding_rate",
+              "mark_price"
+            ],
+            "start_time": "2025-11-01 00:00:00.001000",
+            "end_time": "2025-11-29 16:00:00.001000",
+            "avg_rate": 4.9808965517241375e-05,
+            "file_path": "data/raw/funding_rates/binance_BTCUSDT_funding_rate.csv"
+          },
+          "bybit": {
+            "size_mb": 0.01,
+            "records": 200,
+            "columns": [
+              "timestamp",
+              "funding_rate"
+            ],
+            "start_time": "2025-10-07 00:00:00",
+            "end_time": "2025-12-12 08:00:00",
+            "avg_rate": 3.173535e-05,
+            "file_path": "data/raw/funding_rates/bybit_BTCUSDT_funding_rate.csv"
+          }
+        },
+        "rate_comparison": {
+          "binance": 4.9808965517241375e-05,
+          "bybit": 3.173535e-05
+        }
+      },
+      "ETHUSDT": {
+        "files": 2,
+        "records": 287,
+        "size_mb": 0.01,
+        "exchanges": {
+          "binance": {
+            "size_mb": 0.0,
+            "records": 87,
+            "columns": [
+              "timestamp",
+              "funding_rate",
+              "mark_price"
+            ],
+            "start_time": "2025-11-01 00:00:00.001000",
+            "end_time": "2025-11-29 16:00:00.001000",
+            "avg_rate": 4.688356321839081e-05,
+            "file_path": "data/raw/funding_rates/binance_ETHUSDT_funding_rate.csv"
+          },
+          "bybit": {
+            "size_mb": 0.01,
+            "records": 200,
+            "columns": [
+              "timestamp",
+              "funding_rate"
+            ],
+            "start_time": "2025-10-07 00:00:00",
+            "end_time": "2025-12-12 08:00:00",
+            "avg_rate": 1.98279e-05,
+            "file_path": "data/raw/funding_rates/bybit_ETHUSDT_funding_rate.csv"
+          }
+        },
+        "rate_comparison": {
+          "binance": 4.688356321839081e-05,
+          "bybit": 1.98279e-05
+        }
+      },
+      "BNBUSDT": {
+        "files": 2,
+        "records": 287,
+        "size_mb": 0.01,
+        "exchanges": {
+          "binance": {
+            "size_mb": 0.0,
+            "records": 87,
+            "columns": [
+              "timestamp",
+              "funding_rate",
+              "mark_price"
+            ],
+            "start_time": "2025-11-01 00:00:00.001000",
+            "end_time": "2025-11-29 16:00:00.001000",
+            "avg_rate": 5.738045977011494e-06,
+            "file_path": "data/raw/funding_rates/binance_BNBUSDT_funding_rate.csv"
+          },
+          "bybit": {
+            "size_mb": 0.01,
+            "records": 200,
+            "columns": [
+              "timestamp",
+              "funding_rate"
+            ],
+            "start_time": "2025-10-07 00:00:00",
+            "end_time": "2025-12-12 08:00:00",
+            "avg_rate": 9.809050000000002e-06,
+            "file_path": "data/raw/funding_rates/bybit_BNBUSDT_funding_rate.csv"
+          }
+        },
+        "rate_comparison": {
+          "binance": 5.738045977011494e-06,
+          "bybit": 9.809050000000002e-06
+        }
+      },
+      "SOLUSDT": {
+        "files": 2,
+        "records": 287,
+        "size_mb": 0.01,
+        "exchanges": {
+          "binance": {
+            "size_mb": 0.0,
+            "records": 87,
+            "columns": [
+              "timestamp",
+              "funding_rate",
+              "mark_price"
+            ],
+            "start_time": "2025-11-01 00:00:00.001000",
+            "end_time": "2025-11-29 16:00:00.001000",
+            "avg_rate": -9.32632183908046e-06,
+            "file_path": "data/raw/funding_rates/binance_SOLUSDT_funding_rate.csv"
+          },
+          "bybit": {
+            "size_mb": 0.01,
+            "records": 200,
+            "columns": [
+              "timestamp",
+              "funding_rate"
+            ],
+            "start_time": "2025-10-07 00:00:00",
+            "end_time": "2025-12-12 08:00:00",
+            "avg_rate": -5.409964999999998e-05,
+            "file_path": "data/raw/funding_rates/bybit_SOLUSDT_funding_rate.csv"
+          }
+        },
+        "rate_comparison": {
+          "binance": -9.32632183908046e-06,
+          "bybit": -5.409964999999998e-05
+        }
+      },
+      "ADAUSDT": {
+        "files": 2,
+        "records": 287,
+        "size_mb": 0.01,
+        "exchanges": {
+          "binance": {
+            "size_mb": 0.0,
+            "records": 87,
+            "columns": [
+              "timestamp",
+              "funding_rate",
+              "mark_price"
+            ],
+            "start_time": "2025-11-01 00:00:00.001000",
+            "end_time": "2025-11-29 16:00:00.001000",
+            "avg_rate": 4.360229885057472e-05,
+            "file_path": "data/raw/funding_rates/binance_ADAUSDT_funding_rate.csv"
+          },
+          "bybit": {
+            "size_mb": 0.01,
+            "records": 200,
+            "columns": [
+              "timestamp",
+              "funding_rate"
+            ],
+            "start_time": "2025-10-07 00:00:00",
+            "end_time": "2025-12-12 08:00:00",
+            "avg_rate": -5.776199999999994e-06,
+            "file_path": "data/raw/funding_rates/bybit_ADAUSDT_funding_rate.csv"
+          }
+        },
+        "rate_comparison": {
+          "binance": 4.360229885057472e-05,
+          "bybit": -5.776199999999994e-06
+        }
+      }
+    },
+    "file_details": {
+      "binance_BTCUSDT": {
+        "size_mb": 0.0,
+        "records": 87,
+        "columns": [
+          "timestamp",
+          "funding_rate",
+          "mark_price"
+        ],
+        "start_time": "2025-11-01 00:00:00.001000",
+        "end_time": "2025-11-29 16:00:00.001000",
+        "avg_rate": 4.9808965517241375e-05,
+        "file_path": "data/raw/funding_rates/binance_BTCUSDT_funding_rate.csv"
+      },
+      "binance_ETHUSDT": {
+        "size_mb": 0.0,
+        "records": 87,
+        "columns": [
+          "timestamp",
+          "funding_rate",
+          "mark_price"
+        ],
+        "start_time": "2025-11-01 00:00:00.001000",
+        "end_time": "2025-11-29 16:00:00.001000",
+        "avg_rate": 4.688356321839081e-05,
+        "file_path": "data/raw/funding_rates/binance_ETHUSDT_funding_rate.csv"
+      },
+      "binance_BNBUSDT": {
+        "size_mb": 0.0,
+        "records": 87,
+        "columns": [
+          "timestamp",
+          "funding_rate",
+          "mark_price"
+        ],
+        "start_time": "2025-11-01 00:00:00.001000",
+        "end_time": "2025-11-29 16:00:00.001000",
+        "avg_rate": 5.738045977011494e-06,
+        "file_path": "data/raw/funding_rates/binance_BNBUSDT_funding_rate.csv"
+      },
+      "binance_SOLUSDT": {
+        "size_mb": 0.0,
+        "records": 87,
+        "columns": [
+          "timestamp",
+          "funding_rate",
+          "mark_price"
+        ],
+        "start_time": "2025-11-01 00:00:00.001000",
+        "end_time": "2025-11-29 16:00:00.001000",
+        "avg_rate": -9.32632183908046e-06,
+        "file_path": "data/raw/funding_rates/binance_SOLUSDT_funding_rate.csv"
+      },
+      "binance_ADAUSDT": {
+        "size_mb": 0.0,
+        "records": 87,
+        "columns": [
+          "timestamp",
+          "funding_rate",
+          "mark_price"
+        ],
+        "start_time": "2025-11-01 00:00:00.001000",
+        "end_time": "2025-11-29 16:00:00.001000",
+        "avg_rate": 4.360229885057472e-05,
+        "file_path": "data/raw/funding_rates/binance_ADAUSDT_funding_rate.csv"
+      },
+      "bybit_BTCUSDT": {
+        "size_mb": 0.01,
+        "records": 200,
+        "columns": [
+          "timestamp",
+          "funding_rate"
+        ],
+        "start_time": "2025-10-07 00:00:00",
+        "end_time": "2025-12-12 08:00:00",
+        "avg_rate": 3.173535e-05,
+        "file_path": "data/raw/funding_rates/bybit_BTCUSDT_funding_rate.csv"
+      },
+      "bybit_ETHUSDT": {
+        "size_mb": 0.01,
+        "records": 200,
+        "columns": [
+          "timestamp",
+          "funding_rate"
+        ],
+        "start_time": "2025-10-07 00:00:00",
+        "end_time": "2025-12-12 08:00:00",
+        "avg_rate": 1.98279e-05,
+        "file_path": "data/raw/funding_rates/bybit_ETHUSDT_funding_rate.csv"
+      },
+      "bybit_BNBUSDT": {
+        "size_mb": 0.01,
+        "records": 200,
+        "columns": [
+          "timestamp",
+          "funding_rate"
+        ],
+        "start_time": "2025-10-07 00:00:00",
+        "end_time": "2025-12-12 08:00:00",
+        "avg_rate": 9.809050000000002e-06,
+        "file_path": "data/raw/funding_rates/bybit_BNBUSDT_funding_rate.csv"
+      },
+      "bybit_SOLUSDT": {
+        "size_mb": 0.01,
+        "records": 200,
+        "columns": [
+          "timestamp",
+          "funding_rate"
+        ],
+        "start_time": "2025-10-07 00:00:00",
+        "end_time": "2025-12-12 08:00:00",
+        "avg_rate": -5.409964999999998e-05,
+        "file_path": "data/raw/funding_rates/bybit_SOLUSDT_funding_rate.csv"
+      },
+      "bybit_ADAUSDT": {
+        "size_mb": 0.01,
+        "records": 200,
+        "columns": [
+          "timestamp",
+          "funding_rate"
+        ],
+        "start_time": "2025-10-07 00:00:00",
+        "end_time": "2025-12-12 08:00:00",
+        "avg_rate": -5.776199999999994e-06,
+        "file_path": "data/raw/funding_rates/bybit_ADAUSDT_funding_rate.csv"
+      }
+    }
+  },
+  "quality_metrics": {
+    "data_completeness": {
+      "BTCUSDT": 1.0,
+      "ETHUSDT": 1.0,
+      "BNBUSDT": 1.0,
+      "SOLUSDT": 1.0,
+      "ADAUSDT": 1.0
+    },
+    "data_consistency": {
+      "BTCUSDT": 1.0,
+      "ETHUSDT": 1.0,
+      "BNBUSDT": 1.0,
+      "SOLUSDT": 1.0,
+      "ADAUSDT": 1.0
+    },
+    "data_freshness": {
+      "BTCUSDT": 1.0,
+      "ETHUSDT": 1.0,
+      "BNBUSDT": 1.0,
+      "SOLUSDT": 1.0,
+      "ADAUSDT": 1.0
+    },
+    "overall_score": 1.0
+  },
+  "coverage_statistics": {
+    "exchange_coverage": {
+      "binance": {
+        "symbols_covered": 5,
+        "total_symbols": 5,
+        "coverage_rate": 1.0,
+        "total_records": 6965
+      },
+      "bybit": {
+        "symbols_covered": 5,
+        "total_symbols": 5,
+        "coverage_rate": 1.0,
+        "total_records": 5000
+      },
+      "okx": {
+        "symbols_covered": 5,
+        "total_symbols": 5,
+        "coverage_rate": 1.0,
+        "total_records": 1500
+      },
+      "huobi": {
+        "symbols_covered": 5,
+        "total_symbols": 5,
+        "coverage_rate": 1.0,
+        "total_records": 10000
+      },
+      "kucoin": {
+        "symbols_covered": 5,
+        "total_symbols": 5,
+        "coverage_rate": 1.0,
+        "total_records": 6960
+      }
+    },
+    "symbol_coverage": {
+      "BTCUSDT": {
+        "exchanges_covered": 5,
+        "total_exchanges": 5,
+        "coverage_rate": 1.0,
+        "total_records": 6085
+      },
+      "ETHUSDT": {
+        "exchanges_covered": 5,
+        "total_exchanges": 5,
+        "coverage_rate": 1.0,
+        "total_records": 6085
+      },
+      "BNBUSDT": {
+        "exchanges_covered": 5,
+        "total_exchanges": 5,
+        "coverage_rate": 1.0,
+        "total_records": 6085
+      },
+      "SOLUSDT": {
+        "exchanges_covered": 5,
+        "total_exchanges": 5,
+        "coverage_rate": 1.0,
+        "total_records": 6085
+      },
+      "ADAUSDT": {
+        "exchanges_covered": 5,
+        "total_exchanges": 5,
+        "coverage_rate": 1.0,
+        "total_records": 6085
+      }
+    },
+    "time_coverage": {
+      "BTCUSDT": {
+        "earliest_start": "2025-10-31 22:00:00",
+        "latest_end": "2025-12-12 13:30:00",
+        "span_days": 41
+      },
+      "ETHUSDT": {
+        "earliest_start": "2025-10-31 22:00:00",
+        "latest_end": "2025-12-12 13:30:00",
+        "span_days": 41
+      },
+      "BNBUSDT": {
+        "earliest_start": "2025-10-31 22:00:00",
+        "latest_end": "2025-12-12 13:30:00",
+        "span_days": 41
+      },
+      "SOLUSDT": {
+        "earliest_start": "2025-10-31 22:00:00",
+        "latest_end": "2025-12-12 13:30:00",
+        "span_days": 41
+      },
+      "ADAUSDT": {
+        "earliest_start": "2025-10-31 22:00:00",
+        "latest_end": "2025-12-12 13:30:00",
+        "span_days": 41
+      }
+    },
+    "data_gaps": []
+  },
+  "recommendations": [
+    "\u6570\u636e\u8986\u76d6\u826f\u597d\uff0c\u6240\u6709\u4ea4\u6613\u6240\u548c\u4ea4\u6613\u5bf9\u7684\u6570\u636e\u90fd\u5df2\u5b8c\u6574\u4e0b\u8f7d"
+  ]
+}

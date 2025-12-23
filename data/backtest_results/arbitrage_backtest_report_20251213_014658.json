@@ -1,0 +1,133 @@
+{
+  "backtest_time": "2025-12-13T01:46:58.554090",
+  "config": null,
+  "summary": {
+    "total_symbols": 5,
+    "successful_symbols": 0,
+    "total_trades": 0,
+    "avg_return_rate": 0,
+    "avg_win_rate": 0
+  },
+  "results": {
+    "BTCUSDT": {
+      "total_trades": 0,
+      "total_pnl": 0.0,
+      "return_rate": 0.0,
+      "win_rate": 0.0,
+      "max_profit": 0.0,
+      "max_loss": 0.0,
+      "avg_profit": 0.0,
+      "config": {
+        "min_profit_threshold": 0.002,
+        "max_position_size": 10000,
+        "risk_max_drawdown": 0.05,
+        "price_update_interval": 30,
+        "position_timeout": 3600,
+        "trading_fee_rate": 0.001,
+        "min_price_diff": 0.001,
+        "max_positions": 5,
+        "initial_balance": 10000,
+        "enable_funding_rate": true,
+        "expected_holding_hours": 8.0
+      },
+      "symbol": "BTCUSDT",
+      "data_file": "data/aligned/aligned_BTCUSDT_30m.csv"
+    },
+    "ETHUSDT": {
+      "total_trades": 0,
+      "total_pnl": 0.0,
+      "return_rate": 0.0,
+      "win_rate": 0.0,
+      "max_profit": 0.0,
+      "max_loss": 0.0,
+      "avg_profit": 0.0,
+      "config": {
+        "min_profit_threshold": 0.002,
+        "max_position_size": 10000,
+        "risk_max_drawdown": 0.05,
+        "price_update_interval": 30,
+        "position_timeout": 3600,
+        "trading_fee_rate": 0.001,
+        "min_price_diff": 0.001,
+        "max_positions": 5,
+        "initial_balance": 10000,
+        "enable_funding_rate": true,
+        "expected_holding_hours": 8.0
+      },
+      "symbol": "ETHUSDT",
+      "data_file": "data/aligned/aligned_ETHUSDT_30m.csv"
+    },
+    "BNBUSDT": {
+      "total_trades": 0,
+      "total_pnl": 0.0,
+      "return_rate": 0.0,
+      "win_rate": 0.0,
+      "max_profit": 0.0,
+      "max_loss": 0.0,
+      "avg_profit": 0.0,
+      "config": {
+        "min_profit_threshold": 0.002,
+        "max_position_size": 10000,
+        "risk_max_drawdown": 0.05,
+        "price_update_interval": 30,
+        "position_timeout": 3600,
+        "trading_fee_rate": 0.001,
+        "min_price_diff": 0.001,
+        "max_positions": 5,
+        "initial_balance": 10000,
+        "enable_funding_rate": true,
+        "expected_holding_hours": 8.0
+      },
+      "symbol": "BNBUSDT",
+      "data_file": "data/aligned/aligned_BNBUSDT_30m.csv"
+    },
+    "SOLUSDT": {
+      "total_trades": 0,
+      "total_pnl": 0.0,
+      "return_rate": 0.0,
+      "win_rate": 0.0,
+      "max_profit": 0.0,
+      "max_loss": 0.0,
+      "avg_profit": 0.0,
+      "config": {
+        "min_profit_threshold": 0.002,
+        "max_position_size": 10000,
+        "risk_max_drawdown": 0.05,
+        "price_update_interval": 30,
+        "position_timeout": 3600,
+        "trading_fee_rate": 0.001,
+        "min_price_diff": 0.001,
+        "max_positions": 5,
+        "initial_balance": 10000,
+        "enable_funding_rate": true,
+        "expected_holding_hours": 8.0
+      },
+      "symbol": "SOLUSDT",
+      "data_file": "data/aligned/aligned_SOLUSDT_30m.csv"
+    },
+    "ADAUSDT": {
+      "total_trades": 0,
+      "total_pnl": 0.0,
+      "return_rate": 0.0,
+      "win_rate": 0.0,
+      "max_profit": 0.0,
+      "max_loss": 0.0,
+      "avg_profit": 0.0,
+      "config": {
+        "min_profit_threshold": 0.002,
+        "max_position_size": 10000,
+        "risk_max_drawdown": 0.05,
+        "price_update_interval": 30,
+        "position_timeout": 3600,
+        "trading_fee_rate": 0.001,
+        "min_price_diff": 0.001,
+        "max_positions": 5,
+        "initial_balance": 10000,
+        "enable_funding_rate": true,
+        "expected_holding_hours": 8.0
+      },
+      "symbol": "ADAUSDT",
+      "data_file": "data/aligned/aligned_ADAUSDT_30m.csv"
+    }
+  }
+}

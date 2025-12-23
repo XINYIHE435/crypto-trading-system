@@ -1,0 +1,12 @@
+requests
+pandas
+numpy
+pytz
+schedule
+logging
+configparser
+pathlib
+tqdm
+aiohttp
+asyncio
+ccxt
