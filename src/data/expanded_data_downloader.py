@@ -3,7 +3,7 @@
 """
 扩展数据下载器 - 支持多个交易所
 包括K线数据和资金费率数据
-支持：Binance, Bybit, OKX, Huobi/HTX, KuCoin, Gate.io, Bitget
+支持：Binance, Bybit, KuCoin
 """
 
 import pandas as pd
@@ -43,17 +43,17 @@ class ExpandedDataDownloader:
             self.symbols = [s.strip() for s in symbols_str.split(',')]
             
             self.interval = config.get('DEFAULT', 'interval', fallback='30m')
-            self.start_date = config.get('DEFAULT', 'start_date', fallback='2025-11-01')
-            self.end_date = config.get('DEFAULT', 'end_date', fallback='2025-12-12')
+            self.start_date = config.get('DEFAULT', 'start_date', fallback='2025-12-01')
+            self.end_date = config.get('DEFAULT', 'end_date', fallback='2025-12-31')
         else:
             # 默认配置
             self.symbols = ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'SOLUSDT', 'ADAUSDT']
             self.interval = '30m'
-            self.start_date = '2025-11-01'
-            self.end_date = '2025-12-12'
+            self.start_date = '2025-12-01'
+            self.end_date = '2025-12-31'
         
-        # 支持的交易所列表
-        self.exchanges = ['binance', 'bybit', 'okx', 'huobi', 'kucoin', 'gate', 'bitget']
+        # 支持的交易所列表（已测试可用的）
+        self.exchanges = ['binance', 'bybit', 'kucoin']
 
         # 创建输出目录
         self.kline_dir = 'data/raw/klines'
@@ -115,7 +115,7 @@ class ExpandedDataDownloader:
         return df
 
     def get_bybit_klines(self, symbol: str, interval: str, start_time: int, end_time: int) -> Optional[pd.DataFrame]:
-        """下载Bybit K线数据"""
+        """下载Bybit K线数据（支持分页下载）"""
         print(f"下载Bybit {symbol} K线数据...")
 
         interval_map = {
@@ -124,28 +124,50 @@ class ExpandedDataDownloader:
         bybit_interval = interval_map.get(interval, interval)
 
         url = "https://api.bybit.com/v5/market/kline"
-        params = {
-            'category': 'spot',
-            'symbol': symbol,
-            'interval': bybit_interval,
-            'start': start_time,
-            'end': end_time,
-            'limit': 1000
-        }
-
+        all_klines = []
+        current_start = start_time
+        
         try:
-            response = requests.get(url, params=params, timeout=30)
-            response.raise_for_status()
-            data = response.json()
+            # Bybit API需要分页下载，每次最多1000条
+            while current_start < end_time:
+                params = {
+                    'category': 'spot',
+                    'symbol': symbol,
+                    'interval': bybit_interval,
+                    'start': current_start,
+                    'end': end_time,
+                    'limit': 1000
+                }
 
-            if data['retCode'] != 0:
+                response = requests.get(url, params=params, timeout=30)
+                response.raise_for_status()
+                data = response.json()
+
+                if data.get('retCode') != 0:
+                    print(f"Bybit API错误: {data.get('retMsg', 'Unknown')}")
+                    break
+
+                klines = data.get('result', {}).get('list', [])
+                if not klines:
+                    break
+
+                all_klines.extend(klines)
+                
+                # 更新开始时间为最后一条的时间戳+1
+                if len(klines) > 0:
+                    last_ts = int(klines[-1][0])  # 最后一条是最新的
+                    if last_ts >= end_time:
+                        break
+                    current_start = last_ts + 1
+                else:
+                    break
+                
+                time.sleep(0.2)  # 避免API限制
+
+            if not all_klines:
                 return None
 
-            klines = data['result']['list']
-            if not klines:
-                return None
-
-            df = pd.DataFrame(klines, columns=[
+            df = pd.DataFrame(all_klines, columns=[
                 'timestamp', 'open', 'high', 'low', 'close', 'volume', 'turnover'
             ])
 
@@ -154,114 +176,18 @@ class ExpandedDataDownloader:
             df[['open', 'high', 'low', 'close', 'volume', 'turnover']] = df[['open', 'high', 'low', 'close', 'volume', 'turnover']].astype(float)
             df.rename(columns={'turnover': 'quote_volume'}, inplace=True)
             df = df.sort_values('timestamp').reset_index(drop=True)
+            
+            # 去重（按时间戳）
+            df = df.drop_duplicates(subset=['timestamp'], keep='last')
+            
+            # 过滤时间范围
+            df = df[(df['timestamp'] >= pd.to_datetime(start_time, unit='ms')) & 
+                    (df['timestamp'] <= pd.to_datetime(end_time, unit='ms'))]
 
             return df
 
         except Exception as e:
             print(f"Bybit K线数据下载失败: {e}")
-            return None
-
-    def get_okx_klines(self, symbol: str, interval: str, start_time: int, end_time: int) -> Optional[pd.DataFrame]:
-        """下载OKX K线数据"""
-        print(f"下载OKX {symbol} K线数据...")
-
-        # OKX交易对格式转换
-        okx_symbol = f"{symbol[:3]}-{symbol[3:]}" if len(symbol) > 6 else symbol
-
-        okx_interval = {
-            '30m': '30m', '1h': '1H', '1m': '1m', '5m': '5m', '15m': '15m'
-        }.get(interval, interval)
-
-        # 使用正确的OKX API端点
-        url = "https://www.okx.com/api/v5/market/candles"
-        params = {
-            'instId': okx_symbol,
-            'bar': okx_interval,
-            'after': str(end_time),
-            'before': str(start_time),
-            'limit': '300'
-        }
-
-        try:
-            response = requests.get(url, params=params, timeout=30)
-            response.raise_for_status()
-            data = response.json()
-
-            if data.get('code') != '0' or not data.get('data'):
-                print(f"OKX API错误: {data}")
-                return None
-
-            klines = data['data']
-            if not klines:
-                return None
-
-            df = pd.DataFrame(klines, columns=[
-                'timestamp', 'open', 'high', 'low', 'close', 'volume', 'quote_volume',
-                'currency_volume', 'currency_quote_volume'
-            ])
-
-            df['timestamp'] = pd.to_datetime(df['timestamp'].astype(int), unit='ms')
-            df = df[['timestamp', 'open', 'high', 'low', 'close', 'volume', 'quote_volume']]
-            df[['open', 'high', 'low', 'close', 'volume', 'quote_volume']] = df[['open', 'high', 'low', 'close', 'volume', 'quote_volume']].astype(float)
-            df = df.sort_values('timestamp').reset_index(drop=True)
-
-            return df
-
-        except Exception as e:
-            print(f"OKX K线数据下载失败: {e}")
-            return None
-
-    # ==================== 新增交易所方法 ====================
-
-    def get_huobi_klines(self, symbol: str, interval: str, start_time: int, end_time: int) -> Optional[pd.DataFrame]:
-        """下载Huobi/HTX K线数据"""
-        print(f"下载Huobi {symbol} K线数据...")
-
-        # Huobi需要lowercase
-        huobi_symbol = symbol.lower()
-
-        # 转换时间间隔
-        interval_map = {
-            '30m': '30min', '1h': '60min', '1m': '1min', '5m': '5min', '15m': '15min'
-        }
-        huobi_interval = interval_map.get(interval, interval)
-
-        url = "https://api.huobi.pro/market/history/kline"
-        params = {
-            'symbol': huobi_symbol,
-            'period': huobi_interval,
-            'size': 2000,
-            'from': int(start_time / 1000),
-            'to': int(end_time / 1000)
-        }
-
-        try:
-            response = requests.get(url, params=params, timeout=30)
-            response.raise_for_status()
-            data = response.json()
-
-            if data.get('status') != 'ok':
-                print(f"Huobi API错误: {data}")
-                return None
-
-            klines = data.get('data', [])
-            if not klines:
-                return None
-
-            df = pd.DataFrame(klines)
-            df['timestamp'] = pd.to_datetime(df['id'], unit='s')
-            df = df[['timestamp', 'open', 'high', 'low', 'close', 'vol', 'amount']]
-            df.rename(columns={
-                'vol': 'volume',
-                'amount': 'quote_volume'
-            }, inplace=True)
-            df[['open', 'high', 'low', 'close', 'volume', 'quote_volume']] = df[['open', 'high', 'low', 'close', 'volume', 'quote_volume']].astype(float)
-            df = df.sort_values('timestamp').reset_index(drop=True)
-
-            return df
-
-        except Exception as e:
-            print(f"Huobi K线数据下载失败: {e}")
             return None
 
     def get_kucoin_klines(self, symbol: str, interval: str, start_time: int, end_time: int) -> Optional[pd.DataFrame]:
@@ -329,103 +255,6 @@ class ExpandedDataDownloader:
             print(f"KuCoin K线数据下载失败: {e}")
             return None
 
-    def get_gate_klines(self, symbol: str, interval: str, start_time: int, end_time: int) -> Optional[pd.DataFrame]:
-        """下载Gate.io K线数据"""
-        print(f"下载Gate.io {symbol} K线数据...")
-
-        # Gate.io时间间隔
-        interval_map = {
-            '30m': '30m', '1h': '1h', '1m': '1m', '5m': '5m', '15m': '15m'
-        }
-        gate_interval = interval_map.get(interval, interval)
-
-        # Gate.io交易对格式转换
-        gate_symbol = f"{symbol[:3]}_{symbol[3:]}" if len(symbol) > 6 else symbol
-
-        url = f"https://api.gateio.ws/api/v4/spot/candlesticks"
-        params = {
-            'currency_pair': gate_symbol,
-            'interval': gate_interval,
-            'from': int(start_time / 1000),
-            'to': int(end_time / 1000),
-            'limit': 1000
-        }
-
-        try:
-            response = requests.get(url, params=params, timeout=30)
-            response.raise_for_status()
-            data = response.json()
-
-            if not data or isinstance(data, dict):
-                return None
-
-            df = pd.DataFrame(data, columns=[
-                'timestamp', 'volume', 'quote_volume', 'open', 'high', 'low', 'close'
-            ])
-
-            df['timestamp'] = pd.to_datetime(df['timestamp'].astype(int), unit='s')
-            df = df[['timestamp', 'open', 'high', 'low', 'close', 'volume', 'quote_volume']]
-            df[['open', 'high', 'low', 'close', 'volume', 'quote_volume']] = df[['open', 'high', 'low', 'close', 'volume', 'quote_volume']].astype(float)
-            df = df.sort_values('timestamp').reset_index(drop=True)
-
-            return df
-
-        except Exception as e:
-            print(f"Gate.io K线数据下载失败: {e}")
-            return None
-
-    def get_bitget_klines(self, symbol: str, interval: str, start_time: int, end_time: int) -> Optional[pd.DataFrame]:
-        """下载Bitget K线数据"""
-        print(f"下载Bitget {symbol} K线数据...")
-
-        # Bitget时间间隔
-        interval_map = {
-            '30m': '30m', '1h': '1H', '1m': '1m', '5m': '5m', '15m': '15m'
-        }
-        bitget_interval = interval_map.get(interval, interval)
-
-        # 使用更新的Bitget API
-        url = f"https://api.bitget.com/v2/spot/market/candles"
-        params = {
-            'symbol': symbol,
-            'granularity': bitget_interval,
-            'startTime': str(start_time),
-            'endTime': str(end_time),
-            'limit': '100'
-        }
-
-        # 添加请求头
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-        }
-
-        try:
-            response = requests.get(url, params=params, headers=headers, timeout=30)
-            response.raise_for_status()
-            data = response.json()
-
-            if data.get('code') != '00000' or not data.get('data'):
-                print(f"Bitget API错误: {data}")
-                return None
-
-            klines = data['data']
-            df = pd.DataFrame(klines)
-
-            # Bitget返回顺序：时间戳, 开盘价, 最高价, 最低价, 收盘价, 成交量
-            df.columns = ['timestamp', 'open', 'high', 'low', 'close', 'volume']
-
-            df['timestamp'] = pd.to_datetime(df['timestamp'].astype(int), unit='ms')
-            # 添加quote_volume（成交额），使用close*volume估算
-            df['quote_volume'] = df['close'].astype(float) * df['volume'].astype(float)
-            df = df[['timestamp', 'open', 'high', 'low', 'close', 'volume', 'quote_volume']]
-            df[['open', 'high', 'low', 'close', 'volume', 'quote_volume']] = df[['open', 'high', 'low', 'close', 'volume', 'quote_volume']].astype(float)
-            df = df.sort_values('timestamp').reset_index(drop=True)
-
-            return df
-
-        except Exception as e:
-            print(f"Bitget K线数据下载失败: {e}")
-            return None
 
     # ==================== 资金费率下载 ====================
 
@@ -526,15 +355,11 @@ class ExpandedDataDownloader:
 
         results = {}
 
-        # 交易所下载函数映射
+        # 交易所下载函数映射（只包含测试通过的交易所）
         exchange_functions = {
             'binance': self.get_binance_klines,
             'bybit': self.get_bybit_klines,
-            'okx': self.get_okx_klines,
-            'huobi': self.get_huobi_klines,
-            'kucoin': self.get_kucoin_klines,
-            'gate': self.get_gate_klines,
-            'bitget': self.get_bitget_klines
+            'kucoin': self.get_kucoin_klines
         }
 
         for symbol in self.symbols:

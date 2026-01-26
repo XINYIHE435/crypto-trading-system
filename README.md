@@ -5,13 +5,13 @@
 ## 功能特点
 
 ### 核心功能
-- **多交易所套利**: 支持5个主流交易所（OKX、Binance、Bybit、Huobi、Kucoin）
+- **多交易所套利**: 支持3个主流交易所（Binance、Bybit、KuCoin）
 - **价差套利策略**: 自动识别交易所间价格差异，执行低买高卖套利
 - **资金费率套利**: 利用不同交易所资金费率差异获利
 - **市场中性策略**: 通过同时做多做空对冲方向性风险
 - **智能风险管理**:
   - 止损: 5%
-  - 止盈: 5%
+  - 止盈: 1.5%（风险收益比 1:3）
   - 持仓超时: 2小时自动平仓
 
 ### 数据与分析
@@ -143,20 +143,20 @@ python visualization.py
 # src/arbitrage_system.py
 
 config = {
-    'min_profit_threshold': 0.005,      # 最小利润阈值 0.5%
-    'max_position_size': 1000,          # 最大持仓大小
+    'min_profit_threshold': 0.002,      # 最小利润阈值 0.2%（用于开仓判断）
+    'max_position_size': 10000,         # 最大持仓大小
     'stop_loss_pct': 0.05,              # 止损 5%
-    'take_profit_pct': 0.05,            # 止盈 5%
-    'max_hold_hours': 2,                # 最大持仓时间 2小时
+    'take_profit_pct': 0.015,          # 止盈 1.5%（风险收益比 1:3）
+    'position_timeout': 7200,          # 最大持仓时间 2小时（7200秒）
     'trading_fee_rate': 0.001           # 手续费率 0.1%
 }
 ```
 
 ### 交易所列表
 
-当前支持5个交易所：
+当前支持3个交易所：
 ```python
-exchanges = ['okx', 'binance', 'bybit', 'huobi', 'kucoin']
+exchanges = ['binance', 'bybit', 'kucoin']
 ```
 
 ⚠️ **重要发现**: Kucoin提供主要的套利机会

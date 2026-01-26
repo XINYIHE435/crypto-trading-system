@@ -1,0 +1,57 @@
+{
+  "BTCUSDT": {
+    "status": "success",
+    "total_trades": 115,
+    "total_pnl": 2329.782644926706,
+    "return_rate": 0.023297826449267058,
+    "win_rate": 0.6173913043478261,
+    "max_profit": 290.5982310504429,
+    "max_loss": -97.6745323206432,
+    "winning_trades": 0,
+    "losing_trades": 0
+  },
+  "ETHUSDT": {
+    "status": "success",
+    "total_trades": 131,
+    "total_pnl": 3933.434113757915,
+    "return_rate": 0.03933434113757915,
+    "win_rate": 0.6030534351145038,
+    "max_profit": 357.09727184423673,
+    "max_loss": -108.08684780060507,
+    "winning_trades": 0,
+    "losing_trades": 0
+  },
+  "BNBUSDT": {
+    "status": "success",
+    "total_trades": 130,
+    "total_pnl": 1850.3219440631801,
+    "return_rate": 0.0185032194406318,
+    "win_rate": 0.6,
+    "max_profit": 191.93996709673013,
+    "max_loss": -93.08296100843721,
+    "winning_trades": 0,
+    "losing_trades": 0
+  },
+  "SOLUSDT": {
+    "status": "success",
+    "total_trades": 158,
+    "total_pnl": 3704.272915827221,
+    "return_rate": 0.03704272915827221,
+    "win_rate": 0.6012658227848101,
+    "max_profit": 362.06617253763204,
+    "max_loss": -338.2869837090677,
+    "winning_trades": 0,
+    "losing_trades": 0
+  },
+  "ADAUSDT": {
+    "status": "success",
+    "total_trades": 139,
+    "total_pnl": 2232.404289614735,
+    "return_rate": 0.02232404289614735,
+    "win_rate": 0.6906474820143885,
+    "max_profit": 134.0419999999998,
+    "max_loss": -95.38799999999998,
+    "winning_trades": 0,
+    "losing_trades": 0
+  }
+}

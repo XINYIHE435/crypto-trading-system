@@ -119,11 +119,13 @@ class ArbitrageSystem:
         """
         # 默认配置
         self.default_config = {
-            'min_profit_threshold': 0.002,      # 最小利润阈值 0.2%
+            'min_profit_threshold': 0.002,      # 最小利润阈值 0.2%（用于开仓判断）
             'max_position_size': 10000,         # 最大持仓大小
             'risk_max_drawdown': 0.05,          # 最大回撤限制 5%
+            'stop_loss_pct': 0.05,             # 止损阈值 5%
+            'take_profit_pct': 0.015,          # 止盈阈值 1.5%（风险收益比 1:3）
             'price_update_interval': 30,        # 价格更新间隔（秒）
-            'position_timeout': 3600,           # 持仓超时时间（秒）
+            'position_timeout': 7200,           # 持仓超时时间（秒，2小时）
             'trading_fee_rate': transaction_fee, # 交易手续费率
             'min_price_diff': 0.001,            # 最小价差要求 0.1%
             'max_positions': 5,                 # 最大同时持仓数量
@@ -204,7 +206,7 @@ class ArbitrageSystem:
         exchange_columns = {}
 
         # 方法1: 检测对齐数据集格式 (exchange_type_column) - 这是我们对齐数据集使用的格式
-        for exchange in ['okx', 'binance', 'bybit', 'huobi', 'kucoin']:
+        for exchange in ['binance', 'bybit', 'kucoin']:
             price_col = f'{exchange}_close'
             if price_col in df.columns:
                 exchange_columns[exchange] = {
@@ -216,7 +218,7 @@ class ArbitrageSystem:
 
         # 方法2: 检测反向格式列名 (close_exchange)
         if not exchange_columns:
-            for exchange in ['okx', 'binance', 'bybit', 'huobi', 'kucoin']:
+            for exchange in ['binance', 'bybit', 'kucoin']:
                 price_col = f'close_{exchange}'
                 if price_col in df.columns:
                     exchange_columns[exchange] = {
@@ -253,7 +255,7 @@ class ArbitrageSystem:
             # 添加微小噪声模拟其他交易所的价格差异
             noise_factor = 0.001  # 0.1%的噪声
 
-            for target_exchange in ['okx', 'binance', 'bybit', 'huobi', 'kucoin']:
+            for target_exchange in ['binance', 'bybit', 'kucoin']:
                 if target_exchange not in exchange_columns:
                     # 为目标交易所创建带噪声的价格数据
                     for col_type in ['close', 'high', 'low']:
@@ -300,8 +302,8 @@ class ArbitrageSystem:
         if 'symbol' in df.columns and not df['symbol'].empty:
             symbol = df['symbol'].iloc[0]
 
-        # 检查所有交易所组合 - 使用有序组合避免重复（去掉Kucoin）
-        exchanges = ['okx', 'binance', 'bybit', 'huobi']
+        # 检查所有交易所组合 - 使用有序组合避免重复
+        exchanges = ['binance', 'bybit', 'kucoin']
 
         for i, exchange1 in enumerate(exchanges):
             for j in range(i + 1, len(exchanges)):  # 只比较 i < j，避免重复
@@ -538,19 +540,21 @@ class ArbitrageSystem:
                 should_close = True
                 close_reason = "持仓超时"
 
-            # 2. 达到目标利润
+            # 2. 达到目标利润（使用独立的止盈参数）
             if position.unrealized_pnl > 0:
                 profit_pct = position.unrealized_pnl / (position.entry_price * position.size)
-                if profit_pct >= self.config['min_profit_threshold']:
+                take_profit = self.config.get('take_profit_pct', 0.015)  # 默认1.5%
+                if profit_pct >= take_profit:
                     should_close = True
-                    close_reason = "达到目标利润"
+                    close_reason = f"达到目标利润 ({profit_pct:.2%})"
 
-            # 3. 亏损扩大
+            # 3. 亏损扩大（使用独立的止损参数）
             if position.unrealized_pnl < 0:
                 loss_pct = abs(position.unrealized_pnl) / (position.entry_price * position.size)
-                if loss_pct >= self.config['risk_max_drawdown']:
+                stop_loss = self.config.get('stop_loss_pct', self.config.get('risk_max_drawdown', 0.05))
+                if loss_pct >= stop_loss:
                     should_close = True
-                    close_reason = "止损平仓"
+                    close_reason = f"止损平仓 ({loss_pct:.2%})"
 
             if should_close:
                 positions_to_close.append((position_id, close_reason))
@@ -727,10 +731,19 @@ class ArbitrageSystem:
             position_value = position.entry_price * position.size
             if position_value > 0:
                 pnl_pct = abs(position.unrealized_pnl) / position_value
-                # 5% 止损止盈
-                if pnl_pct >= 0.05:
-                    reason = "止盈" if position.unrealized_pnl > 0 else "止损"
-                    positions_to_close.append((pos_id, reason))
+                # 使用配置的止盈止损参数
+                if position.unrealized_pnl > 0:
+                    # 止盈检查
+                    take_profit = self.config.get('take_profit_pct', 0.015)  # 默认1.5%
+                    if pnl_pct >= take_profit:
+                        reason = f"止盈 ({pnl_pct:.2%})"
+                        positions_to_close.append((pos_id, reason))
+                else:
+                    # 止损检查
+                    stop_loss = self.config.get('stop_loss_pct', self.config.get('risk_max_drawdown', 0.05))
+                    if pnl_pct >= stop_loss:
+                        reason = f"止损 ({pnl_pct:.2%})"
+                        positions_to_close.append((pos_id, reason))
 
         # 执行平仓
         for pos_id, reason in positions_to_close:

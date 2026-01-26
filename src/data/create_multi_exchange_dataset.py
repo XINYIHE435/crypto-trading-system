@@ -54,28 +54,63 @@ class MultiExchangeDatasetCreator:
         return data_frames
     
     def merge_exchange_data(self, data_frames, symbol="BTCUSDT", timeframe="30m"):
-        """合并多交易所数据"""
+        """合并多交易所数据（使用最短时间序列对齐）"""
         if not data_frames:
             raise ValueError("没有可用的数据帧")
-            
-        # 获取时间交集
-        common_timestamps = None
+        
+        # 计算时间窗口（根据timeframe）
+        timeframe_minutes = {
+            '1m': 1, '5m': 5, '15m': 15, '30m': 30,
+            '1h': 60, '4h': 240, '1d': 1440
+        }
+        window_minutes = timeframe_minutes.get(timeframe, 30)
+        
+        # 按时间窗口对齐：将时间戳向下取整到最近的窗口边界
+        def round_to_window(ts, minutes):
+            """将时间戳向下取整到最近的窗口边界"""
+            if isinstance(ts, pd.Timestamp):
+                # 计算分钟数
+                total_minutes = ts.hour * 60 + ts.minute
+                rounded_minutes = (total_minutes // minutes) * minutes
+                return ts.replace(hour=rounded_minutes // 60, minute=rounded_minutes % 60, second=0, microsecond=0)
+            return ts
+        
+        # 先对齐每个交易所的时间戳
+        aligned_data_frames = {}
         for exchange, df in data_frames.items():
+            df_aligned = df.copy()
+            df_aligned.index = [round_to_window(ts, window_minutes) for ts in df_aligned.index]
+            # 如果有重复的时间戳，取最后一个（最新的数据）
+            df_aligned = df_aligned.groupby(df_aligned.index).last()
+            aligned_data_frames[exchange] = df_aligned
+        
+        # 获取所有交易所的时间戳交集（最短时间序列）
+        common_timestamps = None
+        for exchange, df in aligned_data_frames.items():
+            exchange_timestamps = set(df.index)
             if common_timestamps is None:
-                common_timestamps = set(df.index)
+                common_timestamps = exchange_timestamps
             else:
-                common_timestamps = common_timestamps.intersection(set(df.index))
+                common_timestamps = common_timestamps.intersection(exchange_timestamps)
+        
+        if not common_timestamps:
+            raise ValueError("所有交易所没有共同的时间戳")
         
         common_timestamps = sorted(common_timestamps)
-        print(f"共同时间戳数量: {len(common_timestamps)}")
+        print(f"对齐后时间戳数量（使用交集）: {len(common_timestamps)}")
         
-        # 创建合并后的数据框
+        # 显示各交易所的时间范围
+        print(f"共同时间范围: {common_timestamps[0]} 至 {common_timestamps[-1]}")
+        
+        # 创建合并后的数据框（只使用共同时间戳）
         merged_data = pd.DataFrame(index=common_timestamps)
         
-        # 添加各交易所数据
-        for exchange, df in data_frames.items():
-            # 重命名列以包含交易所名称
+        # 添加各交易所数据（只使用共同时间戳）
+        for exchange, df in aligned_data_frames.items():
+            # 只取共同时间戳的数据
             exchange_df = df.loc[common_timestamps].copy()
+            
+            # 重命名列以包含交易所名称
             for col in exchange_df.columns:
                 if col not in ['timestamp']:
                     merged_data[f"{exchange}_{col}"] = exchange_df[col]

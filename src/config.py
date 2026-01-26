@@ -49,14 +49,18 @@ min_profit_threshold = 0.002
 max_positions = 5
 
 # 持仓超时时间(秒)
-position_timeout = 3600
+position_timeout = 7200  # 2小时
 
 # 最大回撤
 risk_max_drawdown = 0.05
 
+# 止损止盈参数
+stop_loss_pct = 0.05      # 止损阈值 (5%)
+take_profit_pct = 0.015   # 止盈阈值 (1.5%)，风险收益比 1:3
+
 [EXCHANGES]
 # 支持的交易所
-supported_exchanges = binance,kucoin,okx,huobi,bybit
+supported_exchanges = binance,kucoin,bybit
 """
         
         # 确保配置目录存在
@@ -70,8 +74,14 @@ supported_exchanges = binance,kucoin,okx,huobi,bybit
     
     def get_symbols(self):
         """获取交易对列表"""
-        symbols_str = self.config.get('DEFAULT', 'symbols', fallback='BTCUSDT,ETHUSDT')
-        return [s.strip() for s in symbols_str.split(',')]
+        # 优先从[data]段读取，如果没有则从DEFAULT段读取
+        if self.config.has_section('data'):
+            symbols_str = self.config.get('data', 'symbols', fallback='BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,ADAUSDT')
+        else:
+            symbols_str = self.config.get('DEFAULT', 'symbols', fallback='BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,ADAUSDT')
+        # 处理 BTC/USDT 格式，转换为 BTCUSDT
+        symbols = [s.strip().replace('/', '') for s in symbols_str.split(',')]
+        return symbols
     
     def get_timeframes(self):
         """获取时间框架列表"""
@@ -80,11 +90,17 @@ supported_exchanges = binance,kucoin,okx,huobi,bybit
     
     def get_start_date(self):
         """获取开始日期"""
-        return self.config.get('DEFAULT', 'start_date', fallback='2025-11-01')
+        # 优先从[data]段读取，如果没有则从DEFAULT段读取
+        if self.config.has_section('data'):
+            return self.config.get('data', 'start_date', fallback='2025-12-01')
+        return self.config.get('DEFAULT', 'start_date', fallback='2025-12-01')
     
     def get_end_date(self):
         """获取结束日期"""
-        return self.config.get('DEFAULT', 'end_date', fallback='2025-12-12')
+        # 优先从[data]段读取，如果没有则从DEFAULT段读取
+        if self.config.has_section('data'):
+            return self.config.get('data', 'end_date', fallback='2025-12-31')
+        return self.config.get('DEFAULT', 'end_date', fallback='2025-12-31')
     
     def get_max_concurrent(self):
         """获取最大并发数"""
@@ -99,13 +115,15 @@ supported_exchanges = binance,kucoin,okx,huobi,bybit
         return {
             'min_profit_threshold': self.config.getfloat('ARBITRAGE', 'min_profit_threshold', fallback=0.002),
             'max_positions': self.config.getint('ARBITRAGE', 'max_positions', fallback=5),
-            'position_timeout': self.config.getint('ARBITRAGE', 'position_timeout', fallback=3600),
-            'risk_max_drawdown': self.config.getfloat('ARBITRAGE', 'risk_max_drawdown', fallback=0.05)
+            'position_timeout': self.config.getint('ARBITRAGE', 'position_timeout', fallback=7200),  # 2小时
+            'risk_max_drawdown': self.config.getfloat('ARBITRAGE', 'risk_max_drawdown', fallback=0.05),
+            'stop_loss_pct': self.config.getfloat('ARBITRAGE', 'stop_loss_pct', fallback=0.05),
+            'take_profit_pct': self.config.getfloat('ARBITRAGE', 'take_profit_pct', fallback=0.015)
         }
     
     def get_supported_exchanges(self):
         """获取支持的交易所列表"""
-        exchanges_str = self.config.get('EXCHANGES', 'supported_exchanges', fallback='binance,kucoin,okx,huobi,bybit')
+        exchanges_str = self.config.get('EXCHANGES', 'supported_exchanges', fallback='binance,kucoin,bybit')
         return [e.strip() for e in exchanges_str.split(',')]
 
 # SSL验证配置
