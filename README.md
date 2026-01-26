@@ -1,69 +1,83 @@
-# 跨交易所套利交易系统
+# 加密货币量化交易系统
 
-一个完整的加密货币套利交易系统，支持多交易所价差套利、资金费率套利、回测分析和可视化展示。
+一个完整的加密货币量化交易系统，包含**双向马丁网格策略**和**跨交易所套利策略**，支持回测分析和交互式可视化。
 
 ## 功能特点
 
-### 核心功能
-- **多交易所套利**: 支持3个主流交易所（Binance、Bybit、KuCoin）
-- **价差套利策略**: 自动识别交易所间价格差异，执行低买高卖套利
-- **资金费率套利**: 利用不同交易所资金费率差异获利
-- **市场中性策略**: 通过同时做多做空对冲方向性风险
-- **智能风险管理**:
-  - 止损: 5%
-  - 止盈: 1.5%（风险收益比 1:3）
-  - 持仓超时: 2小时自动平仓
+### 1. 双向马丁网格策略 (`Martingale/`)
 
-### 数据与分析
-- **历史数据下载**: 支持多交易所K线数据下载和对齐
-- **回测系统**: 基于历史数据验证策略效果
-- **可视化分析**:
-  - K线图与交易信号
-  - 交易所价格对比
-  - 价差分析图表
-  - 动态仪表板（HTML）
-- **性能报告**: 详细的盈亏分析、胜率统计
+基于《马丁双向.pdf》实现的完整网格交易策略：
+
+- **网格间距模式**：固定点数 / 百分比 / ATR动态
+- **马丁倍投机制**：普通层使用基础手数，马丁层倍数加仓
+- **三种止盈模式**：
+  - 统一回本止盈（总盈亏≥目标）
+  - 逐笔小止盈（单方向达到目标）
+  - 分层止盈（不同层级不同比例）
+- **风险管理**：
+  - 最大仓位限制（绝对值/百分比）
+  - 最大层数限制
+  - 浮亏止损保护
+- **基准价模式**：动态基准 / 固定区间
+
+### 2. 跨交易所套利策略 (`src/arbitrage_system.py`)
+
+基于《套利开平仓逻辑系统.pdf》实现的完整套利系统：
+
+- **三种套利类型**：
+  - 差价套利（价格回归）
+  - 资金费率套利（费率差收益）
+  - 组合套利（差价+费率）
+- **开仓条件**：6种精确的开仓条件判断
+- **平仓条件**：12种平仓条件逻辑
+- **方向判断**：相同方向 / 不同方向
+- **资金费率结算**：每8小时自动结算
+
+### 3. 可视化系统 (`visualization_app.py`)
+
+基于Streamlit的交互式可视化应用：
+
+- **数据选择**：币种、时间范围、K线周期
+- **策略模拟**：时间轴滑块控制，逐步回放
+- **K线图表**：交易信号标注、多交易所对比
+- **交易记录**：详细的开平仓原因和盈亏分析
+- **统计面板**：实时盈亏、胜率、交易次数
 
 ## 项目结构
 
 ```
-data project/
-├── src/                                    # 源代码目录
-│   ├── exchange/                           # 交易所接口
-│   │   ├── base.py                         # 基础交易所类
-│   │   ├── okx.py                          # OKX交易所
-│   │   ├── binance.py                      # Binance交易所
-│   │   ├── bybit.py                        # Bybit交易所
-│   │   └── huobi.py                        # Huobi交易所
-│   ├── data/                               # 数据处理模块
-│   │   └── funding_rate_loader.py          # 资金费率加载器
-│   ├── arbitrage_system.py                 # 核心套利系统 ⭐
-│   ├── visualization.py                    # 基础可视化
-│   ├── advanced_visualization.py           # 高级可视化
-│   ├── time_series_visualization.py        # 时序可视化
-│   ├── generate_all_symbols_charts.py      # 多币种图表生成
-│   ├── config_manager.py                   # 配置管理
-│   ├── data_downloader.py                  # 数据下载器
-│   └── data_aligner.py                     # 数据对齐器
-├── config/                                 # 配置目录
-│   └── config.ini                          # 配置文件
-├── data/                                   # 数据存储目录
-│   ├── aligned/                            # 对齐后数据
+a-r/
+├── Martingale/                      # 马丁网格策略
+│   ├── main.py                      # 策略核心实现
+│   └── backtest.py                  # 回测脚本
+├── src/                             # 套利策略
+│   ├── arbitrage_system.py          # 套利系统核心 ⭐
+│   ├── data/
+│   │   ├── run_arbitrage_backtest.py    # 套利回测
+│   │   └── funding_rate_loader.py       # 资金费率加载
+│   ├── visualization.py             # 基础可视化
+│   └── config.py                    # 配置管理
+├── config/
+│   ├── arbitrage_config.yaml        # 套利参数配置
+│   └── config.ini                   # 系统配置
+├── data/
+│   ├── aligned/                     # 对齐后的数据
 │   │   ├── BTCUSDT_30m_aligned.csv
 │   │   ├── ETHUSDT_30m_aligned.csv
 │   │   ├── BNBUSDT_30m_aligned.csv
 │   │   ├── SOLUSDT_30m_aligned.csv
 │   │   └── ADAUSDT_30m_aligned.csv
-│   ├── raw/                                # 原始数据
-│   └── metadata/                           # 元信息
-├── charts_*.png                            # 生成的图表文件（10个）
-├── arbitrage_dashboard_dynamic.html        # 动态仪表板
-├── arbitrage_report.html                   # 静态报告
-├── 系统总结报告.md                         # 系统总结文档
-├── 套利系统逻辑原理详解.md                 # 逻辑原理详解
-├── main.py                                 # 主程序
-├── requirements.txt                        # 依赖包
-└── README.md                               # 本文档
+│   ├── raw/                         # 原始数据
+│   │   ├── klines/                  # K线数据
+│   │   └── funding_rates/           # 资金费率
+│   ├── backtest_results/            # 回测结果
+│   └── results/                     # 可视化结果
+├── visualization_app.py             # Streamlit可视化应用 ⭐
+├── main.py                          # 主入口
+├── requirements.txt                 # 依赖包
+├── 马丁双向.pdf                      # 马丁策略文档
+├── 套利开平仓逻辑系统.pdf            # 套利策略文档
+└── README.md                        # 本文档
 ```
 
 ## 快速开始
@@ -74,285 +88,148 @@ data project/
 pip install -r requirements.txt
 ```
 
-### 2. 准备数据
-
-系统需要30分钟K线数据，已包含在 `data/aligned/` 目录中。
-
-如需下载数据：
+### 2. 启动可视化应用
 
 ```bash
-# 下载数据
-python main.py
-
-# 或测试模式
-python main.py --test
+streamlit run visualization_app.py
 ```
+
+访问 http://localhost:8501 查看交互式界面。
 
 ### 3. 运行回测
 
-```bash
-# 进入src目录
-cd src
+#### 马丁网格策略回测
 
-# 运行回测（使用5个交易所，包含Kucoin）
+```bash
+cd Martingale
+python backtest.py
+```
+
+#### 套利策略回测
+
+```bash
 python -c "
-from arbitrage_system import ArbitrageSystem
+from src.arbitrage_system import ArbitrageSystem, ArbitrageConfig
 import pandas as pd
 
-# 创建系统实例
-system = ArbitrageSystem(initial_balance=10000)
+# 创建配置
+config = ArbitrageConfig(
+    X=0.5,    # 差价触发阈值 0.5%
+    Y=0.1,    # 资金费率差触发阈值 0.1%
+    P=0.3,    # 盈利目标 0.3%
+    Q=0.5,    # 止损阈值 0.5%
+)
 
-# 准备数据
-symbols = ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'SOLUSDT', 'ADAUSDT']
-all_data = []
-for symbol in symbols:
-    df = pd.read_csv(f'../data/aligned/{symbol}_30m_aligned.csv',
-                     index_col=0, parse_dates=True)
-    all_data.append(df)
+# 创建系统
+system = ArbitrageSystem(config)
 
-# 执行回测
-results = system.backtest_multiple_symbols(all_data, symbols)
+# 加载数据
+df = pd.read_csv('data/aligned/BTCUSDT_30m_aligned.csv', 
+                 index_col=0, parse_dates=True)
 
-# 查看结果
-print(f'总交易次数: {results[\"total_trades\"]}')
-print(f'总盈亏: ${results[\"total_pnl\"]:.2f}')
-print(f'胜率: {results[\"win_rate\"]:.2f}%')
+# 运行回测
+results = system.run_backtest(df, symbol='BTCUSDT')
+
+print(f'总交易: {results[\"total_trades\"]}')
+print(f'总盈亏: \${results[\"total_pnl\"]:.2f}')
+print(f'胜率: {results[\"win_rate\"]:.2%}')
 "
 ```
 
-### 4. 生成可视化图表
+## 策略参数
 
-```bash
-cd src
+### 马丁网格策略参数
 
-# 生成所有币种的图表（K线图+价格对比图）
-python generate_all_symbols_charts.py
+| 参数 | 说明 | 默认值 |
+|------|------|--------|
+| `base_size` | 初始手数 | 0.01 |
+| `multiplier` | 马丁倍数 | 1.6 |
+| `max_levels` | 最大层数 | 10 |
+| `grid_step` | 网格间距（固定点数）| 10.0 |
+| `grid_percentage` | 网格间距（百分比）| 0.5% |
+| `target_profit` | 止盈目标 | 5.0 |
+| `max_floating_loss` | 最大浮亏 | 100.0 |
 
-# 生成综合仪表板
-python advanced_visualization.py
+### 套利策略参数
 
-# 生成动态HTML报告
-python visualization.py
-```
-
-## 系统配置
-
-### 套利参数
-
-```python
-# src/arbitrage_system.py
-
-config = {
-    'min_profit_threshold': 0.002,      # 最小利润阈值 0.2%（用于开仓判断）
-    'max_position_size': 10000,         # 最大持仓大小
-    'stop_loss_pct': 0.05,              # 止损 5%
-    'take_profit_pct': 0.015,          # 止盈 1.5%（风险收益比 1:3）
-    'position_timeout': 7200,          # 最大持仓时间 2小时（7200秒）
-    'trading_fee_rate': 0.001           # 手续费率 0.1%
-}
-```
-
-### 交易所列表
-
-当前支持3个交易所：
-```python
-exchanges = ['binance', 'bybit', 'kucoin']
-```
-
-⚠️ **重要发现**: Kucoin提供主要的套利机会
-- 去除Kucoin后，价差降至0.06%以下（远低于0.5%阈值）
-- 保留Kucoin时，价差可达1.4%-2.5%
-- 建议：保留Kucoin或专门针对Kucoin设计套利策略
-
-## 回测结果
-
-### 5交易所配置（包含Kucoin）
-
-| 指标 | 数值 |
-|-----|------|
-| 测试币种 | BTCUSDT, ETHUSDT, BNBUSDT, SOLUSDT, ADAUSDT |
-| 时间范围 | 2025-01-03 至 2025-01-13 |
-| 总交易次数 | 150 |
-| 总盈亏 | $1,837.82 |
-| 胜率 | 58.67% |
-| 收益率 | 18.38% |
-
-### 4交易所配置（不含Kucoin）
-
-| 指标 | 数值 |
-|-----|------|
-| 总交易次数 | 0 |
-| 总盈亏 | $0.00 |
-
-**原因**: 剩余4个交易所（OKX/Binance/Bybit/Huobi）价差过小（< 0.06%），无法触发交易
-
-## 价差分析
-
-### 含Kucoin的价差
-
-| 币种 | 最大价差 | 平均价差 | 超阈值次数 |
-|-----|---------|---------|-----------|
-| BTCUSDT | 1.42% | 0.23% | 37-40次 |
-| ETHUSDT | 2.04% | 0.34% | 52-53次 |
-| BNBUSDT | 1.80% | 0.27% | 39-42次 |
-| SOLUSDT | 2.43% | 0.37% | 66-69次 |
-| ADAUSDT | 2.46% | 0.40% | 81-84次 |
-
-### 不含Kucoin的价差
-
-| 币种 | 最大价差 | 平均价差 |
-|-----|---------|---------|
-| BTCUSDT | 0.056% | 0.012% |
-| ETHUSDT | 0.114% | 0.013% |
-| BNBUSDT | 0.103% | 0.022% |
-| SOLUSDT | 0.253% | 0.020% |
-| ADAUSDT | 0.287% | 0.026% |
-
-## 可视化输出
-
-系统生成以下可视化文件：
-
-### 静态图表（PNG格式）
-- `charts_btcusdt_kline.png` - BTC K线图+交易信号
-- `charts_btcusdt_comparison.png` - BTC价格对比+价差分析
-- `charts_ethusdt_kline.png` - ETH K线图+交易信号
-- `charts_ethusdt_comparison.png` - ETH价格对比+价差分析
-- `charts_bnbusdt_kline.png` - BNB K线图+交易信号
-- `charts_bnbusdt_comparison.png` - BNB价格对比+价差分析
-- `charts_solusdt_kline.png` - SOL K线图+交易信号
-- `charts_solusdt_comparison.png` - SOL价格对比+价差分析
-- `charts_adausdt_kline.png` - ADA K线图+交易信号
-- `charts_adausdt_comparison.png` - ADA价格对比+价差分析
-
-### HTML报告
-- `arbitrage_dashboard_dynamic.html` - 动态交互仪表板
-- `arbitrage_report.html` - 综合分析报告
-
-## 技术架构
-
-### 核心模块
-
-1. **ArbitrageSystem** (`arbitrage_system.py`)
-   - 套利机会识别
-   - 开仓/平仓逻辑
-   - 风险管理
-   - 利润计算
-
-2. **数据加载器** (`data/funding_rate_loader.py`)
-   - 资金费率数据加载
-   - 价格数据处理
-   - 数据验证
-
-3. **可视化模块**
-   - `visualization.py` - 基础图表
-   - `advanced_visualization.py` - 多页仪表板
-   - `generate_all_symbols_charts.py` - 批量图表生成
-
-### 数据流程
-
-```
-原始数据 → 数据对齐 → 特征计算 → 套利信号 → 执行交易 → 盈亏计算
-             ↓
-       价差计算    资金费率    风险检查
-```
+| 参数 | 说明 | 默认值 |
+|------|------|--------|
+| `X` | 差价触发阈值 | 0.5% |
+| `Y` | 资金费率差触发阈值 | 0.1% |
+| `A` | 可忽视差价阈值 | 0.1% |
+| `B` | 可忽视资金费率阈值 | 0.05% |
+| `N` | 历史数据小时数 | 8h |
+| `M` | 不利持续时间 | 4h |
+| `P` | 盈利目标 | 0.3% |
+| `Q` | 止损阈值 | 0.5% |
 
 ## 策略逻辑
 
-### 价差套利
-
-1. **识别机会**: 当交易所间价差 > 0.5%时触发
-2. **开仓逻辑**:
-   - 做空高价交易所
-   - 做多低价交易所
-   - 等仓位对冲
-3. **平仓条件**:
-   - 价差收敛（盈利）
-   - 止损/止盈触发
-   - 持仓超时（2小时）
-
-### 资金费率套利
-
-考虑资金费率成本的预期利润计算：
+### 马丁网格开仓逻辑
 
 ```
-净利润 = 价差 - 双边手续费 - 资金费率成本
-
-其中:
-- 价差 = (高价 - 低价) / 低价
-- 双边手续费 = 2 × 0.1% = 0.2%
-- 资金费率成本 = (做空费率 - 做多费率) × 持仓时间
+价格上涨区间 (高于基准+间距) → 开多单
+价格下跌区间 (低于基准-间距) → 开空单
 ```
 
-## 重要发现
+### 套利开仓条件
 
-### Kucoin的重要性
+1. **差价套利条件a**（相同方向）：差价≥X + 差价>历史均值 + 方向相同 + 费率差<Y
+2. **差价套利条件b**（不同方向）：差价≥X + 差价>历史均值 + 方向不同 + 费率差<B
+3. **资金费率套利条件a**（相同方向）：费率差≥Y + 历史N小时都≥Y + 方向相同 + 差价<X
+4. **资金费率套利条件b**（不同方向）：费率差≥Y + 历史N小时都≥Y + 方向不同 + 差价<A
+5. **组合套利**：差价≥X + 费率差≥Y + 方向相同
 
-通过数据分析发现：
-- **Kucoin与其他交易所价差显著**: 1.4%-2.5%
-- **其他4交易所价差微小**: 0.06%-0.29%
-- **去除Kucoin后无套利机会**: 价差低于0.5%阈值
+### 套利平仓条件
 
-### 降低阈值的可行性
+- **差价套利**：价格回归盈利 / 资金费率反转 / 价差亏损止损
+- **资金费率套利**：费率收敛或反转 / 价差盈利≥P / 价差亏损≥Q
+- **组合套利**：费率≤B / 费率反转 / 盈利≥P / 亏损≥Q
 
-分析显示，**不推荐**降低阈值：
-- 阈值 < 0.2%：大量交易亏损（无法覆盖0.2%手续费）
-- 阈值 ≥ 0.2%：交易次数极少（0-7笔）
-- **建议**: 保留Kucoin或调整策略架构
+## 数据说明
 
-## 文档
+### 支持的交易所
 
-项目包含详细文档：
+- **K线数据**：Binance、KuCoin
+- **资金费率**：Binance、Bybit
 
-- `系统总结报告.md` - 系统架构、数据、时间、结果总结
-- `套利系统逻辑原理详解.md` - 详细逻辑说明和公式推导
+### 支持的币种
+
+- BTCUSDT
+- ETHUSDT
+- BNBUSDT
+- SOLUSDT
+- ADAUSDT
+
+### 数据格式
+
+对齐后的数据包含以下列：
+- `binance_close` - Binance收盘价
+- `kucoin_close` - KuCoin收盘价
+- `binance_funding_rate` - Binance资金费率
+- `kucoin_funding_rate` - KuCoin资金费率（来自Bybit）
+
+## 技术栈
+
+- **Python 3.8+**
+- **Pandas** - 数据处理
+- **NumPy** - 数值计算
+- **Streamlit** - Web应用框架
+- **Plotly** - 交互式图表
+- **Matplotlib** - 静态图表
 
 ## 注意事项
 
-1. **风险警告**:
-   - 本系统仅供学习研究使用
-   - 实盘交易需谨慎，存在资金损失风险
-   - 建议先在测试环境验证
+1. **风险警告**：本系统仅供学习研究，实盘交易需谨慎
+2. **策略验证**：建议在回测中充分验证后再考虑实盘
+3. **参数调优**：根据市场条件调整策略参数
+4. **手续费影响**：策略已考虑0.1%的交易手续费
 
-2. **数据质量**:
-   - 确保数据时间戳对齐
-   - 检查缺失值和异常值
-   - 验证资金费率数据准确性
+## 参考文档
 
-3. **参数调优**:
-   - 根据市场条件调整阈值
-   - 优化止损止盈参数
-   - 考虑滑点和手续费影响
-
-4. **技术要求**:
-   - Python 3.8+
-   - 足够的内存和存储空间
-   - 稳定的网络连接（实时数据）
-
-## 依赖项
-
-```
-pandas
-numpy
-matplotlib
-requests
-aiohttp
-python-dateutil
-```
-
-完整依赖见 `requirements.txt`
-
-## 后续开发方向
-
-1. **实时交易接口**: 连接交易所API实现实盘交易
-2. **更多交易所**: Gate.io、Bitfinex等
-3. **机器学习优化**: 使用ML模型预测价差趋势
-4. **组合优化**: 多币种组合套利策略
-5. **风险管理增强**: VaR计算、压力测试
+- `马丁双向.pdf` - 双向马丁网格策略详细说明
+- `套利开平仓逻辑系统.pdf` - 套利策略完整逻辑
 
 ## 许可证
 
 本项目仅供学习和研究使用。使用者需自行承担实盘交易的风险。
-
-## 联系方式
-
-如有问题或建议，欢迎提交Issue或Pull Request。
