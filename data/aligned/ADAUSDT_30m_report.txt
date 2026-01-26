@@ -1,44 +1,24 @@
-=== ADAUSDT 30m 数据集报告 ===
-文件路径: data/aligned/ADAUSDT_30m_aligned.csv
-数据行数: 1440
-时间范围: 2025-12-01 00:00:00 - 2025-12-30 23:30:00
-列数: 18
+数据报告: ADAUSDT
+==================================================
 
-包含的交易所数据列:
-  binance: binance_open, binance_high, binance_low, binance_close, binance_volume, binance_quote_volume, binance_funding_rate
-  funding: funding_diff_kubi, funding_arbitrage_kubi
-  kucoin: kucoin_open, kucoin_high, kucoin_low, kucoin_close, kucoin_volume, kucoin_quote_volume, kucoin_funding_rate
+时间范围: 2025-12-27 04:00:00 至 2026-01-26 03:30:00
+数据点数: 1440
+
+Binance 价格:
+  最高: 0.44
+  最低: 0.33
+  平均: 0.38
+
+KuCoin 价格:
+  最高: 0.44
+  最低: 0.33
+  平均: 0.38
 
 价差统计:
-  price_spread_kubi:
-    平均值: -0.001443
-    标准差: 0.001496
-    最大值: 0.000200
-    最小值: -0.016700
-  relative_spread_kubi:
-    平均值: -0.365563
-    标准差: 0.375984
-    最大值: 0.055835
-    最小值: -4.412153
+  最大: 0.1433%
+  最小: 0.0000%
+  平均: 0.0540%
 
-资金费率统计:
-  kucoin_funding_rate:
-    平均费率: 0.000000
-    标准差: 0.000000
-    最大费率: 0.000000
-    最小费率: 0.000000
-    非零数据点: 0/1440
-  binance_funding_rate:
-    平均费率: 0.000025
-    标准差: 0.000071
-    最大费率: 0.000100
-    最小费率: -0.000205
-    非零数据点: 1440/1440
-
-资金费率套利机会:
-  funding_arbitrage_kubi:
-    平均套利收益: -0.000603
-    标准差: 0.001697
-    最大收益: 0.004911
-    最小收益: -0.002400
-    正收益机会: 428/1440 (29.7%)
+资金费率:
+  Binance 非零数据: 1440/1440
+  KuCoin 非零数据: 1440/1440

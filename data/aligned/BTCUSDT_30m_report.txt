@@ -1,18 +1,24 @@
-BTCUSDT 数据对齐报告
-============================================================
+数据报告: BTCUSDT
+==================================================
 
-数据来源: Arbitrage-Logic-System
-   - Binance: BTCUSDT-1m-*.csv (价格) + Funding Rate History (资金费率)
-   - OKX: BTC-USDT-candlesticks-*.csv (价格) + allswap-fundingrates (资金费率)
+时间范围: 2025-12-27 12:00:00 至 2026-01-26 03:30:00
+数据点数: 1424
 
-总记录数: 656
-时间范围: 2025-11-24 00:00:00 至 2025-12-07 15:30:00
-交易所: binance, kucoin (OKX数据映射为kucoin)
+Binance 价格:
+  最高: 97606.00
+  最低: 86287.90
+  平均: 91084.10
+
+KuCoin 价格:
+  最高: 97606.00
+  最低: 86283.10
+  平均: 91082.26
 
 价差统计:
-  最小价差: -0.0002
-  最大价差: 0.0002
-  平均价差: 0.0000
-  标准差: 0.0001
+  最大: 0.0381%
+  最小: 0.0000%
+  平均: 0.0075%
 
-列名: binance_open, binance_high, binance_low, binance_close, binance_volume, kucoin_open, kucoin_high, kucoin_low, kucoin_close, kucoin_volume, spread_pct, binance_funding_rate, kucoin_funding_rate
+资金费率:
+  Binance 非零数据: 1424/1424
+  KuCoin 非零数据: 1424/1424

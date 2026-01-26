@@ -1,44 +1,24 @@
-=== SOLUSDT 30m 数据集报告 ===
-文件路径: data/aligned/SOLUSDT_30m_aligned.csv
-数据行数: 1440
-时间范围: 2025-12-01 00:00:00 - 2025-12-30 23:30:00
-列数: 18
+数据报告: SOLUSDT
+==================================================
 
-包含的交易所数据列:
-  binance: binance_open, binance_high, binance_low, binance_close, binance_volume, binance_quote_volume, binance_funding_rate
-  funding: funding_diff_biku, funding_arbitrage_biku
-  kucoin: kucoin_open, kucoin_high, kucoin_low, kucoin_close, kucoin_volume, kucoin_quote_volume, kucoin_funding_rate
+时间范围: 2025-12-27 04:00:00 至 2026-01-26 03:30:00
+数据点数: 1440
+
+Binance 价格:
+  最高: 147.79
+  最低: 117.86
+  平均: 133.50
+
+KuCoin 价格:
+  最高: 147.82
+  最低: 117.94
+  平均: 133.55
 
 价差统计:
-  price_spread_biku:
-    平均值: 0.422229
-    标准差: 0.448796
-    最大值: 5.620000
-    最小值: -0.030000
-  relative_spread_biku:
-    平均值: 0.323995
-    标准差: 0.339062
-    最大值: 4.237672
-    最小值: -0.023859
+  最大: 0.0846%
+  最小: 0.0000%
+  平均: 0.0421%
 
-资金费率统计:
-  binance_funding_rate:
-    平均费率: 0.000025
-    标准差: 0.000066
-    最大费率: 0.000100
-    最小费率: -0.000174
-    非零数据点: 1440/1440
-  kucoin_funding_rate:
-    平均费率: 0.000000
-    标准差: 0.000000
-    最大费率: 0.000000
-    最小费率: 0.000000
-    非零数据点: 0/1440
-
-资金费率套利机会:
-  funding_arbitrage_biku:
-    平均套利收益: 0.000602
-    标准差: 0.001587
-    最大收益: 0.002400
-    最小收益: -0.004170
-    正收益机会: 962/1440 (66.8%)
+资金费率:
+  Binance 非零数据: 1440/1440
+  KuCoin 非零数据: 1440/1440

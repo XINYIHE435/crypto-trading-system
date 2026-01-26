@@ -1,44 +1,24 @@
-=== BNBUSDT 30m 数据集报告 ===
-文件路径: data/aligned/BNBUSDT_30m_aligned.csv
-数据行数: 1440
-时间范围: 2025-12-01 00:00:00 - 2025-12-30 23:30:00
-列数: 18
+数据报告: BNBUSDT
+==================================================
 
-包含的交易所数据列:
-  binance: binance_open, binance_high, binance_low, binance_close, binance_volume, binance_quote_volume, binance_funding_rate
-  funding: funding_diff_kubi, funding_arbitrage_kubi
-  kucoin: kucoin_open, kucoin_high, kucoin_low, kucoin_close, kucoin_volume, kucoin_quote_volume, kucoin_funding_rate
+时间范围: 2025-12-27 04:00:00 至 2026-01-26 03:30:00
+数据点数: 1440
+
+Binance 价格:
+  最高: 956.03
+  最低: 834.96
+  平均: 896.45
+
+KuCoin 价格:
+  最高: 955.22
+  最低: 834.65
+  平均: 895.96
 
 价差统计:
-  price_spread_kubi:
-    平均值: -1.853463
-    标准差: 1.839763
-    最大值: 0.598000
-    最小值: -18.326000
-  relative_spread_kubi:
-    平均值: -0.214259
-    标准差: 0.212871
-    最大值: 0.067760
-    最小值: -2.060620
+  最大: 0.1552%
+  最小: 0.0000%
+  平均: 0.0571%
 
-资金费率统计:
-  kucoin_funding_rate:
-    平均费率: 0.000000
-    标准差: 0.000000
-    最大费率: 0.000000
-    最小费率: 0.000000
-    非零数据点: 0/1440
-  binance_funding_rate:
-    平均费率: 0.000012
-    标准差: 0.000024
-    最大费率: 0.000116
-    最小费率: 0.000000
-    非零数据点: 431/1440
-
-资金费率套利机会:
-  funding_arbitrage_kubi:
-    平均套利收益: -0.000291
-    标准差: 0.000580
-    最大收益: 0.000000
-    最小收益: -0.002784
-    正收益机会: 0/1440 (0.0%)
+资金费率:
+  Binance 非零数据: 576/1440
+  KuCoin 非零数据: 1440/1440
