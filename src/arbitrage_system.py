@@ -444,6 +444,7 @@ class ArbitrageSystem:
         position: ArbitragePosition,
         current_price_spread_pct: float,
         current_funding_spread_pct: float,
+        current_funding_direction: int,
         current_time: datetime
     ) -> Tuple[bool, Optional[CloseReason]]:
         """
@@ -456,7 +457,7 @@ class ArbitrageSystem:
             - 立即平仓
         平仓条件b: 资金费率扩大止损
             - 价差无利可图
-            - 需要支付资金费率
+            - 需要支付资金费率（套利方向与资金费率方向相反）
             - 资金费率阈值：< A 变成 > B
             - 持续时间 > M
         平仓条件c: 价差亏损止损
@@ -472,10 +473,24 @@ class ArbitrageSystem:
         # 价差无利可图
         if pnl_pct < 0:
             # 条件b：资金费率扩大止损
-            # 检查：原本 < A，现在 > B
+            # PDF要求检查4个条件：
+            # 1. 价差无利可图 ✓（已在上面检查）
+            # 2. 需要支付资金费率（套利方向与资金费率方向相反，即需要支付）
+            # 3. 资金费率阈值：< A 变成 > B
+            # 4. 持续时间 > M
+            
             open_funding_spread_pct = abs(position.open_funding_spread) * 100
             
-            if open_funding_spread_pct < self.config.A and current_funding_spread_pct > self.config.B:
+            # 检查是否需要支付资金费率：
+            # 条件b开仓时方向不同，套利持仓方向与资金费率方向相反
+            # 如果资金费率方向与开仓时相同，说明仍然需要支付
+            open_funding_direction = 1 if position.open_funding_spread > 0 else -1
+            need_to_pay_funding = (open_funding_direction == current_funding_direction)
+            
+            if (need_to_pay_funding and 
+                open_funding_spread_pct < self.config.A and 
+                current_funding_spread_pct > self.config.B):
+                
                 if position.funding_expand_start_time is None:
                     position.funding_expand_start_time = current_time
                 
@@ -850,7 +865,8 @@ class ArbitrageSystem:
                     )
                 else:
                     should_close, close_reason = self.check_close_price_spread_condition_b(
-                        position, price_spread_pct, funding_spread_pct, current_time
+                        position, price_spread_pct, funding_spread_pct,
+                        funding_direction, current_time
                     )
                     
             elif position.arbitrage_type == ArbitrageType.FUNDING_RATE:

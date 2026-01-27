@@ -944,8 +944,7 @@ def main():
                 position_size_pct=0.1,
                 transaction_fee=0.0002,
                 funding_settlement_hours=8.0,
-                funding_income_multiplier=float(leverage),
-                min_funding_hold_hours=4.0
+                funding_income_multiplier=float(leverage)
             )
         
         st.divider()
@@ -1364,7 +1363,7 @@ def main():
                         """, unsafe_allow_html=True)
                 
                 # 按类型统计
-                if 'by_type' in res:
+                if 'by_type' in res and len(res['by_type']) > 0:
                     st.markdown("#### 📊 按套利类型统计")
                     
                     type_names = {'price_spread': '价差套利', 'funding_rate': '资金费率套利', 'combined': '组合套利'}
@@ -1391,129 +1390,257 @@ def main():
         # 时间回放控制器
         if realtime_mode and 'results' in st.session_state:
             st.divider()
-            st.subheader("🎬 时间回放控制器")
+            st.subheader("时间回放")
             
             total_rows = len(equity_df)
             
-            # 时间滑块
-            time_idx = st.slider(
-                "拖动时间轴查看历史状态",
-                min_value=0,
-                max_value=total_rows - 1,
-                value=total_rows - 1,
-                format="",
-                key="time_slider"
-            )
+            # 播放控制
+            col_ctrl1, col_ctrl2, col_ctrl3 = st.columns([2, 1, 1])
+            with col_ctrl1:
+                # 时间滑块
+                time_idx = st.slider(
+                    "时间轴",
+                    min_value=0,
+                    max_value=total_rows - 1,
+                    value=total_rows - 1,
+                    key="time_slider"
+                )
+            with col_ctrl2:
+                # 播放间隔（毫秒）
+                play_interval = st.selectbox(
+                    "播放速度",
+                    options=[500, 300, 200, 100, 50],
+                    index=2,
+                    format_func=lambda x: f"{'很慢' if x==500 else '慢' if x==300 else '正常' if x==200 else '快' if x==100 else '很快'}"
+                )
+            with col_ctrl3:
+                # 显示K线数量
+                window_size = st.selectbox(
+                    "显示范围",
+                    options=[30, 50, 100, 200],
+                    index=1,
+                    format_func=lambda x: f"最近{x}根K线"
+                )
             
-            # 显示当前选择的时间
-            current_time = equity_df.iloc[time_idx]['timestamp']
-            st.caption(f"📅 当前时间: {current_time}")
+            # 初始化播放状态
+            if 'is_playing' not in st.session_state:
+                st.session_state.is_playing = False
+            if 'is_paused' not in st.session_state:
+                st.session_state.is_paused = False
+            if 'play_position' not in st.session_state:
+                st.session_state.play_position = 0
             
-            # 获取当前时间点的数据
-            current_row = equity_df.iloc[time_idx]
-            partial_equity = equity_df.iloc[:time_idx+1]
-            partial_df = df.iloc[:time_idx+1]
+            # 播放按钮
+            col_btn1, col_btn2, col_btn3 = st.columns(3)
+            with col_btn1:
+                if st.button("开始", use_container_width=True):
+                    st.session_state.is_playing = True
+                    st.session_state.is_paused = False
+                    st.session_state.play_position = min(window_size, total_rows - 1)
+                    st.rerun()
+            with col_btn2:
+                pause_label = "继续" if st.session_state.is_paused else "暂停"
+                if st.button(pause_label, use_container_width=True):
+                    st.session_state.is_paused = not st.session_state.is_paused
+                    st.rerun()
+            with col_btn3:
+                if st.button("停止", use_container_width=True):
+                    st.session_state.is_playing = False
+                    st.session_state.is_paused = False
+                    st.session_state.play_position = 0
+                    st.rerun()
             
-            # 统计卡片 - 使用列布局
-            st.markdown("#### 📊 当前状态")
+            # 播放状态显示
+            if st.session_state.is_playing:
+                if st.session_state.is_paused:
+                    st.warning(f"已暂停 - 位置: {st.session_state.play_position}/{total_rows}")
+                else:
+                    st.info(f"播放中 - 位置: {st.session_state.play_position}/{total_rows}")
             
-            if strategy == 'martingale':
-                col1, col2, col3, col4, col5 = st.columns(5)
+            # 动画播放逻辑 - 单帧渲染模式
+            if st.session_state.is_playing and not st.session_state.is_paused:
+                import time as time_module
                 
-                with col1:
-                    st.markdown(f"""
-                    <div style="background: linear-gradient(135deg, #1a1a2e, #16213e); padding: 15px; border-radius: 10px; border-left: 4px solid #00aaff;">
-                        <div style="color: #888; font-size: 12px;">💰 当前价格</div>
-                        <div style="color: #fff; font-size: 20px; font-weight: bold;">${current_row['price']:,.2f}</div>
-                    </div>
-                    """, unsafe_allow_html=True)
+                idx = st.session_state.play_position
+                step = max(1, speed)
+                interval_sec = play_interval / 1000.0
                 
-                with col2:
-                    pnl_color = "#00ff88" if current_row['total_pnl'] >= 0 else "#ff4444"
-                    st.markdown(f"""
-                    <div style="background: linear-gradient(135deg, #1a1a2e, #16213e); padding: 15px; border-radius: 10px; border-left: 4px solid {pnl_color};">
-                        <div style="color: #888; font-size: 12px;">📈 总盈亏</div>
-                        <div style="color: {pnl_color}; font-size: 20px; font-weight: bold;">${current_row['total_pnl']:,.2f}</div>
-                    </div>
-                    """, unsafe_allow_html=True)
-                
-                with col3:
-                    float_color = "#00ff88" if current_row['pnl'] >= 0 else "#ff4444"
-                    st.markdown(f"""
-                    <div style="background: linear-gradient(135deg, #1a1a2e, #16213e); padding: 15px; border-radius: 10px; border-left: 4px solid {float_color};">
-                        <div style="color: #888; font-size: 12px;">💫 浮动盈亏</div>
-                        <div style="color: {float_color}; font-size: 20px; font-weight: bold;">${current_row['pnl']:,.2f}</div>
-                    </div>
-                    """, unsafe_allow_html=True)
-                
-                with col4:
-                    st.markdown(f"""
-                    <div style="background: linear-gradient(135deg, #1a1a2e, #16213e); padding: 15px; border-radius: 10px; border-left: 4px solid #00ff88;">
-                        <div style="color: #888; font-size: 12px;">📗 多单层数</div>
-                        <div style="color: #00ff88; font-size: 20px; font-weight: bold;">{int(current_row['long_level'])}</div>
-                    </div>
-                    """, unsafe_allow_html=True)
-                
-                with col5:
-                    st.markdown(f"""
-                    <div style="background: linear-gradient(135deg, #1a1a2e, #16213e); padding: 15px; border-radius: 10px; border-left: 4px solid #ff4444;">
-                        <div style="color: #888; font-size: 12px;">📕 空单层数</div>
-                        <div style="color: #ff4444; font-size: 20px; font-weight: bold;">{int(current_row['short_level'])}</div>
-                    </div>
-                    """, unsafe_allow_html=True)
+                if idx < total_rows:
+                    # 进度条
+                    progress = (idx + 1) / total_rows
+                    st.progress(progress, text=f"进度: {idx+1}/{total_rows}")
+                    
+                    # 获取当前数据
+                    current_row = equity_df.iloc[idx]
+                    current_time = current_row['timestamp']
+                    
+                    # 计算窗口范围
+                    start = max(0, idx - window_size + 1)
+                    end = idx + 1
+                    
+                    # 获取窗口内数据
+                    window_df = df.iloc[start:end].copy()
+                    window_equity = equity_df.iloc[start:end].copy()
+                    
+                    # 状态信息
+                    if strategy == 'martingale':
+                        pnl = current_row['total_pnl']
+                        pnl_sign = "+" if pnl >= 0 else ""
+                        st.markdown(
+                            f"**时间**: {current_time} | "
+                            f"**价格**: ${current_row['price']:,.2f} | "
+                            f"**盈亏**: {pnl_sign}${pnl:,.2f} | "
+                            f"**多单**: {int(current_row['long_level'])}层 | "
+                            f"**空单**: {int(current_row['short_level'])}层"
+                        )
+                        
+                        # 创建K线图
+                        fig = make_subplots(
+                            rows=2, cols=1,
+                            shared_xaxes=True,
+                            vertical_spacing=0.05,
+                            row_heights=[0.7, 0.3]
+                        )
+                        
+                        # K线
+                        fig.add_trace(go.Candlestick(
+                            x=window_df['timestamp'],
+                            open=window_df['open'],
+                            high=window_df['high'],
+                            low=window_df['low'],
+                            close=window_df['close'],
+                            name='K线',
+                            increasing_line_color='#00ff88',
+                            decreasing_line_color='#ff4444'
+                        ), row=1, col=1)
+                        
+                        # 盈亏曲线
+                        fig.add_trace(go.Scatter(
+                            x=window_equity['timestamp'],
+                            y=window_equity['total_pnl'],
+                            mode='lines',
+                            name='盈亏',
+                            line=dict(color='#00aaff', width=2)
+                        ), row=2, col=1)
+                        
+                    else:  # arbitrage
+                        pnl = current_row.get('pnl', 0)
+                        pnl_sign = "+" if pnl >= 0 else ""
+                        spread = current_row.get('spread_pct', 0)
+                        st.markdown(
+                            f"**时间**: {current_time} | "
+                            f"**价差**: {spread:.4f}% | "
+                            f"**盈亏**: {pnl_sign}${pnl:,.2f} | "
+                            f"**持仓**: {int(current_row.get('position_count', 0))}个"
+                        )
+                        
+                        # 创建双交易所价格图
+                        fig = make_subplots(
+                            rows=2, cols=1,
+                            shared_xaxes=True,
+                            vertical_spacing=0.05,
+                            row_heights=[0.7, 0.3]
+                        )
+                        
+                        # Binance价格线
+                        if 'binance_close' in window_df.columns:
+                            fig.add_trace(go.Scatter(
+                                x=window_df['timestamp'],
+                                y=window_df['binance_close'],
+                                mode='lines',
+                                name='Binance',
+                                line=dict(color='#f0b90b', width=2)
+                            ), row=1, col=1)
+                        
+                        # KuCoin价格线
+                        if 'kucoin_close' in window_df.columns:
+                            fig.add_trace(go.Scatter(
+                                x=window_df['timestamp'],
+                                y=window_df['kucoin_close'],
+                                mode='lines',
+                                name='KuCoin',
+                                line=dict(color='#24ae8f', width=2)
+                            ), row=1, col=1)
+                        
+                        # 价差曲线
+                        if 'spread_pct' in window_equity.columns:
+                            fig.add_trace(go.Scatter(
+                                x=window_equity['timestamp'],
+                                y=window_equity['spread_pct'],
+                                mode='lines',
+                                name='价差%',
+                                line=dict(color='#ff6b6b', width=2)
+                            ), row=2, col=1)
+                    
+                    # 更新布局
+                    fig.update_layout(
+                        height=450,
+                        template='plotly_dark',
+                        margin=dict(l=10, r=10, t=30, b=10),
+                        showlegend=True,
+                        legend=dict(orientation="h", yanchor="bottom", y=1.02),
+                        xaxis_rangeslider_visible=False
+                    )
+                    
+                    st.plotly_chart(fig, use_container_width=True)
+                    
+                    # 更新位置并继续播放
+                    st.session_state.play_position = idx + step
+                    time_module.sleep(interval_sec)
+                    st.rerun()
+                else:
+                    # 播放完成
+                    st.success("播放完成")
+                    st.session_state.is_playing = False
+                    st.session_state.play_position = 0
             
-            else:  # arbitrage
-                col1, col2, col3, col4 = st.columns(4)
+            # 静态显示（未播放时）
+            if not st.session_state.is_playing:
+                # 获取当前时间点的数据
+                current_row = equity_df.iloc[time_idx]
+                current_time = current_row['timestamp']
+                partial_equity = equity_df.iloc[:time_idx+1]
+                partial_df = df.iloc[:time_idx+1]
                 
-                price_a = current_row.get('price_a', 0)
-                price_b = current_row.get('price_b', 0)
-                spread = current_row.get('spread_pct', 0)
-                pnl = current_row.get('pnl', 0)
+                # 统计卡片
+                st.markdown("#### 当前状态")
                 
-                with col1:
-                    st.markdown(f"""
-                    <div style="background: linear-gradient(135deg, #1a1a2e, #16213e); padding: 15px; border-radius: 10px; border-left: 4px solid #f0b90b;">
-                        <div style="color: #888; font-size: 12px;">🟡 Binance</div>
-                        <div style="color: #f0b90b; font-size: 20px; font-weight: bold;">${price_a:,.2f}</div>
-                    </div>
-                    """, unsafe_allow_html=True)
+                if strategy == 'martingale':
+                    col1, col2, col3, col4, col5 = st.columns(5)
+                    with col1:
+                        st.metric("价格", f"${current_row['price']:,.2f}")
+                    with col2:
+                        st.metric("总盈亏", f"${current_row['total_pnl']:,.2f}")
+                    with col3:
+                        st.metric("浮动盈亏", f"${current_row['pnl']:,.2f}")
+                    with col4:
+                        st.metric("多单层数", int(current_row['long_level']))
+                    with col5:
+                        st.metric("空单层数", int(current_row['short_level']))
+                else:
+                    col1, col2, col3, col4 = st.columns(4)
+                    price_a = current_row.get('price_a', 0)
+                    price_b = current_row.get('price_b', 0)
+                    spread = current_row.get('spread_pct', 0)
+                    pnl = current_row.get('pnl', 0)
+                    with col1:
+                        st.metric("Binance", f"${price_a:,.2f}")
+                    with col2:
+                        st.metric("KuCoin", f"${price_b:,.2f}")
+                    with col3:
+                        st.metric("价差", f"{spread:.4f}%")
+                    with col4:
+                        st.metric("累计盈亏", f"${pnl:,.2f}")
                 
-                with col2:
-                    st.markdown(f"""
-                    <div style="background: linear-gradient(135deg, #1a1a2e, #16213e); padding: 15px; border-radius: 10px; border-left: 4px solid #24ae8f;">
-                        <div style="color: #888; font-size: 12px;">🟢 KuCoin</div>
-                        <div style="color: #24ae8f; font-size: 20px; font-weight: bold;">${price_b:,.2f}</div>
-                    </div>
-                    """, unsafe_allow_html=True)
+                # 图表区域
+                chart_col1, chart_col2 = st.columns([3, 2])
                 
-                with col3:
-                    st.markdown(f"""
-                    <div style="background: linear-gradient(135deg, #1a1a2e, #16213e); padding: 15px; border-radius: 10px; border-left: 4px solid #00aaff;">
-                        <div style="color: #888; font-size: 12px;">📊 价差</div>
-                        <div style="color: #00aaff; font-size: 20px; font-weight: bold;">{spread:.4f}%</div>
-                    </div>
-                    """, unsafe_allow_html=True)
-                
-                with col4:
-                    pnl_color = "#00ff88" if pnl >= 0 else "#ff4444"
-                    st.markdown(f"""
-                    <div style="background: linear-gradient(135deg, #1a1a2e, #16213e); padding: 15px; border-radius: 10px; border-left: 4px solid {pnl_color};">
-                        <div style="color: #888; font-size: 12px;">💰 累计盈亏</div>
-                        <div style="color: {pnl_color}; font-size: 20px; font-weight: bold;">${pnl:,.2f}</div>
-                    </div>
-                    """, unsafe_allow_html=True)
-            
-            st.markdown("<br>", unsafe_allow_html=True)
-            
-            # 图表区域
-            chart_col1, chart_col2 = st.columns([3, 2])
-            
-            with chart_col1:
-                st.markdown("#### 📈 价格走势")
-                
-                # 只显示到当前时间点的数据
-                display_start = max(0, time_idx - 100)
-                display_df = partial_df.iloc[display_start:]
+                with chart_col1:
+                    st.markdown("#### 价格走势")
+                    
+                    # 只显示到当前时间点的数据
+                    display_start = max(0, time_idx - 100)
+                    display_df = partial_df.iloc[display_start:]
                 
                 fig_price = go.Figure()
                 
@@ -1609,83 +1736,80 @@ def main():
                 )
                 
                 st.plotly_chart(fig_price, use_container_width=True, key=f"price_chart_{time_idx}")
-            
-            with chart_col2:
-                st.markdown("#### 💰 盈亏曲线")
                 
-                fig_pnl = go.Figure()
-                
-                if strategy == 'martingale':
-                    # 总盈亏
+                with chart_col2:
+                    st.markdown("#### 盈亏曲线")
+                    
+                    fig_pnl = go.Figure()
+                    
+                    if strategy == 'martingale':
+                        fig_pnl.add_trace(go.Scatter(
+                            x=partial_equity['timestamp'],
+                            y=partial_equity['total_pnl'],
+                            mode='lines',
+                            fill='tozeroy',
+                            line=dict(color='#ffd700', width=2),
+                            fillcolor='rgba(255, 215, 0, 0.15)',
+                            name='总盈亏'
+                        ))
+                        if 'realized_pnl' in partial_equity.columns:
+                            fig_pnl.add_trace(go.Scatter(
+                                x=partial_equity['timestamp'],
+                                y=partial_equity['realized_pnl'],
+                                mode='lines',
+                                line=dict(color='#00ff88', width=1.5, dash='dot'),
+                                name='已实现'
+                            ))
+                    else:
+                        fig_pnl.add_trace(go.Scatter(
+                            x=partial_equity['timestamp'],
+                            y=partial_equity['pnl'],
+                            mode='lines',
+                            fill='tozeroy',
+                            line=dict(color='#00aaff', width=2),
+                            fillcolor='rgba(0, 170, 255, 0.15)',
+                            name='累计盈亏'
+                        ))
+                    
+                    current_pnl = current_row['total_pnl'] if strategy == 'martingale' else current_row['pnl']
                     fig_pnl.add_trace(go.Scatter(
-                        x=partial_equity['timestamp'],
-                        y=partial_equity['total_pnl'],
-                        mode='lines',
-                        fill='tozeroy',
-                        line=dict(color='#ffd700', width=2),
-                        fillcolor='rgba(255, 215, 0, 0.15)',
-                        name='总盈亏'
+                        x=[current_time],
+                        y=[current_pnl],
+                        mode='markers',
+                        marker=dict(color='#ffd700', size=12, symbol='circle',
+                                   line=dict(color='white', width=2)),
+                        name='当前',
+                        showlegend=False
                     ))
                     
-                    # 已实现盈亏
-                    fig_pnl.add_trace(go.Scatter(
-                        x=partial_equity['timestamp'],
-                        y=partial_equity['realized_pnl'],
-                        mode='lines',
-                        line=dict(color='#00ff88', width=1.5, dash='dot'),
-                        name='已实现'
-                    ))
-                else:
-                    fig_pnl.add_trace(go.Scatter(
-                        x=partial_equity['timestamp'],
-                        y=partial_equity['pnl'],
-                        mode='lines',
-                        fill='tozeroy',
-                        line=dict(color='#00aaff', width=2),
-                        fillcolor='rgba(0, 170, 255, 0.15)',
-                        name='累计盈亏'
-                    ))
+                    fig_pnl.add_hline(y=0, line_dash="dash", line_color="white", opacity=0.3)
+                    
+                    fig_pnl.update_layout(
+                        template='plotly_dark',
+                        height=400,
+                        margin=dict(l=10, r=10, t=10, b=10),
+                        legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1),
+                        xaxis=dict(gridcolor='#333'),
+                        yaxis=dict(gridcolor='#333')
+                    )
+                    
+                    st.plotly_chart(fig_pnl, use_container_width=True, key=f"pnl_chart_{time_idx}")
                 
-                # 标记当前点
-                current_pnl = current_row['total_pnl'] if strategy == 'martingale' else current_row['pnl']
-                fig_pnl.add_trace(go.Scatter(
-                    x=[current_time],
-                    y=[current_pnl],
-                    mode='markers',
-                    marker=dict(color='#ffd700', size=12, symbol='circle',
-                               line=dict(color='white', width=2)),
-                    name='当前',
-                    showlegend=False
-                ))
-                
-                fig_pnl.add_hline(y=0, line_dash="dash", line_color="white", opacity=0.3)
-                
-                fig_pnl.update_layout(
-                    template='plotly_dark',
-                    height=400,
-                    margin=dict(l=10, r=10, t=10, b=10),
-                    legend=dict(orientation="h", yanchor="bottom", y=1, xanchor="right", x=1),
-                    xaxis=dict(gridcolor='#333'),
-                    yaxis=dict(gridcolor='#333')
-                )
-                
-                st.plotly_chart(fig_pnl, use_container_width=True, key=f"pnl_chart_{time_idx}")
-            
-            # 显示当前时间点之前的交易记录
-            st.markdown("#### 📋 最近交易")
-            if strategy == 'martingale' and not trades_df.empty:
-                recent_trades = trades_df[trades_df['timestamp'] <= current_time].tail(10)
-                if not recent_trades.empty:
-                    st.dataframe(recent_trades[['timestamp', 'type', 'price', 'size', 'level']], 
-                                use_container_width=True, hide_index=True)
-                else:
-                    st.info("暂无交易记录")
-            elif strategy == 'arbitrage' and not trades_df.empty:
-                recent_trades = trades_df[trades_df['timestamp'] <= current_time].tail(10)
-                if not recent_trades.empty:
-                    st.dataframe(recent_trades, use_container_width=True, hide_index=True)
-                else:
-                    st.info("暂无交易记录")
+                # 显示交易记录
+                st.markdown("#### 最近交易")
+                if strategy == 'martingale' and not trades_df.empty:
+                    recent_trades = trades_df[trades_df['timestamp'] <= current_time].tail(10)
+                    if not recent_trades.empty:
+                        st.dataframe(recent_trades[['timestamp', 'type', 'price', 'size', 'level']], 
+                                    use_container_width=True, hide_index=True)
+                    else:
+                        st.info("暂无交易记录")
+                elif strategy == 'arbitrage' and not trades_df.empty:
+                    recent_trades = trades_df[trades_df['timestamp'] <= current_time].tail(10)
+                    if not recent_trades.empty:
+                        st.dataframe(recent_trades, use_container_width=True, hide_index=True)
+                    else:
+                        st.info("暂无交易记录")
     
     else:
         # 欢迎页面
