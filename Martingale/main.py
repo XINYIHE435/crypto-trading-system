@@ -212,7 +212,8 @@ class DualMartingaleStrategy:
         self.current_atr: float = 0.0
         
         # 统计数据
-        self.total_realized_pnl: float = 0.0  # 累计已实现盈亏
+        self.total_realized_pnl: float = 0.0  # 当前轮次的已实现盈亏（平仓后清零）
+        self.cumulative_pnl: float = 0.0  # 所有轮次的累计盈亏（不清零，用于回测统计）
         self.trade_count: int = 0  # 交易次数
         
     def log(self, message: str):
@@ -299,25 +300,34 @@ class DualMartingaleStrategy:
         """
         检查是否超出仓位限制
         返回 True 表示允许开仓，False 表示已达到限制
-        """
-        state = self.long_state if direction == 'long' else self.short_state
         
+        PDF原文："总最大仓位限制（资金百分比或绝对值）"
+        要求：检查多空合计的总仓位，而非单方向仓位
+        """
         # 计算新增仓位价值
         new_position_value = new_size * current_price
-        current_position_value = state.total_size * current_price
-        total_position_value = current_position_value + new_position_value
         
-        # 检查绝对值限制
+        # 计算多空双向的当前总仓位价值
+        long_position_value = self.long_state.total_size * current_price
+        short_position_value = self.short_state.total_size * current_price
+        current_total_position_value = long_position_value + short_position_value
+        
+        # 加入新仓位后的总仓位价值
+        total_position_value = current_total_position_value + new_position_value
+        
+        # 检查绝对值限制（总仓位限制）
         if self.max_position_value is not None:
             if total_position_value > self.max_position_value:
-                self.log(f"⚠️ {direction} 方向仓位已达最大值限制: {self.max_position_value:.2f} USDT")
+                self.log(f"⚠️ 总仓位已达最大值限制: {total_position_value:.2f} > {self.max_position_value:.2f} USDT "
+                        f"(多:{long_position_value:.2f} + 空:{short_position_value:.2f} + 新:{new_position_value:.2f})")
                 return False
         
-        # 检查百分比限制
+        # 检查百分比限制（总仓位限制）
         if self.max_position_percent is not None:
             max_value = self.total_capital * (self.max_position_percent / 100.0)
             if total_position_value > max_value:
-                self.log(f"⚠️ {direction} 方向仓位已达百分比限制: {self.max_position_percent}% ({max_value:.2f} USDT)")
+                self.log(f"⚠️ 总仓位已达百分比限制: {self.max_position_percent}% ({max_value:.2f} USDT) "
+                        f"(当前总:{current_total_position_value:.2f} + 新:{new_position_value:.2f})")
                 return False
         
         return True
@@ -377,11 +387,22 @@ class DualMartingaleStrategy:
         
         return pnl
 
-    def calculate_total_pnl(self, current_price: float) -> float:
-        """计算总浮动盈亏"""
+    def calculate_total_pnl(self, current_price: float, include_realized: bool = False) -> float:
+        """
+        计算总盈亏
+        
+        参数:
+            include_realized: 是否包含已实现盈亏
+                - False: 只返回当前浮动盈亏（用于显示当前持仓状态）
+                - True: 返回总净盈亏 = 浮动盈亏 + 已实现盈亏（用于止盈判断）
+        """
         long_pnl = self.calculate_direction_pnl('long', current_price)
         short_pnl = self.calculate_direction_pnl('short', current_price)
-        return long_pnl + short_pnl
+        floating_pnl = long_pnl + short_pnl
+        
+        if include_realized:
+            return floating_pnl + self.total_realized_pnl
+        return floating_pnl
 
     def close_direction(self, direction: str, current_price: float, ratio: float = 1.0, reason: str = ""):
         """
@@ -458,7 +479,17 @@ class DualMartingaleStrategy:
         self.long_state.reset()
         self.short_state.reset()
         
-        self.total_realized_pnl += realized_pnl
+        # 本轮最终盈亏 = 当前浮动盈亏 + 本轮已实现盈亏（部分平仓）
+        round_total_pnl = realized_pnl + self.total_realized_pnl
+        
+        # 更新累计盈亏（所有轮次，不清零）
+        self.cumulative_pnl += round_total_pnl
+        
+        # 重置当前轮次的已实现盈亏（新一轮开始）
+        # 修复GPT指出的问题：防止历史盈亏影响新一轮的统一止盈判断
+        self.total_realized_pnl = 0.0
+        
+        self.log(f"📊 本轮盈亏: {round_total_pnl:.2f} | 累计盈亏: {self.cumulative_pnl:.2f}")
         
         # 根据基准价模式决定是否重设基准价
         if self.baseline_mode == BaselinePriceMode.DYNAMIC:
@@ -475,12 +506,19 @@ class DualMartingaleStrategy:
         """
         检查统一回本止盈
         条件：总净盈亏 ≥ 目标利润
+        
+        PDF原文："总净盈亏 ≥ 目标利润"
+        总净盈亏 = 当前浮动盈亏 + 已实现盈亏（历史平仓收益）
         """
-        total_pnl = self.calculate_total_pnl(current_price)
+        # 计算总净盈亏（包含已实现盈亏）
+        total_net_pnl = self.calculate_total_pnl(current_price, include_realized=True)
         has_positions = self.long_state.current_level > 0 or self.short_state.current_level > 0
         
-        if total_pnl >= self.target_profit and has_positions:
-            self.close_all(current_price, reason=f"统一止盈 (目标: {self.target_profit})")
+        if total_net_pnl >= self.target_profit and has_positions:
+            floating_pnl = self.calculate_total_pnl(current_price, include_realized=False)
+            self.close_all(current_price, 
+                          reason=f"统一止盈 (目标: {self.target_profit}, 净盈亏: {total_net_pnl:.2f}, "
+                                f"浮动: {floating_pnl:.2f}, 已实现: {self.total_realized_pnl:.2f})")
             return True
         return False
 
@@ -488,17 +526,26 @@ class DualMartingaleStrategy:
         """
         检查逐笔小止盈
         条件：每组对冲完成后小额获利
-        """
-        # 检查多头方向
-        long_pnl = self.calculate_direction_pnl('long', current_price)
-        if self.long_state.current_level > 0 and long_pnl >= self.per_trade_profit:
-            self.close_direction('long', current_price, reason=f"逐笔止盈 多头 (目标: {self.per_trade_profit})")
-            return True
         
-        # 检查空头方向
+        PDF原文："逐笔小止盈（每组对冲完成后小额获利）"
+        要求：多空两边都已开仓（形成对冲），然后总盈亏达到目标时止盈
+        """
+        # 检查是否对冲完成：多空两边都有持仓
+        has_long = self.long_state.current_level > 0
+        has_short = self.short_state.current_level > 0
+        
+        if not (has_long and has_short):
+            # 没有形成对冲，不触发逐笔止盈
+            return False
+        
+        # 对冲完成，计算总浮动盈亏
+        long_pnl = self.calculate_direction_pnl('long', current_price)
         short_pnl = self.calculate_direction_pnl('short', current_price)
-        if self.short_state.current_level > 0 and short_pnl >= self.per_trade_profit:
-            self.close_direction('short', current_price, reason=f"逐笔止盈 空头 (目标: {self.per_trade_profit})")
+        total_pnl = long_pnl + short_pnl
+        
+        if total_pnl >= self.per_trade_profit:
+            # 对冲回本+小利，全部平仓
+            self.close_all(current_price, reason=f"逐笔止盈 对冲完成 (目标: {self.per_trade_profit}, 盈亏: {total_pnl:.2f})")
             return True
         
         return False
@@ -553,6 +600,13 @@ class DualMartingaleStrategy:
         """
         检查单边部分止盈
         条件：单边达到一定盈利 → 部分止盈
+        
+        注意：此功能为可选扩展，不在标准止盈流程中自动调用。
+        如需使用，可在自定义策略中手动调用，或修改 check_take_profit 添加调用。
+        
+        参数：
+        - partial_profit_threshold: 单边部分止盈触发阈值
+        - partial_close_ratio: 部分平仓比例 (0.0-1.0)
         """
         triggered = False
         
@@ -593,18 +647,22 @@ class DualMartingaleStrategy:
         if self.check_stop_loss(current_price):
             return True
         
-        # 检查对冲止盈（如果多空都有持仓）
-        if self.check_hedge_take_profit(current_price):
-            return True
-        
         # 根据止盈模式执行
         if self.take_profit_mode == TakeProfitMode.UNIFIED:
+            # 统一止盈模式：先检查对冲止盈，再检查统一止盈
+            if self.check_hedge_take_profit(current_price):
+                return True
             return self.check_unified_take_profit(current_price)
         
         elif self.take_profit_mode == TakeProfitMode.PER_TRADE:
+            # 逐笔止盈模式：直接使用 per_trade_profit 作为目标
+            # 不再调用 check_hedge_take_profit 避免重复
             return self.check_per_trade_take_profit(current_price)
         
         elif self.take_profit_mode == TakeProfitMode.TIERED:
+            # 分层止盈模式：先检查对冲止盈，再检查分层止盈
+            if self.check_hedge_take_profit(current_price):
+                return True
             return self.check_tiered_take_profit(current_price)
         
         return False
@@ -655,17 +713,22 @@ class DualMartingaleStrategy:
         
         # 上涨区间处理 (高于基准+间距) → 开买单（多头）
         # PDF原文：上涨区间 → 检查上方网格线 → 是否到达下一买单线？→ 开买单（多头）
+        # 修复GPT指出的问题：如果价格跳过多层网格，需要补齐中间层级
         if price_diff > 0:
             grid_index = int(price_diff / grid_spacing)
-            if grid_index > self.long_state.current_level:
-                self.open_order('long', current_price)
+            # 循环开仓，补齐所有跳过的层级
+            while grid_index > self.long_state.current_level:
+                if not self.open_order('long', current_price):
+                    break  # 如果开仓失败（达到限制），停止循环
 
         # 下跌区间处理 (低于基准-间距) → 开卖单（空头）
         # PDF原文：下跌区间 → 检查下方网格线 → 是否到达下一卖单线？→ 开卖单（空头）
         elif price_diff < 0:
             grid_index = int(abs(price_diff) / grid_spacing)
-            if grid_index > self.short_state.current_level:
-                self.open_order('short', current_price)
+            # 循环开仓，补齐所有跳过的层级
+            while grid_index > self.short_state.current_level:
+                if not self.open_order('short', current_price):
+                    break  # 如果开仓失败（达到限制），停止循环
 
     def get_status(self, current_price: float) -> Dict:
         """获取当前策略状态"""
@@ -689,7 +752,8 @@ class DualMartingaleStrategy:
                 'pnl': self.calculate_direction_pnl('short', current_price)
             },
             'total_pnl': self.calculate_total_pnl(current_price),
-            'total_realized_pnl': self.total_realized_pnl,
+            'total_realized_pnl': self.total_realized_pnl,  # 当前轮次已实现
+            'cumulative_pnl': self.cumulative_pnl,  # 所有轮次累计
             'trade_count': self.trade_count,
             'current_atr': self.current_atr
         }

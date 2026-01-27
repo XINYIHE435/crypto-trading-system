@@ -26,6 +26,14 @@ from Martingale.main import (
     BaselinePriceMode
 )
 from src.arbitrage_system import ArbitrageSystem, ArbitrageConfig
+from src.data.data_aggregator import (
+    aggregate_data, 
+    OHLC_RULES, 
+    MEAN_RULES,
+    MARTINGALE_OHLC_RULES,
+    MARTINGALE_MEAN_RULES,
+    get_interval_minutes
+)
 
 # 页面配置
 st.set_page_config(
@@ -253,26 +261,57 @@ def render_stat_card(label: str, value: str, color: str = "#667eea"):
 # ==================== 数据加载函数 ====================
 
 @st.cache_data
-def load_kline_data(symbol: str, exchange: str = "binance") -> pd.DataFrame:
-    """加载K线数据"""
+def load_kline_data(symbol: str, exchange: str = "binance", 
+                    interval: str = "30T", agg_mode: str = "ohlc") -> pd.DataFrame:
+    """
+    加载K线数据，支持数据聚合
+    
+    参数:
+        symbol: 交易对
+        exchange: 交易所
+        interval: 目标K线间隔 (如 '30T', '1H', '4H')
+        agg_mode: 聚合模式 ('ohlc' 或 'mean')
+    """
     file_path = f"data/raw/klines/{exchange}_{symbol}_30m.csv"
     if not os.path.exists(file_path):
         return None
     
     df = pd.read_csv(file_path)
     df['timestamp'] = pd.to_datetime(df['timestamp'])
-    df = df.sort_values('timestamp').reset_index(drop=True)
+    df = df.sort_values('timestamp')
+    df.set_index('timestamp', inplace=True)
+    
+    # 如果目标间隔不是30分钟，进行聚合
+    if interval != '30T':
+        rules = MARTINGALE_OHLC_RULES if agg_mode == 'ohlc' else MARTINGALE_MEAN_RULES
+        df = aggregate_data(df, interval, rules)
+    
+    df = df.reset_index()
     return df
 
 
 @st.cache_data
-def load_aligned_data(symbol: str) -> pd.DataFrame:
-    """加载对齐后的数据（用于套利策略）"""
+def load_aligned_data(symbol: str, interval: str = "30T", 
+                      agg_mode: str = "ohlc") -> pd.DataFrame:
+    """
+    加载对齐后的数据（用于套利策略），支持数据聚合
+    
+    参数:
+        symbol: 交易对
+        interval: 目标K线间隔 (如 '30T', '1H', '4H')
+        agg_mode: 聚合模式 ('ohlc' 或 'mean')
+    """
     file_path = f"data/aligned/{symbol}_30m_aligned.csv"
     if not os.path.exists(file_path):
         return None
     
     df = pd.read_csv(file_path, index_col=0, parse_dates=True)
+    
+    # 如果目标间隔不是30分钟，进行聚合
+    if interval != '30T':
+        rules = OHLC_RULES if agg_mode == 'ohlc' else MEAN_RULES
+        df = aggregate_data(df, interval, rules)
+    
     df = df.reset_index()
     df.columns = ['timestamp'] + list(df.columns[1:])
     return df
@@ -827,7 +866,7 @@ def main():
         st.divider()
         
         # 数据选择
-        st.subheader("📊 数据设置")
+        st.subheader("数据设置")
         symbols = get_available_symbols()
         if not symbols:
             st.error("未找到数据文件，请先下载数据")
@@ -835,11 +874,43 @@ def main():
         
         selected_symbol = st.selectbox("交易对", symbols, index=0)
         
-        # 时间范围
+        # K线时间间隔选择
+        interval_options = {
+            "30分钟": "30T",
+            "1小时": "1H",
+            "2小时": "2H",
+            "4小时": "4H",
+            "6小时": "6H",
+            "8小时": "8H",
+            "12小时": "12H",
+            "1天": "1D"
+        }
+        selected_interval_label = st.selectbox(
+            "K线周期",
+            list(interval_options.keys()),
+            index=0,
+            help="将30分钟基础数据聚合为选定的时间周期"
+        )
+        selected_interval = interval_options[selected_interval_label]
+        
+        # 聚合模式选择
+        agg_mode_options = {
+            "标准K线 (OHLC)": "ohlc",
+            "平滑均值": "mean"
+        }
+        selected_agg_label = st.selectbox(
+            "聚合模式",
+            list(agg_mode_options.keys()),
+            index=0,
+            help="OHLC: 开高低收标准模式; 平滑均值: 取平均价格"
+        )
+        selected_agg_mode = agg_mode_options[selected_agg_label]
+        
+        # 时间范围（先加载原始数据获取时间范围）
         if strategy_type == "马丁双向策略":
-            df = load_kline_data(selected_symbol)
+            df = load_kline_data(selected_symbol, interval=selected_interval, agg_mode=selected_agg_mode)
         else:
-            df = load_aligned_data(selected_symbol)
+            df = load_aligned_data(selected_symbol, interval=selected_interval, agg_mode=selected_agg_mode)
         
         if df is None:
             st.error(f"无法加载 {selected_symbol} 数据")
@@ -929,7 +1000,7 @@ def main():
                 params['tiered_profit_ratios'] = {1: 0.3, 2: 0.5, 3: 0.7, 4: 1.0}
         
         else:  # 套利策略
-            st.subheader("🎯 套利策略参数")
+            st.subheader("套利策略参数")
             
             X = st.slider("价差阈值 X (%)", 0.01, 1.0, 0.04, 0.01)
             Y = st.slider("费率阈值 Y (%)", 0.001, 0.1, 0.003, 0.001)
@@ -937,9 +1008,14 @@ def main():
             Q = st.slider("止损阈值 Q (%)", 0.01, 0.5, 0.03, 0.01)
             leverage = st.slider("杠杆倍数", 1, 5, 3, 1)
             
+            # 根据选择的K线间隔计算分钟数
+            kline_minutes = get_interval_minutes(selected_interval)
+            
             config = ArbitrageConfig(
                 X=X, Y=Y, P=P, Q=Q,
                 A=0.01, B=0.001,
+                kline_interval=selected_interval,
+                kline_interval_minutes=kline_minutes,
                 initial_balance=10000.0,
                 position_size_pct=0.1,
                 transaction_fee=0.0002,
@@ -1813,13 +1889,13 @@ def main():
     
     else:
         # 欢迎页面
-        st.info("👈 请在左侧配置策略参数，然后点击「运行回测」开始分析")
+        st.info("请在左侧配置策略参数，然后点击「运行回测」开始分析")
         
         col1, col2 = st.columns(2)
         
         with col1:
             st.markdown("""
-            ### 🎯 马丁双向策略
+            ### 马丁双向策略
             
             双向马丁格尔策略同时在多空两个方向上建仓，通过网格交易捕捉市场波动收益。
             
@@ -1832,7 +1908,7 @@ def main():
         
         with col2:
             st.markdown("""
-            ### 💱 套利策略
+            ### 套利策略
             
             跨交易所套利策略，利用不同交易所间的价差和资金费率差异获利。
             

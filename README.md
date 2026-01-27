@@ -12,10 +12,10 @@
 - **马丁倍投机制**：普通层使用基础手数，马丁层倍数加仓
 - **三种止盈模式**：
   - 统一回本止盈（总盈亏≥目标）
-  - 逐笔小止盈（单方向达到目标）
+  - 逐笔小止盈（多空对冲完成后，合计盈亏达到目标）
   - 分层止盈（不同层级不同比例）
 - **风险管理**：
-  - 最大仓位限制（绝对值/百分比）
+  - 最大仓位限制（多空合计，绝对值/百分比）
   - 最大层数限制
   - 浮亏止损保护
 - **基准价模式**：动态基准 / 固定区间
@@ -32,8 +32,17 @@
 - **平仓条件**：12种平仓条件逻辑
 - **方向判断**：相同方向 / 不同方向
 - **资金费率结算**：每8小时自动结算
+- **边界处理**：当价差或费率差为 0 时，方向视为“不同方向”
 
-### 3. 可视化系统 (`visualization_app.py`)
+### 3. 数据聚合功能 (`src/data/data_aggregator.py`)
+
+用于将高频K线聚合为低频数据，支持自定义时间间隔与聚合规则：
+
+- **标准K线聚合**：OHLC + 成交量求和
+- **平滑均值聚合**：价格均值 + 成交量求和
+- **套利/马丁专用规则**：提供预设规则字典
+
+### 4. 可视化系统 (`visualization_app.py`)
 
 基于Streamlit的交互式可视化应用：
 
@@ -54,6 +63,7 @@ a-r/
 │   ├── arbitrage_system.py          # 套利系统核心 ⭐
 │   ├── data/
 │   │   ├── run_arbitrage_backtest.py    # 套利回测
+│   │   ├── data_aggregator.py           # 数据聚合工具
 │   │   └── funding_rate_loader.py       # 资金费率加载
 │   ├── visualization.py             # 基础可视化
 │   └── config.py                    # 配置管理
@@ -136,6 +146,27 @@ print(f'胜率: {results[\"win_rate\"]:.2%}')
 "
 ```
 
+### 4. 数据聚合示例
+
+```bash
+python -c "
+import pandas as pd
+from src.data.data_aggregator import aggregate_data, OHLC_RULES, MEAN_RULES
+
+# 读取对齐后的30分钟数据
+df = pd.read_csv('data/aligned/BTCUSDT_30m_aligned.csv', index_col=0, parse_dates=True)
+
+# 聚合为1小时（标准K线）
+df_1h = aggregate_data(df, '1H', OHLC_RULES)
+
+# 聚合为4小时（平滑均值）
+df_4h = aggregate_data(df, '4H', MEAN_RULES)
+
+print(df_1h.head())
+print(df_4h.head())
+"
+```
+
 ## 策略参数
 
 ### 马丁网格策略参数
@@ -162,6 +193,7 @@ print(f'胜率: {results[\"win_rate\"]:.2%}')
 | `M` | 不利持续时间 | 4h |
 | `P` | 盈利目标 | 0.3% |
 | `Q` | 止损阈值 | 0.5% |
+| `kline_interval_minutes` | K线分钟数 | 30 |
 
 ## 策略逻辑
 

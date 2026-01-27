@@ -130,6 +130,10 @@ class ArbitrageConfig:
     P: float = 0.3          # 价差盈利百分比
     Q: float = 0.5          # 价差亏损百分比
     
+    # K线时间间隔配置
+    kline_interval: str = '30T'       # K线时间间隔（如 '30T', '1H', '4H'）
+    kline_interval_minutes: int = 30  # K线间隔分钟数（与kline_interval保持同步）
+    
     # 其他配置
     initial_balance: float = 10000.0
     position_size_pct: float = 0.1    # 单次开仓占总资金百分比
@@ -139,6 +143,19 @@ class ArbitrageConfig:
     # 资金费率配置
     funding_settlement_hours: float = 8.0   # 资金费率结算周期（小时）
     funding_income_multiplier: float = 1.0  # 资金费率收益系数（用于模拟杠杆）
+    
+    def get_periods_for_hours(self, hours: int) -> int:
+        """
+        计算指定小时数对应的K线根数
+        
+        参数:
+            hours: 小时数
+        
+        返回:
+            K线根数
+        """
+        hours_in_minutes = hours * 60
+        return max(1, hours_in_minutes // self.kline_interval_minutes)
 
 
 class ArbitrageSystem:
@@ -174,11 +191,17 @@ class ArbitrageSystem:
         计算价差和方向
         
         返回：(价差绝对值, 价差百分比, 价差方向)
-        方向：1 表示 A > B, -1 表示 A < B
+        方向：1 表示 A > B, -1 表示 A < B, 0 表示相等（无套利机会）
         """
         spread = price_a - price_b
         spread_pct = abs(spread) / min(price_a, price_b) * 100
-        direction = 1 if spread > 0 else -1
+        # 边界处理：当价差为0时，方向为0（无套利方向）
+        if spread > 0:
+            direction = 1
+        elif spread < 0:
+            direction = -1
+        else:
+            direction = 0  # 价差为0，无方向
         return abs(spread), spread_pct, direction
 
     def calculate_funding_spread(self, funding_a: float, funding_b: float) -> Tuple[float, int]:
@@ -186,20 +209,29 @@ class ArbitrageSystem:
         计算资金费率差和方向
         
         返回：(资金费率差百分比, 方向)
-        方向：1 表示 A > B（做空A可以收取费率）, -1 表示 A < B
+        方向：1 表示 A > B（做空A可以收取费率）, -1 表示 A < B, 0 表示相等
         """
         spread = funding_a - funding_b
         spread_pct = abs(spread) * 100  # 转为百分比
-        direction = 1 if spread > 0 else -1
+        # 边界处理：当费率差为0时，方向为0
+        if spread > 0:
+            direction = 1
+        elif spread < 0:
+            direction = -1
+        else:
+            direction = 0  # 费率差为0，无方向
         return spread_pct, direction
 
     def check_direction(self, price_direction: int, funding_direction: int) -> Direction:
         """
         检查方向是否一致
         
-        相同方向：价差和资金费率差方向一致
-        不同方向：价差和资金费率差方向不一致
+        相同方向：价差和资金费率差方向一致（且都不为0）
+        不同方向：价差和资金费率差方向不一致（或任一为0）
         """
+        # 边界处理：如果任一方向为0，视为不同方向（无法判断套利方向）
+        if price_direction == 0 or funding_direction == 0:
+            return Direction.DIFFERENT
         if price_direction == funding_direction:
             return Direction.SAME
         return Direction.DIFFERENT
@@ -211,8 +243,8 @@ class ArbitrageSystem:
         
         注意：包含当前行，共N个数据点
         """
-        # 计算需要的行数（假设30分钟K线，N小时 = N*2 根K线）
-        periods = self.config.N * 2
+        # 根据K线间隔计算需要的行数
+        periods = self.config.get_periods_for_hours(self.config.N)
         start_idx = max(0, idx - periods + 1)
         
         historical_data = df.iloc[start_idx:idx + 1]
@@ -237,8 +269,8 @@ class ArbitrageSystem:
         
         注意：包含当前行，共N个数据点
         """
-        # 计算需要的行数
-        periods = self.config.N * 2
+        # 根据K线间隔计算需要的行数
+        periods = self.config.get_periods_for_hours(self.config.N)
         start_idx = max(0, idx - periods + 1)
         
         historical_data = df.iloc[start_idx:idx + 1]
@@ -482,10 +514,25 @@ class ArbitrageSystem:
             open_funding_spread_pct = abs(position.open_funding_spread) * 100
             
             # 检查是否需要支付资金费率：
-            # 条件b开仓时方向不同，套利持仓方向与资金费率方向相反
-            # 如果资金费率方向与开仓时相同，说明仍然需要支付
-            open_funding_direction = 1 if position.open_funding_spread > 0 else -1
-            need_to_pay_funding = (open_funding_direction == current_funding_direction)
+            # 根据套利方向（short_a_long_b）和当前资金费率方向直接判断
+            #
+            # 资金费率支付规则：
+            # - 做空A做多B (short_a_long_b=True):
+            #   - 若 funding_A > funding_B (方向=1): 收取费率（A的空头收费多）
+            #   - 若 funding_A < funding_B (方向=-1): 支付费率（B的多头付费多）
+            # - 做多A做空B (short_a_long_b=False):
+            #   - 若 funding_A > funding_B (方向=1): 支付费率（A的多头付费多）
+            #   - 若 funding_A < funding_B (方向=-1): 收取费率（B的空头收费多）
+            #
+            # 简化: 需要支付 = 套利方向与费率方向相反
+            # 边界处理：如果当前费率方向为0（费率差为0），则不需要支付
+            if current_funding_direction == 0:
+                need_to_pay_funding = False
+            else:
+                need_to_pay_funding = (
+                    (position.short_a_long_b and current_funding_direction == -1) or
+                    (not position.short_a_long_b and current_funding_direction == 1)
+                )
             
             if (need_to_pay_funding and 
                 open_funding_spread_pct < self.config.A and 
@@ -898,6 +945,11 @@ class ArbitrageSystem:
         # 检查是否已有该symbol的持仓
         existing_position = any(p.symbol == symbol for p in self.positions.values())
         if existing_position:
+            return
+        
+        # 修复GPT指出的问题：当任一方向为0时，禁止开仓
+        # 方向为0表示价差或费率差为0，无法确定套利方向
+        if price_direction == 0 or funding_direction == 0:
             return
         
         # 1. 检查组合套利（优先级最高）
