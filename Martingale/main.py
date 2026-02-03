@@ -281,20 +281,21 @@ class DualMartingaleStrategy:
         """
         计算下单手数
         普通层(1~N): base_size
-        马丁层(N+1): 上层手数 × multiplier
+        马丁层(N+1及以后): base_size × multiplier^(层级偏移)
+        
+        使用层级计算而非上一单实际手数，更健壮，不依赖运行时状态
         """
         state = self.long_state if direction == 'long' else self.short_state
-        level = state.current_level
+        level = state.current_level  # 当前层级（即将开的是 level+1）
         
         # 如果是第一单，或者还在普通层范围内
         if level < self.martingale_start_level:
             return self.base_size
         else:
-            # 获取上一单的手数进行倍投
-            if state.positions:
-                last_order_size = state.positions[-1].size
-                return round(last_order_size * self.multiplier, 6)
-            return self.base_size
+            # 根据层级计算马丁倍投手数
+            # 马丁层级偏移 = 当前层级 - 马丁起始层级 + 1
+            martingale_offset = level - self.martingale_start_level + 1
+            return round(self.base_size * (self.multiplier ** martingale_offset), 6)
 
     def check_position_limit(self, direction: str, new_size: float, current_price: float) -> bool:
         """
