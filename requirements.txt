@@ -13,3 +13,4 @@ ccxt
 matplotlib
 streamlit
 plotly
+wandb

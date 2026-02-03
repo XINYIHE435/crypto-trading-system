@@ -1,0 +1,12 @@
+{"time":"2026-02-03T18:38:56.128518+08:00","level":"INFO","msg":"stream: starting","core version":"0.24.1"}
+{"time":"2026-02-03T18:38:56.740636+08:00","level":"INFO","msg":"stream: created new stream","id":"uwumba3h"}
+{"time":"2026-02-03T18:38:56.740701+08:00","level":"INFO","msg":"handler: started","stream_id":"uwumba3h"}
+{"time":"2026-02-03T18:38:56.740959+08:00","level":"INFO","msg":"stream: started","id":"uwumba3h"}
+{"time":"2026-02-03T18:38:56.740967+08:00","level":"INFO","msg":"sender: started","stream_id":"uwumba3h"}
+{"time":"2026-02-03T18:38:56.740964+08:00","level":"INFO","msg":"writer: started","stream_id":"uwumba3h"}
+{"time":"2026-02-03T18:39:00.980043+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-02-03T18:39:01.887966+08:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2026-02-03T18:39:01.891459+08:00","level":"INFO","msg":"stream: closing","id":"uwumba3h"}
+{"time":"2026-02-03T18:39:01.89149+08:00","level":"INFO","msg":"handler: closed","stream_id":"uwumba3h"}
+{"time":"2026-02-03T18:39:01.891678+08:00","level":"INFO","msg":"sender: closed","stream_id":"uwumba3h"}
+{"time":"2026-02-03T18:39:01.891694+08:00","level":"INFO","msg":"stream: closed","id":"uwumba3h"}

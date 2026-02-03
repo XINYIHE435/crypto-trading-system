@@ -1,0 +1,25 @@
+2026-02-03 18:40:45,632 INFO    Thread-36 (_run_job):6592 [wandb_setup.py:_flush():81] Current SDK version is 0.24.1
+2026-02-03 18:40:45,632 INFO    Thread-36 (_run_job):6592 [wandb_setup.py:_flush():81] Configure stats pid to 6592
+2026-02-03 18:40:45,632 INFO    Thread-36 (_run_job):6592 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2026-02-03 18:40:45,632 INFO    Thread-36 (_run_job):6592 [wandb_init.py:setup_run_log_directory():717] Logging user logs to /Users/haojiang/Documents/2025/school/sitp/a-r/hyperparameter_tuning/wandb/run-20260203_184045-j5vo97yn/logs/debug.log
+2026-02-03 18:40:45,632 INFO    Thread-36 (_run_job):6592 [wandb_init.py:setup_run_log_directory():718] Logging internal logs to /Users/haojiang/Documents/2025/school/sitp/a-r/hyperparameter_tuning/wandb/run-20260203_184045-j5vo97yn/logs/debug-internal.log
+2026-02-03 18:40:45,632 INFO    Thread-36 (_run_job):6592 [wandb_init.py:init():844] calling init triggers
+2026-02-03 18:40:45,632 INFO    Thread-36 (_run_job):6592 [wandb_init.py:init():849] wandb.init called with sweep_config: {'A': 0.002, 'B': 0.001, 'M': 8, 'N': 8, 'P': 0.03, 'Q': 0.05, 'X': 0.005, 'Y': 0.015, 'initial_balance': 10000}
+config: {'_wandb': {}}
+2026-02-03 18:40:45,632 INFO    Thread-36 (_run_job):6592 [wandb_init.py:init():892] starting backend
+2026-02-03 18:40:45,851 INFO    Thread-36 (_run_job):6592 [wandb_init.py:init():895] sending inform_init request
+2026-02-03 18:40:45,854 INFO    Thread-36 (_run_job):6592 [wandb_init.py:init():903] backend started and connected
+2026-02-03 18:40:45,855 INFO    Thread-36 (_run_job):6592 [wandb_run.py:_config_callback():1404] config_cb None None {'A': 0.002, 'B': 0.001, 'M': 8, 'N': 8, 'P': 0.03, 'Q': 0.05, 'X': 0.005, 'Y': 0.015, 'initial_balance': 10000}
+2026-02-03 18:40:45,856 INFO    Thread-36 (_run_job):6592 [wandb_init.py:init():973] updated telemetry
+2026-02-03 18:40:45,885 INFO    Thread-36 (_run_job):6592 [wandb_init.py:init():997] communicating run to backend with 90.0 second timeout
+2026-02-03 18:40:46,926 INFO    Thread-36 (_run_job):6592 [wandb_init.py:init():1042] starting run threads in backend
+2026-02-03 18:40:46,966 INFO    Thread-36 (_run_job):6592 [wandb_run.py:_console_start():2529] atexit reg
+2026-02-03 18:40:46,966 INFO    Thread-36 (_run_job):6592 [wandb_run.py:_redirect():2377] redirect: wrap_raw
+2026-02-03 18:40:46,966 INFO    Thread-36 (_run_job):6592 [wandb_run.py:_redirect():2446] Wrapping output streams.
+2026-02-03 18:40:46,966 INFO    Thread-36 (_run_job):6592 [wandb_run.py:_redirect():2469] Redirects installed.
+2026-02-03 18:40:46,966 INFO    Thread-36 (_run_job):6592 [wandb_init.py:init():1082] run started, returning control to user process
+2026-02-03 18:40:48,705 INFO    Thread-36 (_run_job):6592 [wandb_run.py:_finish():2295] finishing run 1552429809-tongji-university/arbitrage-hyperparameter-tuning/j5vo97yn
+2026-02-03 18:40:48,705 INFO    Thread-36 (_run_job):6592 [wandb_run.py:_atexit_cleanup():2494] got exitcode: 0
+2026-02-03 18:40:48,705 INFO    Thread-36 (_run_job):6592 [wandb_run.py:_restore():2476] restore
+2026-02-03 18:40:48,705 INFO    Thread-36 (_run_job):6592 [wandb_run.py:_restore():2482] restore done
+2026-02-03 18:40:51,640 INFO    Thread-36 (_run_job):6592 [wandb_run.py:_footer_sync_info():3871] logging synced files

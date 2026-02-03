@@ -1,0 +1,12 @@
+{"time":"2026-02-03T18:40:34.976511+08:00","level":"INFO","msg":"stream: starting","core version":"0.24.1"}
+{"time":"2026-02-03T18:40:35.597247+08:00","level":"INFO","msg":"stream: created new stream","id":"aznodmo9"}
+{"time":"2026-02-03T18:40:35.597337+08:00","level":"INFO","msg":"handler: started","stream_id":"aznodmo9"}
+{"time":"2026-02-03T18:40:35.597653+08:00","level":"INFO","msg":"stream: started","id":"aznodmo9"}
+{"time":"2026-02-03T18:40:35.597667+08:00","level":"INFO","msg":"sender: started","stream_id":"aznodmo9"}
+{"time":"2026-02-03T18:40:35.597663+08:00","level":"INFO","msg":"writer: started","stream_id":"aznodmo9"}
+{"time":"2026-02-03T18:40:39.584323+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-02-03T18:40:40.732628+08:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2026-02-03T18:40:40.734775+08:00","level":"INFO","msg":"stream: closing","id":"aznodmo9"}
+{"time":"2026-02-03T18:40:40.734793+08:00","level":"INFO","msg":"handler: closed","stream_id":"aznodmo9"}
+{"time":"2026-02-03T18:40:40.734925+08:00","level":"INFO","msg":"sender: closed","stream_id":"aznodmo9"}
+{"time":"2026-02-03T18:40:40.734944+08:00","level":"INFO","msg":"stream: closed","id":"aznodmo9"}

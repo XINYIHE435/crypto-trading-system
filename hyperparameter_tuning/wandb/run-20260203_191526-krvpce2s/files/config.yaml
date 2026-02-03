@@ -1,0 +1,65 @@
+_wandb:
+    value:
+        cli_version: 0.24.1
+        e:
+            f2nxw32b77lqaalsgyky1ffkjsxnvgv1:
+                args:
+                    - new
+                    - --system
+                    - martingale
+                    - --mode
+                    - quick
+                    - --count
+                    - "20"
+                codePath: hyperparameter_tuning/run_sweep.py
+                codePathLocal: run_sweep.py
+                email: 1552429809@qq.com
+                executable: /opt/homebrew/Caskroom/miniconda/base/bin/python
+                git:
+                    commit: bbbf015a6b7b308c5f564fd560d8136fa90f4321
+                    remote: https://github.com/Color2333/a-r.git
+                host: HaodeMacBook-Air.local
+                os: macOS-26.2-arm64-arm-64bit-Mach-O
+                program: /Users/haojiang/Documents/2025/school/sitp/a-r/hyperparameter_tuning/run_sweep.py
+                python: CPython 3.13.11
+                root: /Users/haojiang/Documents/2025/school/sitp/a-r/hyperparameter_tuning
+                startedAt: "2026-02-03T11:15:26.534682Z"
+                writerId: f2nxw32b77lqaalsgyky1ffkjsxnvgv1
+        m: []
+        python_version: 3.13.11
+        t:
+            "3":
+                - 2
+                - 14
+            "4": 3.13.11
+            "5": 0.24.1
+            "12": 0.24.1
+            "13": darwin-arm64
+base_size:
+    value: 0.002
+baseline_mode:
+    value: 0
+grid_percentage:
+    value: 1
+grid_spacing_type:
+    value: 1
+grid_step:
+    value: 100
+martingale_start_level:
+    value: 2
+max_floating_loss:
+    value: 150
+max_levels:
+    value: 6
+max_position_value:
+    value: 1000
+multiplier:
+    value: 2.5
+per_trade_profit:
+    value: 3
+take_profit_mode:
+    value: 1
+target_profit:
+    value: 20
+total_capital:
+    value: 10000

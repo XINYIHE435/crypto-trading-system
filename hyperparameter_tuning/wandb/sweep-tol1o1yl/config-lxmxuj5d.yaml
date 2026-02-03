@@ -1,0 +1,20 @@
+wandb_version: 1
+
+A:
+  value: 0.01
+B:
+  value: 0.001
+M:
+  value: 8
+N:
+  value: 12
+P:
+  value: 0.03
+Q:
+  value: 0.03
+X:
+  value: 0.005
+Y:
+  value: 0.005
+initial_balance:
+  value: 10000

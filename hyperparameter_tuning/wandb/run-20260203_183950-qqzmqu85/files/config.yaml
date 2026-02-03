@@ -1,0 +1,70 @@
+_wandb:
+    value:
+        cli_version: 0.24.1
+        e:
+            2naidkqgbfydf5p54liuaxmgivm1rk5a:
+                apple:
+                    ecpuCores: 6
+                    gpuCores: 10
+                    memoryGb: 16
+                    name: Apple M4
+                    pcpuCores: 4
+                    ramTotalBytes: "17179869184"
+                args:
+                    - new
+                    - --system
+                    - arbitrage
+                    - --mode
+                    - quick
+                    - --count
+                    - "20"
+                codePath: hyperparameter_tuning/run_sweep.py
+                codePathLocal: run_sweep.py
+                cpu_count: 10
+                cpu_count_logical: 10
+                disk:
+                    /:
+                        total: "494384795648"
+                        used: "195294732288"
+                email: 1552429809@qq.com
+                executable: /opt/homebrew/Caskroom/miniconda/base/bin/python
+                git:
+                    commit: bbbf015a6b7b308c5f564fd560d8136fa90f4321
+                    remote: https://github.com/Color2333/a-r.git
+                host: HaodeMacBook-Air.local
+                memory:
+                    total: "17179869184"
+                os: macOS-26.2-arm64-arm-64bit-Mach-O
+                program: /Users/haojiang/Documents/2025/school/sitp/a-r/hyperparameter_tuning/run_sweep.py
+                python: CPython 3.13.11
+                root: /Users/haojiang/Documents/2025/school/sitp/a-r/hyperparameter_tuning
+                startedAt: "2026-02-03T10:39:50.797071Z"
+                writerId: 2naidkqgbfydf5p54liuaxmgivm1rk5a
+        m: []
+        python_version: 3.13.11
+        t:
+            "3":
+                - 2
+                - 14
+            "4": 3.13.11
+            "5": 0.24.1
+            "12": 0.24.1
+            "13": darwin-arm64
+A:
+    value: 0.005
+B:
+    value: 0.003
+M:
+    value: 4
+"N":
+    value: 12
+P:
+    value: 0.05
+Q:
+    value: 0.1
+X:
+    value: 0.04
+"Y":
+    value: 0.002
+initial_balance:
+    value: 10000

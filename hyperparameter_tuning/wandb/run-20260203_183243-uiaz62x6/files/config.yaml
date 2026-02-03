@@ -1,0 +1,55 @@
+_wandb:
+    value:
+        cli_version: 0.24.1
+        e:
+            i2z1f92pwlm9kg015pbzfqypw9k7pi7b:
+                args:
+                    - new
+                    - --system
+                    - arbitrage
+                    - --mode
+                    - quick
+                    - --count
+                    - "20"
+                codePath: hyperparameter_tuning/run_sweep.py
+                codePathLocal: run_sweep.py
+                email: 1552429809@qq.com
+                executable: /opt/homebrew/Caskroom/miniconda/base/bin/python
+                git:
+                    commit: bbbf015a6b7b308c5f564fd560d8136fa90f4321
+                    remote: https://github.com/Color2333/a-r.git
+                host: HaodeMacBook-Air.local
+                os: macOS-26.2-arm64-arm-64bit-Mach-O
+                program: /Users/haojiang/Documents/2025/school/sitp/a-r/hyperparameter_tuning/run_sweep.py
+                python: CPython 3.13.11
+                root: /Users/haojiang/Documents/2025/school/sitp/a-r/hyperparameter_tuning
+                startedAt: "2026-02-03T10:32:43.518194Z"
+                writerId: i2z1f92pwlm9kg015pbzfqypw9k7pi7b
+        m: []
+        python_version: 3.13.11
+        t:
+            "3":
+                - 2
+                - 14
+            "4": 3.13.11
+            "5": 0.24.1
+            "12": 0.24.1
+            "13": darwin-arm64
+A:
+    value: 0.1
+B:
+    value: 0.08
+M:
+    value: 6
+"N":
+    value: 8
+P:
+    value: 0.2
+Q:
+    value: 0.5
+X:
+    value: 0.8
+"Y":
+    value: 0.1
+initial_balance:
+    value: 10000

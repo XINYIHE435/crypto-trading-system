@@ -1,0 +1,30 @@
+wandb_version: 1
+
+base_size:
+  value: 0.002
+baseline_mode:
+  value: 1
+grid_percentage:
+  value: 0.5
+grid_spacing_type:
+  value: 0
+grid_step:
+  value: 200
+martingale_start_level:
+  value: 2
+max_floating_loss:
+  value: 200
+max_levels:
+  value: 6
+max_position_value:
+  value: 500
+multiplier:
+  value: 1.5
+per_trade_profit:
+  value: 5
+take_profit_mode:
+  value: 0
+target_profit:
+  value: 10
+total_capital:
+  value: 10000

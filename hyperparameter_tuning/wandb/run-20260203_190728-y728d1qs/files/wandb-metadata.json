@@ -1,0 +1,26 @@
+{
+  "os":  "macOS-26.2-arm64-arm-64bit-Mach-O",
+  "python":  "CPython 3.13.11",
+  "startedAt":  "2026-02-03T11:07:28.968192Z",
+  "args":  [
+    "new",
+    "--system",
+    "martingale",
+    "--mode",
+    "quick",
+    "--count",
+    "20"
+  ],
+  "program":  "/Users/haojiang/Documents/2025/school/sitp/a-r/hyperparameter_tuning/run_sweep.py",
+  "codePath":  "hyperparameter_tuning/run_sweep.py",
+  "codePathLocal":  "run_sweep.py",
+  "git":  {
+    "remote":  "https://github.com/Color2333/a-r.git",
+    "commit":  "bbbf015a6b7b308c5f564fd560d8136fa90f4321"
+  },
+  "email":  "1552429809@qq.com",
+  "root":  "/Users/haojiang/Documents/2025/school/sitp/a-r/hyperparameter_tuning",
+  "host":  "HaodeMacBook-Air.local",
+  "executable":  "/opt/homebrew/Caskroom/miniconda/base/bin/python",
+  "writerId":  "mfn4jfm4anxq9uef2obcu1hnxa502r91"
+}

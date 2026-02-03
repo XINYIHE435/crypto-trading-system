@@ -1,0 +1,1 @@
+{"cumulative_pnl":0,"_timestamp":1.770116765093049e+09,"_wandb":{"runtime":0},"step":1000,"current_pnl":35.045499999999954,"sharpe_ratio":-0.45781554577870875,"_runtime":0,"final_short_level":0,"short_level":0,"total_trades":1,"max_drawdown":-10.657000000000044,"long_level":1,"_step":1,"final_long_level":1,"total_pnl":-5.733000000000029,"trade_count":1}

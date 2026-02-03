@@ -1,0 +1,1045 @@
+  加载 BTCUSDT: 1424 行, 列: ['binance_open', 'binance_high', 'binance_low', 'binance_close', 'binance_volume']...
+  BTCUSDT 列检测: {'price_col_a': 'binance_close', 'price_col_b': 'kucoin_close', 'funding_col_a': 'binance_funding_rate', 'funding_col_b': 'kucoin_funding_rate'}
+2026-02-03 18:37:51,483 - INFO - 套利系统初始化完成
+2026-02-03 18:37:51,483 - INFO - 参数: X=0.04%, Y=0.01%, A=0.002%, B=0.001%, N=6h, M=6h, P=0.02%, Q=0.1%
+2026-02-03 18:37:51,483 - INFO - 开始回测: BTCUSDT
+2026-02-03 18:37:51,483 - INFO - 数据范围: 2025-12-27 12:00:00 至 2026-01-26 03:30:00
+2026-02-03 18:37:51,483 - INFO - 数据点数: 1424
+2026-02-03 18:37:51,483 - INFO - 处理进度: 0/1424 | 持仓: 0 | 已平仓: 0 | 盈亏: 0.00
+2026-02-03 18:37:51,538 - INFO - 📈 开仓 [funding_rate] condition_b | BTCUSDT | 做多A做空B | 价差方向: different | 价差: 0.001% | 费率差: 0.0104%
+2026-02-03 18:37:51,539 - INFO - 📉 平仓 [funding_rate] | BTCUSDT | 做多A做空B | 原因: funding_converge | 盈亏: -3.97 (手续费: 4.01) | 费率收益: 0.00 (0次结算) | 持仓时间: 2.5h
+2026-02-03 18:37:51,546 - INFO - 📈 开仓 [funding_rate] condition_a | BTCUSDT | 做空A做多B | 价差方向: same | 价差: 0.006% | 费率差: 0.0124%
+2026-02-03 18:37:51,550 - INFO - 📉 平仓 [funding_rate] | BTCUSDT | 做空A做多B | 原因: funding_converge | 盈亏: -4.02 (手续费: 3.98) | 费率收益: 0.05 (1次结算) | 持仓时间: 10.5h
+2026-02-03 18:37:51,563 - INFO - 📈 开仓 [funding_rate] condition_a | BTCUSDT | 做空A做多B | 价差方向: same | 价差: 0.004% | 费率差: 0.0114%
+2026-02-03 18:37:51,574 - INFO - 📉 平仓 [funding_rate] | BTCUSDT | 做空A做多B | 原因: funding_converge | 盈亏: -3.78 (手续费: 4.01) | 费率收益: 0.15 (4次结算) | 持仓时间: 34.5h
+2026-02-03 18:37:51,616 - INFO - 📈 开仓 [funding_rate] condition_b | BTCUSDT | 做多A做空B | 价差方向: different | 价差: 0.000% | 费率差: 0.0110%
+2026-02-03 18:37:51,623 - INFO - 📉 平仓 [funding_rate] | BTCUSDT | 做多A做空B | 原因: funding_converge | 盈亏: -4.12 (手续费: 3.99) | 费率收益: -0.09 (2次结算) | 持仓时间: 18.5h
+2026-02-03 18:37:51,625 - INFO - 处理进度: 1000/1424 | 持仓: 0 | 已平仓: 4 | 盈亏: -15.88
+2026-02-03 18:37:51,684 - INFO -
+============================================================
+2026-02-03 18:37:51,685 - INFO - 回测完成
+2026-02-03 18:37:51,685 - INFO - ============================================================
+2026-02-03 18:37:51,685 - INFO - 总交易次数: 4
+2026-02-03 18:37:51,685 - INFO - 总盈亏: -15.88
+2026-02-03 18:37:51,685 - INFO - 收益率: -0.16%
+2026-02-03 18:37:51,685 - INFO - 胜率: 0.00%
+  BTCUSDT 回测完成: 4 笔交易
+  加载 ETHUSDT: 1440 行, 列: ['binance_open', 'binance_high', 'binance_low', 'binance_close', 'binance_volume']...
+  ETHUSDT 列检测: {'price_col_a': 'binance_close', 'price_col_b': 'kucoin_close', 'funding_col_a': 'binance_funding_rate', 'funding_col_b': 'kucoin_funding_rate'}
+2026-02-03 18:37:51,688 - INFO - 套利系统初始化完成
+2026-02-03 18:37:51,688 - INFO - 参数: X=0.04%, Y=0.01%, A=0.002%, B=0.001%, N=6h, M=6h, P=0.02%, Q=0.1%
+2026-02-03 18:37:51,688 - INFO - 开始回测: ETHUSDT
+2026-02-03 18:37:51,688 - INFO - 数据范围: 2025-12-27 04:00:00 至 2026-01-26 03:30:00
+2026-02-03 18:37:51,688 - INFO - 数据点数: 1440
+2026-02-03 18:37:51,689 - INFO - 处理进度: 0/1440 | 持仓: 0 | 已平仓: 0 | 盈亏: 0.00
+2026-02-03 18:37:51,689 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.046% | 费率差: -0.0072%
+2026-02-03 18:37:51,690 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.85 (手续费: 4.00) | 持仓时间: 0.5h
+2026-02-03 18:37:51,690 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.044% | 费率差: -0.0072%
+2026-02-03 18:37:51,691 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.99 (手续费: 4.00) | 持仓时间: 1.5h
+2026-02-03 18:37:51,691 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.047% | 费率差: -0.0072%
+2026-02-03 18:37:51,691 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.90 (手续费: 4.00) | 持仓时间: 0.5h
+2026-02-03 18:37:51,692 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.042% | 费率差: -0.0072%
+2026-02-03 18:37:51,692 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.96 (手续费: 4.00) | 持仓时间: 0.5h
+2026-02-03 18:37:51,693 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.045% | 费率差: -0.0072%
+2026-02-03 18:37:51,693 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.79 (手续费: 3.99) | 持仓时间: 0.5h
+2026-02-03 18:37:51,694 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.047% | 费率差: -0.0072%
+2026-02-03 18:37:51,694 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.81 (手续费: 3.99) | 持仓时间: 0.5h
+2026-02-03 18:37:51,694 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.041% | 费率差: -0.0072%
+2026-02-03 18:37:51,694 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.92 (手续费: 3.99) | 持仓时间: 0.5h
+2026-02-03 18:37:51,695 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.042% | 费率差: -0.0072%
+2026-02-03 18:37:51,695 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.94 (手续费: 3.99) | 持仓时间: 1.5h
+2026-02-03 18:37:51,697 - INFO - 📈 开仓 [combined] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.042% | 费率差: -0.0100%
+2026-02-03 18:37:51,700 - INFO - 📉 平仓 [combined] | ETHUSDT | 做多A做空B | 原因: spread_profit | 盈亏: -3.76 (手续费: 3.99) | 费率收益: 0.00 (0次结算) | 持仓时间: 7.5h
+2026-02-03 18:37:51,701 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.040% | 费率差: -0.0075%
+2026-02-03 18:37:51,701 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.88 (手续费: 3.99) | 持仓时间: 0.5h
+2026-02-03 18:37:51,709 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.041% | 费率差: -0.0011%
+2026-02-03 18:37:51,709 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.97 (手续费: 4.01) | 持仓时间: 1.0h
+2026-02-03 18:37:51,711 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.049% | 费率差: -0.0018%
+2026-02-03 18:37:51,711 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.91 (手续费: 3.98) | 持仓时间: 0.5h
+2026-02-03 18:37:51,711 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.041% | 费率差: -0.0018%
+2026-02-03 18:37:51,712 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.89 (手续费: 3.98) | 持仓时间: 0.5h
+2026-02-03 18:37:51,712 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.062% | 费率差: -0.0018%
+2026-02-03 18:37:51,712 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.79 (手续费: 3.98) | 持仓时间: 0.5h
+2026-02-03 18:37:51,712 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.044% | 费率差: -0.0018%
+2026-02-03 18:37:51,712 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.84 (手续费: 3.96) | 持仓时间: 0.5h
+2026-02-03 18:37:51,714 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.042% | 费率差: -0.0018%
+2026-02-03 18:37:51,714 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.92 (手续费: 3.98) | 持仓时间: 1.0h
+2026-02-03 18:37:51,722 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.043% | 费率差: -0.0081%
+2026-02-03 18:37:51,722 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.79 (手续费: 3.98) | 持仓时间: 0.5h
+2026-02-03 18:37:51,723 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.040% | 费率差: -0.0081%
+2026-02-03 18:37:51,724 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.88 (手续费: 3.97) | 持仓时间: 0.5h
+2026-02-03 18:37:51,725 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.046% | 费率差: -0.0081%
+2026-02-03 18:37:51,725 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.70 (手续费: 3.97) | 持仓时间: 0.5h
+2026-02-03 18:37:51,726 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.043% | 费率差: -0.0081%
+2026-02-03 18:37:51,726 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.89 (手续费: 3.97) | 持仓时间: 0.5h
+2026-02-03 18:37:51,729 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.048% | 费率差: -0.0030%
+2026-02-03 18:37:51,729 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.87 (手续费: 3.96) | 持仓时间: 0.5h
+2026-02-03 18:37:51,729 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.048% | 费率差: -0.0030%
+2026-02-03 18:37:51,729 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.82 (手续费: 3.97) | 持仓时间: 0.5h
+2026-02-03 18:37:51,731 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.049% | 费率差: -0.0030%
+2026-02-03 18:37:51,731 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.74 (手续费: 3.95) | 持仓时间: 1.0h
+2026-02-03 18:37:51,732 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.040% | 费率差: -0.0068%
+2026-02-03 18:37:51,732 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.91 (手续费: 3.96) | 持仓时间: 0.5h
+2026-02-03 18:37:51,733 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.050% | 费率差: -0.0068%
+2026-02-03 18:37:51,733 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.67 (手续费: 3.96) | 持仓时间: 0.5h
+2026-02-03 18:37:51,734 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.042% | 费率差: -0.0068%
+2026-02-03 18:37:51,735 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.85 (手续费: 3.97) | 持仓时间: 2.0h
+2026-02-03 18:37:51,736 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.041% | 费率差: -0.0081%
+2026-02-03 18:37:51,736 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.89 (手续费: 3.96) | 持仓时间: 1.0h
+2026-02-03 18:37:51,737 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.047% | 费率差: -0.0081%
+2026-02-03 18:37:51,737 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.92 (手续费: 3.96) | 持仓时间: 0.5h
+2026-02-03 18:37:51,737 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.043% | 费率差: -0.0081%
+2026-02-03 18:37:51,737 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.93 (手续费: 3.96) | 持仓时间: 1.5h
+2026-02-03 18:37:51,738 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.046% | 费率差: -0.0081%
+2026-02-03 18:37:51,738 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.91 (手续费: 3.96) | 持仓时间: 0.5h
+2026-02-03 18:37:51,738 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.042% | 费率差: -0.0081%
+2026-02-03 18:37:51,739 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.92 (手续费: 3.96) | 持仓时间: 0.5h
+2026-02-03 18:37:51,741 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.042% | 费率差: -0.0081%
+2026-02-03 18:37:51,741 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.77 (手续费: 3.95) | 持仓时间: 1.5h
+2026-02-03 18:37:51,747 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.040% | 费率差: -0.0043%
+2026-02-03 18:37:51,747 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.86 (手续费: 3.95) | 持仓时间: 0.5h
+2026-02-03 18:37:51,763 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.054% | 费率差: -0.0058%
+2026-02-03 18:37:51,764 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.77 (手续费: 3.95) | 持仓时间: 0.5h
+2026-02-03 18:37:51,764 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.043% | 费率差: -0.0058%
+2026-02-03 18:37:51,764 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.93 (手续费: 3.95) | 持仓时间: 0.5h
+2026-02-03 18:37:51,764 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.041% | 费率差: -0.0058%
+2026-02-03 18:37:51,765 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.93 (手续费: 3.94) | 持仓时间: 1.0h
+2026-02-03 18:37:51,765 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.045% | 费率差: -0.0058%
+2026-02-03 18:37:51,765 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.80 (手续费: 3.94) | 持仓时间: 0.5h
+2026-02-03 18:37:51,767 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.041% | 费率差: -0.0061%
+2026-02-03 18:37:51,767 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.91 (手续费: 3.94) | 持仓时间: 0.5h
+2026-02-03 18:37:51,767 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.046% | 费率差: -0.0061%
+2026-02-03 18:37:51,768 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.88 (手续费: 3.94) | 持仓时间: 0.5h
+2026-02-03 18:37:51,768 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.041% | 费率差: -0.0061%
+2026-02-03 18:37:51,768 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.86 (手续费: 3.95) | 持仓时间: 1.5h
+2026-02-03 18:37:51,769 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.043% | 费率差: -0.0061%
+2026-02-03 18:37:51,769 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.93 (手续费: 3.94) | 持仓时间: 0.5h
+2026-02-03 18:37:51,769 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.042% | 费率差: -0.0061%
+2026-02-03 18:37:51,770 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.80 (手续费: 3.94) | 持仓时间: 0.5h
+2026-02-03 18:37:51,770 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.047% | 费率差: -0.0061%
+2026-02-03 18:37:51,770 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.81 (手续费: 3.94) | 持仓时间: 0.5h
+2026-02-03 18:37:51,779 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.062% | 费率差: -0.0036%
+2026-02-03 18:37:51,779 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.71 (手续费: 3.92) | 持仓时间: 0.5h
+2026-02-03 18:37:51,779 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.041% | 费率差: -0.0036%
+2026-02-03 18:37:51,779 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.81 (手续费: 3.93) | 持仓时间: 0.5h
+2026-02-03 18:37:51,780 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.046% | 费率差: -0.0036%
+2026-02-03 18:37:51,780 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.65 (手续费: 3.93) | 持仓时间: 0.5h
+2026-02-03 18:37:51,784 - INFO - 📈 开仓 [price_spread] condition_b | ETHUSDT | 做多A做空B | 价差方向: different | 价差: 0.056% | 费率差: 0.0001%
+2026-02-03 18:37:51,785 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.69 (手续费: 3.93) | 持仓时间: 0.5h
+2026-02-03 18:37:51,785 - INFO - 📈 开仓 [price_spread] condition_b | ETHUSDT | 做多A做空B | 价差方向: different | 价差: 0.049% | 费率差: 0.0001%
+2026-02-03 18:37:51,785 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.85 (手续费: 3.94) | 持仓时间: 0.5h
+2026-02-03 18:37:51,786 - INFO - 📈 开仓 [price_spread] condition_b | ETHUSDT | 做多A做空B | 价差方向: different | 价差: 0.051% | 费率差: 0.0001%
+2026-02-03 18:37:51,786 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.88 (手续费: 3.93) | 持仓时间: 0.5h
+2026-02-03 18:37:51,786 - INFO - 📈 开仓 [price_spread] condition_b | ETHUSDT | 做多A做空B | 价差方向: different | 价差: 0.046% | 费率差: 0.0001%
+2026-02-03 18:37:51,786 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.94 (手续费: 3.94) | 持仓时间: 0.5h
+2026-02-03 18:37:51,786 - INFO - 📈 开仓 [price_spread] condition_b | ETHUSDT | 做多A做空B | 价差方向: different | 价差: 0.046% | 费率差: 0.0001%
+2026-02-03 18:37:51,787 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.77 (手续费: 3.95) | 持仓时间: 1.0h
+2026-02-03 18:37:51,787 - INFO - 📈 开仓 [price_spread] condition_b | ETHUSDT | 做多A做空B | 价差方向: different | 价差: 0.043% | 费率差: 0.0001%
+2026-02-03 18:37:51,787 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.51 (手续费: 3.92) | 持仓时间: 0.5h
+2026-02-03 18:37:51,788 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.056% | 费率差: -0.0052%
+2026-02-03 18:37:51,788 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.40 (手续费: 3.92) | 持仓时间: 0.5h
+2026-02-03 18:37:51,788 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.057% | 费率差: -0.0052%
+2026-02-03 18:37:51,789 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.81 (手续费: 3.92) | 持仓时间: 0.5h
+2026-02-03 18:37:51,789 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.045% | 费率差: -0.0052%
+2026-02-03 18:37:51,789 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.77 (手续费: 3.93) | 持仓时间: 0.5h
+2026-02-03 18:37:51,789 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.043% | 费率差: -0.0052%
+2026-02-03 18:37:51,789 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.79 (手续费: 3.91) | 持仓时间: 0.5h
+2026-02-03 18:37:51,790 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.042% | 费率差: -0.0052%
+2026-02-03 18:37:51,790 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.85 (手续费: 3.91) | 持仓时间: 0.5h
+2026-02-03 18:37:51,791 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.045% | 费率差: -0.0052%
+2026-02-03 18:37:51,791 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.80 (手续费: 3.92) | 持仓时间: 0.5h
+2026-02-03 18:37:51,806 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.058% | 费率差: -0.0100%
+2026-02-03 18:37:51,807 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.73 (手续费: 3.92) | 持仓时间: 0.5h
+2026-02-03 18:37:51,807 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.049% | 费率差: -0.0100%
+2026-02-03 18:37:51,808 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.90 (手续费: 3.91) | 持仓时间: 0.5h
+2026-02-03 18:37:51,808 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.049% | 费率差: -0.0100%
+2026-02-03 18:37:51,809 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.90 (手续费: 3.91) | 持仓时间: 2.5h
+2026-02-03 18:37:51,809 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.051% | 费率差: -0.0100%
+2026-02-03 18:37:51,809 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.80 (手续费: 3.91) | 持仓时间: 1.0h
+2026-02-03 18:37:51,810 - INFO - 📈 开仓 [price_spread] condition_b | ETHUSDT | 做多A做空B | 价差方向: different | 价差: 0.048% | 费率差: 0.0007%
+2026-02-03 18:37:51,810 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.77 (手续费: 3.89) | 持仓时间: 0.5h
+2026-02-03 18:37:51,811 - INFO - 📈 开仓 [price_spread] condition_b | ETHUSDT | 做多A做空B | 价差方向: different | 价差: 0.046% | 费率差: 0.0007%
+2026-02-03 18:37:51,811 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.82 (手续费: 3.90) | 持仓时间: 0.5h
+2026-02-03 18:37:51,812 - INFO - 📈 开仓 [price_spread] condition_b | ETHUSDT | 做多A做空B | 价差方向: different | 价差: 0.042% | 费率差: 0.0007%
+2026-02-03 18:37:51,812 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.90 (手续费: 3.91) | 持仓时间: 0.5h
+2026-02-03 18:37:51,812 - INFO - 📈 开仓 [price_spread] condition_b | ETHUSDT | 做多A做空B | 价差方向: different | 价差: 0.041% | 费率差: 0.0007%
+2026-02-03 18:37:51,812 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.89 (手续费: 3.90) | 持仓时间: 0.5h
+2026-02-03 18:37:51,812 - INFO - 📈 开仓 [price_spread] condition_b | ETHUSDT | 做多A做空B | 价差方向: different | 价差: 0.040% | 费率差: 0.0007%
+2026-02-03 18:37:51,813 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.87 (手续费: 3.89) | 持仓时间: 0.5h
+2026-02-03 18:37:51,821 - INFO - 📈 开仓 [price_spread] condition_b | ETHUSDT | 做多A做空B | 价差方向: different | 价差: 0.040% | 费率差: 0.0001%
+2026-02-03 18:37:51,821 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.70 (手续费: 3.90) | 持仓时间: 0.5h
+2026-02-03 18:37:51,821 - INFO - 📈 开仓 [price_spread] condition_b | ETHUSDT | 做多A做空B | 价差方向: different | 价差: 0.050% | 费率差: 0.0001%
+2026-02-03 18:37:51,822 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.74 (手续费: 3.90) | 持仓时间: 0.5h
+2026-02-03 18:37:51,833 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.046% | 费率差: -0.0041%
+2026-02-03 18:37:51,833 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.67 (手续费: 3.89) | 持仓时间: 0.5h
+2026-02-03 18:37:51,835 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.047% | 费率差: -0.0029%
+2026-02-03 18:37:51,835 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.78 (手续费: 3.89) | 持仓时间: 0.5h
+2026-02-03 18:37:51,836 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.053% | 费率差: -0.0028%
+2026-02-03 18:37:51,836 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.72 (手续费: 3.89) | 持仓时间: 0.5h
+2026-02-03 18:37:51,837 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.048% | 费率差: -0.0028%
+2026-02-03 18:37:51,838 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.71 (手续费: 3.89) | 持仓时间: 0.5h
+2026-02-03 18:37:51,838 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.042% | 费率差: -0.0028%
+2026-02-03 18:37:51,838 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.85 (手续费: 3.91) | 持仓时间: 0.5h
+2026-02-03 18:37:51,839 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.044% | 费率差: -0.0028%
+2026-02-03 18:37:51,839 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.65 (手续费: 3.90) | 持仓时间: 0.5h
+2026-02-03 18:37:51,845 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.041% | 费率差: -0.0018%
+2026-02-03 18:37:51,846 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.88 (手续费: 3.89) | 持仓时间: 1.0h
+2026-02-03 18:37:51,846 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.040% | 费率差: -0.0018%
+2026-02-03 18:37:51,847 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.86 (手续费: 3.88) | 持仓时间: 1.5h
+2026-02-03 18:37:51,847 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.042% | 费率差: -0.0018%
+2026-02-03 18:37:51,847 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.87 (手续费: 3.88) | 持仓时间: 0.5h
+2026-02-03 18:37:51,848 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.041% | 费率差: -0.0018%
+2026-02-03 18:37:51,848 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.78 (手续费: 3.88) | 持仓时间: 0.5h
+2026-02-03 18:37:51,848 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.053% | 费率差: -0.0018%
+2026-02-03 18:37:51,848 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.73 (手续费: 3.88) | 持仓时间: 0.5h
+2026-02-03 18:37:51,849 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.051% | 费率差: -0.0018%
+2026-02-03 18:37:51,849 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.86 (手续费: 3.87) | 持仓时间: 0.5h
+2026-02-03 18:37:51,849 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.050% | 费率差: -0.0018%
+2026-02-03 18:37:51,849 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.77 (手续费: 3.88) | 持仓时间: 0.5h
+2026-02-03 18:37:51,850 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.046% | 费率差: -0.0004%
+2026-02-03 18:37:51,850 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.77 (手续费: 3.87) | 持仓时间: 0.5h
+2026-02-03 18:37:51,851 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.045% | 费率差: -0.0004%
+2026-02-03 18:37:51,852 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.71 (手续费: 3.88) | 持仓时间: 0.5h
+2026-02-03 18:37:51,862 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.047% | 费率差: -0.0010%
+2026-02-03 18:37:51,862 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.73 (手续费: 3.87) | 持仓时间: 0.5h
+2026-02-03 18:37:51,863 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.055% | 费率差: -0.0010%
+2026-02-03 18:37:51,863 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.87 (手续费: 3.88) | 持仓时间: 0.5h
+2026-02-03 18:37:51,863 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.054% | 费率差: -0.0010%
+2026-02-03 18:37:51,863 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.68 (手续费: 3.87) | 持仓时间: 0.5h
+2026-02-03 18:37:51,863 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.047% | 费率差: -0.0010%
+2026-02-03 18:37:51,864 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.81 (手续费: 3.88) | 持仓时间: 1.0h
+2026-02-03 18:37:51,864 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.047% | 费率差: -0.0010%
+2026-02-03 18:37:51,865 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.82 (手续费: 3.87) | 持仓时间: 1.5h
+2026-02-03 18:37:51,871 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.041% | 费率差: -0.0024%
+2026-02-03 18:37:51,871 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.70 (手续费: 3.86) | 持仓时间: 0.5h
+2026-02-03 18:37:51,875 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.042% | 费率差: -0.0046%
+2026-02-03 18:37:51,876 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.68 (手续费: 3.86) | 持仓时间: 0.5h
+2026-02-03 18:37:51,876 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.049% | 费率差: -0.0046%
+2026-02-03 18:37:51,877 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.72 (手续费: 3.86) | 持仓时间: 0.5h
+2026-02-03 18:37:51,877 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.042% | 费率差: -0.0046%
+2026-02-03 18:37:51,878 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.56 (手续费: 3.85) | 持仓时间: 0.5h
+2026-02-03 18:37:51,880 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.052% | 费率差: -0.0022%
+2026-02-03 18:37:51,880 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.69 (手续费: 3.86) | 持仓时间: 0.5h
+2026-02-03 18:37:51,881 - INFO - 处理进度: 1000/1440 | 持仓: 0 | 已平仓: 94 | 盈亏: -358.08
+2026-02-03 18:37:51,893 - INFO - 📈 开仓 [price_spread] condition_b | ETHUSDT | 做多A做空B | 价差方向: different | 价差: 0.041% | 费率差: 0.0004%
+2026-02-03 18:37:51,893 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.79 (手续费: 3.86) | 持仓时间: 0.5h
+2026-02-03 18:37:51,894 - INFO - 📈 开仓 [price_spread] condition_b | ETHUSDT | 做多A做空B | 价差方向: different | 价差: 0.043% | 费率差: 0.0004%
+2026-02-03 18:37:51,894 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.82 (手续费: 3.86) | 持仓时间: 0.5h
+2026-02-03 18:37:51,895 - INFO - 📈 开仓 [price_spread] condition_b | ETHUSDT | 做多A做空B | 价差方向: different | 价差: 0.043% | 费率差: 0.0004%
+2026-02-03 18:37:51,895 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.79 (手续费: 3.85) | 持仓时间: 0.5h
+2026-02-03 18:37:51,898 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.062% | 费率差: -0.0040%
+2026-02-03 18:37:51,898 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.55 (手续费: 3.85) | 持仓时间: 0.5h
+2026-02-03 18:37:51,898 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.057% | 费率差: -0.0040%
+2026-02-03 18:37:51,899 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.71 (手续费: 3.85) | 持仓时间: 0.5h
+2026-02-03 18:37:51,899 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.042% | 费率差: -0.0040%
+2026-02-03 18:37:51,899 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.85 (手续费: 3.86) | 持仓时间: 1.5h
+2026-02-03 18:37:51,899 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.042% | 费率差: -0.0040%
+2026-02-03 18:37:51,900 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.73 (手续费: 3.84) | 持仓时间: 1.0h
+2026-02-03 18:37:51,900 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.048% | 费率差: -0.0040%
+2026-02-03 18:37:51,900 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.67 (手续费: 3.85) | 持仓时间: 0.5h
+2026-02-03 18:37:51,901 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.048% | 费率差: -0.0040%
+2026-02-03 18:37:51,901 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.77 (手续费: 3.85) | 持仓时间: 0.5h
+2026-02-03 18:37:51,908 - INFO - 📈 开仓 [price_spread] condition_b | ETHUSDT | 做多A做空B | 价差方向: different | 价差: 0.043% | 费率差: 0.0009%
+2026-02-03 18:37:51,909 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.56 (手续费: 3.84) | 持仓时间: 0.5h
+2026-02-03 18:37:51,915 - INFO - 📈 开仓 [price_spread] condition_b | ETHUSDT | 做多A做空B | 价差方向: different | 价差: 0.044% | 费率差: 0.0009%
+2026-02-03 18:37:51,918 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.82 (手续费: 3.83) | 持仓时间: 0.5h
+2026-02-03 18:37:51,918 - INFO - 📈 开仓 [price_spread] condition_b | ETHUSDT | 做多A做空B | 价差方向: different | 价差: 0.044% | 费率差: 0.0009%
+2026-02-03 18:37:51,918 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.84 (手续费: 3.85) | 持仓时间: 0.5h
+2026-02-03 18:37:51,919 - INFO - 📈 开仓 [price_spread] condition_b | ETHUSDT | 做多A做空B | 价差方向: different | 价差: 0.044% | 费率差: 0.0009%
+2026-02-03 18:37:51,919 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.82 (手续费: 3.84) | 持仓时间: 0.5h
+2026-02-03 18:37:51,920 - INFO - 📈 开仓 [price_spread] condition_b | ETHUSDT | 做多A做空B | 价差方向: different | 价差: 0.042% | 费率差: 0.0009%
+2026-02-03 18:37:51,921 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.78 (手续费: 3.83) | 持仓时间: 0.5h
+2026-02-03 18:37:51,937 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.049% | 费率差: -0.0032%
+2026-02-03 18:37:51,939 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.82 (手续费: 3.84) | 持仓时间: 0.5h
+2026-02-03 18:37:51,940 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.047% | 费率差: -0.0032%
+2026-02-03 18:37:51,940 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.70 (手续费: 3.83) | 持仓时间: 0.5h
+2026-02-03 18:37:51,941 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.044% | 费率差: -0.0032%
+2026-02-03 18:37:51,942 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.60 (手续费: 3.83) | 持仓时间: 0.5h
+2026-02-03 18:37:51,942 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.044% | 费率差: -0.0032%
+2026-02-03 18:37:51,942 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.77 (手续费: 3.84) | 持仓时间: 0.5h
+2026-02-03 18:37:51,943 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.055% | 费率差: -0.0032%
+2026-02-03 18:37:51,943 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.58 (手续费: 3.83) | 持仓时间: 0.5h
+2026-02-03 18:37:51,944 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.043% | 费率差: -0.0032%
+2026-02-03 18:37:51,944 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.79 (手续费: 3.82) | 持仓时间: 0.5h
+2026-02-03 18:37:51,944 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.044% | 费率差: -0.0032%
+2026-02-03 18:37:51,944 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.64 (手续费: 3.82) | 持仓时间: 0.5h
+2026-02-03 18:37:51,950 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.041% | 费率差: -0.0020%
+2026-02-03 18:37:51,954 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.66 (手续费: 3.82) | 持仓时间: 5.0h
+2026-02-03 18:37:51,958 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.043% | 费率差: -0.0075%
+2026-02-03 18:37:51,959 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.74 (手续费: 3.82) | 持仓时间: 2.0h
+2026-02-03 18:37:51,959 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.047% | 费率差: -0.0063%
+2026-02-03 18:37:51,961 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.75 (手续费: 3.81) | 持仓时间: 3.5h
+2026-02-03 18:37:51,961 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.050% | 费率差: -0.0063%
+2026-02-03 18:37:51,962 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.49 (手续费: 3.80) | 持仓时间: 0.5h
+2026-02-03 18:37:51,964 - INFO - 📈 开仓 [price_spread] condition_b | ETHUSDT | 做多A做空B | 价差方向: different | 价差: 0.044% | 费率差: 0.0005%
+2026-02-03 18:37:51,964 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.74 (手续费: 3.82) | 持仓时间: 0.5h
+2026-02-03 18:37:51,969 - INFO - 📈 开仓 [price_spread] condition_b | ETHUSDT | 做多A做空B | 价差方向: different | 价差: 0.052% | 费率差: 0.0007%
+2026-02-03 18:37:51,969 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.75 (手续费: 3.82) | 持仓时间: 0.5h
+2026-02-03 18:37:51,970 - INFO - 📈 开仓 [price_spread] condition_b | ETHUSDT | 做多A做空B | 价差方向: different | 价差: 0.044% | 费率差: 0.0007%
+2026-02-03 18:37:51,970 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.71 (手续费: 3.80) | 持仓时间: 1.5h
+2026-02-03 18:37:51,970 - INFO - 📈 开仓 [price_spread] condition_b | ETHUSDT | 做多A做空B | 价差方向: different | 价差: 0.053% | 费率差: 0.0007%
+2026-02-03 18:37:51,971 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.66 (手续费: 3.83) | 持仓时间: 0.5h
+2026-02-03 18:37:51,971 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.043% | 费率差: -0.0000%
+2026-02-03 18:37:51,971 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.82 (手续费: 3.83) | 持仓时间: 1.0h
+2026-02-03 18:37:51,972 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.047% | 费率差: -0.0000%
+2026-02-03 18:37:51,973 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.82 (手续费: 3.82) | 持仓时间: 0.5h
+2026-02-03 18:37:51,973 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.046% | 费率差: -0.0000%
+2026-02-03 18:37:51,973 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.67 (手续费: 3.81) | 持仓时间: 0.5h
+2026-02-03 18:37:51,974 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.045% | 费率差: -0.0010%
+2026-02-03 18:37:51,975 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.60 (手续费: 3.82) | 持仓时间: 0.5h
+2026-02-03 18:37:51,975 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.040% | 费率差: -0.0010%
+2026-02-03 18:37:51,976 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.68 (手续费: 3.80) | 持仓时间: 0.5h
+2026-02-03 18:37:51,976 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.042% | 费率差: -0.0010%
+2026-02-03 18:37:51,976 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.71 (手续费: 3.81) | 持仓时间: 0.5h
+2026-02-03 18:37:51,977 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.043% | 费率差: -0.0010%
+2026-02-03 18:37:51,977 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.75 (手续费: 3.80) | 持仓时间: 0.5h
+2026-02-03 18:37:51,977 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.050% | 费率差: -0.0010%
+2026-02-03 18:37:51,977 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.75 (手续费: 3.80) | 持仓时间: 0.5h
+2026-02-03 18:37:51,977 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.045% | 费率差: -0.0010%
+2026-02-03 18:37:51,978 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.69 (手续费: 3.80) | 持仓时间: 1.0h
+2026-02-03 18:37:51,989 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.049% | 费率差: -0.0006%
+2026-02-03 18:37:51,989 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.62 (手续费: 3.81) | 持仓时间: 0.5h
+2026-02-03 18:37:51,990 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.056% | 费率差: -0.0006%
+2026-02-03 18:37:51,990 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.47 (手续费: 3.78) | 持仓时间: 0.5h
+2026-02-03 18:37:51,991 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.047% | 费率差: -0.0006%
+2026-02-03 18:37:51,991 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.69 (手续费: 3.80) | 持仓时间: 0.5h
+2026-02-03 18:37:51,992 - INFO - 📈 开仓 [price_spread] condition_a | ETHUSDT | 做多A做空B | 价差方向: same | 价差: 0.055% | 费率差: -0.0006%
+2026-02-03 18:37:51,992 - INFO - 📉 平仓 [price_spread] | ETHUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.64 (手续费: 3.81) | 持仓时间: 0.5h
+2026-02-03 18:37:51,994 - INFO -
+============================================================
+2026-02-03 18:37:51,994 - INFO - 回测完成
+2026-02-03 18:37:51,994 - INFO - ============================================================
+2026-02-03 18:37:51,994 - INFO - 总交易次数: 136
+2026-02-03 18:37:51,995 - INFO - 总盈亏: -513.90
+2026-02-03 18:37:51,995 - INFO - 收益率: -5.14%
+2026-02-03 18:37:51,995 - INFO - 胜率: 0.00%
+  ETHUSDT 回测完成: 136 笔交易
+  加载 BNBUSDT: 1440 行, 列: ['binance_open', 'binance_high', 'binance_low', 'binance_close', 'binance_volume']...
+  BNBUSDT 列检测: {'price_col_a': 'binance_close', 'price_col_b': 'kucoin_close', 'funding_col_a': 'binance_funding_rate', 'funding_col_b': 'kucoin_funding_rate'}
+2026-02-03 18:37:51,997 - INFO - 套利系统初始化完成
+2026-02-03 18:37:51,997 - INFO - 参数: X=0.04%, Y=0.01%, A=0.002%, B=0.001%, N=6h, M=6h, P=0.02%, Q=0.1%
+2026-02-03 18:37:51,997 - INFO - 开始回测: BNBUSDT
+2026-02-03 18:37:51,997 - INFO - 数据范围: 2025-12-27 04:00:00 至 2026-01-26 03:30:00
+2026-02-03 18:37:51,997 - INFO - 数据点数: 1440
+2026-02-03 18:37:51,998 - INFO - 处理进度: 0/1440 | 持仓: 0 | 已平仓: 0 | 盈亏: 0.00
+2026-02-03 18:37:52,012 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.091% | 费率差: 0.0010%
+2026-02-03 18:37:52,012 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.80 (手续费: 4.00) | 持仓时间: 0.5h
+2026-02-03 18:37:52,013 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.078% | 费率差: 0.0010%
+2026-02-03 18:37:52,014 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.84 (手续费: 3.99) | 持仓时间: 1.0h
+2026-02-03 18:37:52,014 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.076% | 费率差: 0.0010%
+2026-02-03 18:37:52,014 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.85 (手续费: 4.00) | 持仓时间: 0.5h
+2026-02-03 18:37:52,014 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.079% | 费率差: 0.0010%
+2026-02-03 18:37:52,014 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.75 (手续费: 3.99) | 持仓时间: 0.5h
+2026-02-03 18:37:52,015 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.067% | 费率差: 0.0010%
+2026-02-03 18:37:52,015 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.61 (手续费: 3.99) | 持仓时间: 1.0h
+2026-02-03 18:37:52,015 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.133% | 费率差: 0.0010%
+2026-02-03 18:37:52,016 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.32 (手续费: 4.00) | 持仓时间: 0.5h
+2026-02-03 18:37:52,016 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.084% | 费率差: 0.0010%
+2026-02-03 18:37:52,017 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.35 (手续费: 3.99) | 持仓时间: 0.5h
+2026-02-03 18:37:52,017 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.075% | 费率差: 0.0010%
+2026-02-03 18:37:52,017 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.78 (手续费: 3.99) | 持仓时间: 1.0h
+2026-02-03 18:37:52,018 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.074% | 费率差: 0.0010%
+2026-02-03 18:37:52,018 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.87 (手续费: 3.99) | 持仓时间: 0.5h
+2026-02-03 18:37:52,019 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.062% | 费率差: 0.0025%
+2026-02-03 18:37:52,019 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.93 (手续费: 3.98) | 持仓时间: 0.5h
+2026-02-03 18:37:52,020 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.061% | 费率差: 0.0025%
+2026-02-03 18:37:52,020 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.67 (手续费: 3.99) | 持仓时间: 0.5h
+2026-02-03 18:37:52,021 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.055% | 费率差: 0.0025%
+2026-02-03 18:37:52,021 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.97 (手续费: 3.98) | 持仓时间: 0.5h
+2026-02-03 18:37:52,021 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.054% | 费率差: 0.0025%
+2026-02-03 18:37:52,021 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.45 (手续费: 3.98) | 持仓时间: 1.0h
+2026-02-03 18:37:52,022 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.072% | 费率差: 0.0025%
+2026-02-03 18:37:52,022 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.50 (手续费: 3.99) | 持仓时间: 0.5h
+2026-02-03 18:37:52,030 - INFO - 📈 开仓 [funding_rate] condition_a | BNBUSDT | 做多A做空B | 价差方向: same | 价差: 0.001% | 费率差: -0.0100%
+2026-02-03 18:37:52,039 - INFO - 📉 平仓 [funding_rate] | BNBUSDT | 做多A做空B | 原因: price_loss | 盈亏: -2.68 (手续费: 3.99) | 费率收益: 0.20 (2次结算) | 持仓时间: 18.5h
+2026-02-03 18:37:52,046 - INFO - 📈 开仓 [price_spread] condition_b | BNBUSDT | 做空A做多B | 价差方向: different | 价差: 0.060% | 费率差: -0.0007%
+2026-02-03 18:37:52,046 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.65 (手续费: 3.98) | 持仓时间: 1.0h
+2026-02-03 18:37:52,047 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.121% | 费率差: 0.0003%
+2026-02-03 18:37:52,047 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.08 (手续费: 3.98) | 持仓时间: 0.5h
+2026-02-03 18:37:52,047 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.060% | 费率差: 0.0003%
+2026-02-03 18:37:52,048 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.91 (手续费: 3.98) | 持仓时间: 1.5h
+2026-02-03 18:37:52,048 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.072% | 费率差: 0.0003%
+2026-02-03 18:37:52,048 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.86 (手续费: 3.97) | 持仓时间: 0.5h
+2026-02-03 18:37:52,048 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.062% | 费率差: 0.0003%
+2026-02-03 18:37:52,049 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.76 (手续费: 3.96) | 持仓时间: 0.5h
+2026-02-03 18:37:52,049 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.060% | 费率差: 0.0003%
+2026-02-03 18:37:52,049 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.91 (手续费: 3.97) | 持仓时间: 0.5h
+2026-02-03 18:37:52,050 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.055% | 费率差: 0.0003%
+2026-02-03 18:37:52,050 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.70 (手续费: 3.97) | 持仓时间: 0.5h
+2026-02-03 18:37:52,055 - INFO - 📈 开仓 [combined] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.044% | 费率差: 0.0165%
+2026-02-03 18:37:52,060 - INFO - 📉 平仓 [combined] | BNBUSDT | 做空A做多B | 原因: spread_profit | 盈亏: -3.61 (手续费: 3.98) | 费率收益: 0.15 (1次结算) | 持仓时间: 10.5h
+2026-02-03 18:37:52,062 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.046% | 费率差: 0.0031%
+2026-02-03 18:37:52,062 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.79 (手续费: 3.96) | 持仓时间: 1.0h
+2026-02-03 18:37:52,063 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.051% | 费率差: 0.0031%
+2026-02-03 18:37:52,064 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_loss | 盈亏: -5.01 (手续费: 3.98) | 持仓时间: 3.5h
+2026-02-03 18:37:52,064 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.153% | 费率差: 0.0031%
+2026-02-03 18:37:52,064 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -2.48 (手续费: 3.97) | 持仓时间: 0.5h
+2026-02-03 18:37:52,072 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.042% | 费率差: 0.0096%
+2026-02-03 18:37:52,073 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.84 (手续费: 3.96) | 持仓时间: 0.5h
+2026-02-03 18:37:52,073 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.063% | 费率差: 0.0096%
+2026-02-03 18:37:52,074 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.87 (手续费: 3.96) | 持仓时间: 0.5h
+2026-02-03 18:37:52,074 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.054% | 费率差: 0.0096%
+2026-02-03 18:37:52,074 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.80 (手续费: 3.96) | 持仓时间: 0.5h
+2026-02-03 18:37:52,075 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.049% | 费率差: 0.0096%
+2026-02-03 18:37:52,076 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.86 (手续费: 3.96) | 持仓时间: 1.5h
+2026-02-03 18:37:52,076 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.057% | 费率差: 0.0096%
+2026-02-03 18:37:52,076 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.46 (手续费: 3.95) | 持仓时间: 0.5h
+2026-02-03 18:37:52,085 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.094% | 费率差: 0.0005%
+2026-02-03 18:37:52,086 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.88 (手续费: 3.94) | 持仓时间: 0.5h
+2026-02-03 18:37:52,086 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.090% | 费率差: 0.0005%
+2026-02-03 18:37:52,086 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.70 (手续费: 3.96) | 持仓时间: 0.5h
+2026-02-03 18:37:52,087 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.113% | 费率差: 0.0005%
+2026-02-03 18:37:52,087 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.70 (手续费: 3.96) | 持仓时间: 0.5h
+2026-02-03 18:37:52,087 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.086% | 费率差: 0.0005%
+2026-02-03 18:37:52,088 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.68 (手续费: 3.95) | 持仓时间: 2.0h
+2026-02-03 18:37:52,096 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.119% | 费率差: 0.0084%
+2026-02-03 18:37:52,096 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.41 (手续费: 3.95) | 持仓时间: 0.5h
+2026-02-03 18:37:52,098 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.072% | 费率差: 0.0084%
+2026-02-03 18:37:52,099 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.84 (手续费: 3.94) | 持仓时间: 0.5h
+2026-02-03 18:37:52,099 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.074% | 费率差: 0.0084%
+2026-02-03 18:37:52,100 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.63 (手续费: 3.88) | 持仓时间: 2.5h
+2026-02-03 18:37:52,107 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.110% | 费率差: 0.0019%
+2026-02-03 18:37:52,108 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.56 (手续费: 3.94) | 持仓时间: 0.5h
+2026-02-03 18:37:52,108 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.072% | 费率差: 0.0019%
+2026-02-03 18:37:52,108 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.60 (手续费: 3.95) | 持仓时间: 0.5h
+2026-02-03 18:37:52,108 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.075% | 费率差: 0.0019%
+2026-02-03 18:37:52,109 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.49 (手续费: 3.94) | 持仓时间: 0.5h
+2026-02-03 18:37:52,109 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.155% | 费率差: 0.0019%
+2026-02-03 18:37:52,109 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.89 (手续费: 3.93) | 持仓时间: 0.5h
+2026-02-03 18:37:52,109 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.151% | 费率差: 0.0019%
+2026-02-03 18:37:52,109 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -2.99 (手续费: 3.94) | 持仓时间: 0.5h
+2026-02-03 18:37:52,110 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.096% | 费率差: 0.0019%
+2026-02-03 18:37:52,110 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.80 (手续费: 3.94) | 持仓时间: 0.5h
+2026-02-03 18:37:52,110 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.082% | 费率差: 0.0019%
+2026-02-03 18:37:52,111 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.68 (手续费: 3.93) | 持仓时间: 0.5h
+2026-02-03 18:37:52,111 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.089% | 费率差: 0.0019%
+2026-02-03 18:37:52,111 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.90 (手续费: 3.93) | 持仓时间: 0.5h
+2026-02-03 18:37:52,113 - INFO - 📈 开仓 [combined] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.065% | 费率差: 0.0111%
+2026-02-03 18:37:52,114 - INFO - 📉 平仓 [combined] | BNBUSDT | 做空A做多B | 原因: spread_profit | 盈亏: -3.29 (手续费: 3.91) | 费率收益: 0.00 (0次结算) | 持仓时间: 0.5h
+2026-02-03 18:37:52,114 - INFO - 📈 开仓 [funding_rate] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.002% | 费率差: 0.0111%
+2026-02-03 18:37:52,126 - INFO - 📉 平仓 [funding_rate] | BNBUSDT | 做空A做多B | 原因: funding_converge | 盈亏: -4.24 (手续费: 3.96) | 费率收益: 0.30 (3次结算) | 持仓时间: 26.0h
+2026-02-03 18:37:52,126 - INFO - 📈 开仓 [price_spread] condition_b | BNBUSDT | 做空A做多B | 价差方向: different | 价差: 0.062% | 费率差: -0.0002%
+2026-02-03 18:37:52,126 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.79 (手续费: 3.92) | 持仓时间: 0.5h
+2026-02-03 18:37:52,126 - INFO - 📈 开仓 [price_spread] condition_b | BNBUSDT | 做空A做多B | 价差方向: different | 价差: 0.066% | 费率差: -0.0002%
+2026-02-03 18:37:52,127 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.68 (手续费: 3.92) | 持仓时间: 0.5h
+2026-02-03 18:37:52,127 - INFO - 📈 开仓 [price_spread] condition_b | BNBUSDT | 做空A做多B | 价差方向: different | 价差: 0.053% | 费率差: -0.0002%
+2026-02-03 18:37:52,128 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.90 (手续费: 3.92) | 持仓时间: 1.5h
+2026-02-03 18:37:52,128 - INFO - 📈 开仓 [price_spread] condition_b | BNBUSDT | 做空A做多B | 价差方向: different | 价差: 0.056% | 费率差: -0.0002%
+2026-02-03 18:37:52,129 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.38 (手续费: 3.92) | 持仓时间: 0.5h
+2026-02-03 18:37:52,129 - INFO - 📈 开仓 [price_spread] condition_b | BNBUSDT | 做空A做多B | 价差方向: different | 价差: 0.077% | 费率差: -0.0002%
+2026-02-03 18:37:52,129 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.69 (手续费: 3.93) | 持仓时间: 1.0h
+2026-02-03 18:37:52,129 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.052% | 费率差: 0.0026%
+2026-02-03 18:37:52,130 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.83 (手续费: 3.92) | 持仓时间: 0.5h
+2026-02-03 18:37:52,130 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.056% | 费率差: 0.0026%
+2026-02-03 18:37:52,130 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.45 (手续费: 3.91) | 持仓时间: 0.5h
+2026-02-03 18:37:52,131 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.046% | 费率差: 0.0026%
+2026-02-03 18:37:52,132 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.85 (手续费: 3.92) | 持仓时间: 4.5h
+2026-02-03 18:37:52,132 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.114% | 费率差: 0.0026%
+2026-02-03 18:37:52,133 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.50 (手续费: 3.92) | 持仓时间: 0.5h
+2026-02-03 18:37:52,149 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.082% | 费率差: 0.0083%
+2026-02-03 18:37:52,149 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.65 (手续费: 3.92) | 持仓时间: 0.5h
+2026-02-03 18:37:52,149 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.085% | 费率差: 0.0083%
+2026-02-03 18:37:52,150 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.21 (手续费: 3.92) | 持仓时间: 0.5h
+2026-02-03 18:37:52,150 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.061% | 费率差: 0.0083%
+2026-02-03 18:37:52,150 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.33 (手续费: 3.91) | 持仓时间: 0.5h
+2026-02-03 18:37:52,151 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.066% | 费率差: 0.0083%
+2026-02-03 18:37:52,152 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.68 (手续费: 3.91) | 持仓时间: 0.5h
+2026-02-03 18:37:52,152 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.043% | 费率差: 0.0083%
+2026-02-03 18:37:52,152 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.84 (手续费: 3.90) | 持仓时间: 2.5h
+2026-02-03 18:37:52,153 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.067% | 费率差: 0.0094%
+2026-02-03 18:37:52,153 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.80 (手续费: 3.91) | 持仓时间: 0.5h
+2026-02-03 18:37:52,153 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.055% | 费率差: 0.0094%
+2026-02-03 18:37:52,154 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.87 (手续费: 3.91) | 持仓时间: 0.5h
+2026-02-03 18:37:52,154 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.052% | 费率差: 0.0094%
+2026-02-03 18:37:52,154 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -2.89 (手续费: 3.91) | 持仓时间: 0.5h
+2026-02-03 18:37:52,154 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.104% | 费率差: 0.0094%
+2026-02-03 18:37:52,154 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.33 (手续费: 3.90) | 持仓时间: 0.5h
+2026-02-03 18:37:52,155 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.058% | 费率差: 0.0094%
+2026-02-03 18:37:52,157 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.82 (手续费: 3.91) | 持仓时间: 4.5h
+2026-02-03 18:37:52,157 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.106% | 费率差: 0.0096%
+2026-02-03 18:37:52,157 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.47 (手续费: 3.90) | 持仓时间: 0.5h
+2026-02-03 18:37:52,158 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.097% | 费率差: 0.0096%
+2026-02-03 18:37:52,158 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.66 (手续费: 3.90) | 持仓时间: 0.5h
+2026-02-03 18:37:52,158 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.073% | 费率差: 0.0096%
+2026-02-03 18:37:52,160 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.86 (手续费: 3.90) | 持仓时间: 4.0h
+2026-02-03 18:37:52,168 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.096% | 费率差: 0.0046%
+2026-02-03 18:37:52,168 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.75 (手续费: 3.89) | 持仓时间: 0.5h
+2026-02-03 18:37:52,168 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.095% | 费率差: 0.0046%
+2026-02-03 18:37:52,169 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.69 (手续费: 3.89) | 持仓时间: 1.0h
+2026-02-03 18:37:52,169 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.114% | 费率差: 0.0046%
+2026-02-03 18:37:52,169 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.51 (手续费: 3.88) | 持仓时间: 0.5h
+2026-02-03 18:37:52,169 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.103% | 费率差: 0.0046%
+2026-02-03 18:37:52,170 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.34 (手续费: 3.89) | 持仓时间: 0.5h
+2026-02-03 18:37:52,170 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.095% | 费率差: 0.0046%
+2026-02-03 18:37:52,170 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.61 (手续费: 3.89) | 持仓时间: 0.5h
+2026-02-03 18:37:52,171 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.092% | 费率差: 0.0046%
+2026-02-03 18:37:52,171 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.79 (手续费: 3.89) | 持仓时间: 0.5h
+2026-02-03 18:37:52,171 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.081% | 费率差: 0.0046%
+2026-02-03 18:37:52,171 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.88 (手续费: 3.89) | 持仓时间: 0.5h
+2026-02-03 18:37:52,171 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.080% | 费率差: 0.0046%
+2026-02-03 18:37:52,172 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.77 (手续费: 3.88) | 持仓时间: 0.5h
+2026-02-03 18:37:52,172 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.103% | 费率差: 0.0046%
+2026-02-03 18:37:52,172 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.48 (手续费: 3.88) | 持仓时间: 0.5h
+2026-02-03 18:37:52,173 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.090% | 费率差: 0.0046%
+2026-02-03 18:37:52,173 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.65 (手续费: 3.88) | 持仓时间: 0.5h
+2026-02-03 18:37:52,174 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.069% | 费率差: 0.0046%
+2026-02-03 18:37:52,175 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.58 (手续费: 3.89) | 持仓时间: 1.0h
+2026-02-03 18:37:52,176 - INFO - 📈 开仓 [combined] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.109% | 费率差: 0.0127%
+2026-02-03 18:37:52,177 - INFO - 📉 平仓 [combined] | BNBUSDT | 做空A做多B | 原因: spread_profit | 盈亏: -3.35 (手续费: 3.88) | 费率收益: 0.00 (0次结算) | 持仓时间: 0.5h
+2026-02-03 18:37:52,178 - INFO - 📈 开仓 [funding_rate] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.032% | 费率差: 0.0127%
+2026-02-03 18:37:52,190 - INFO - 📉 平仓 [funding_rate] | BNBUSDT | 做空A做多B | 原因: funding_converge | 盈亏: -3.46 (手续费: 3.86) | 费率收益: 0.20 (4次结算) | 持仓时间: 32.5h
+2026-02-03 18:37:52,193 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.075% | 费率差: 0.0077%
+2026-02-03 18:37:52,193 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.66 (手续费: 3.88) | 持仓时间: 0.5h
+2026-02-03 18:37:52,195 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.045% | 费率差: 0.0077%
+2026-02-03 18:37:52,195 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.69 (手续费: 3.88) | 持仓时间: 0.5h
+2026-02-03 18:37:52,195 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.085% | 费率差: 0.0077%
+2026-02-03 18:37:52,195 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.57 (手续费: 3.88) | 持仓时间: 0.5h
+2026-02-03 18:37:52,195 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.052% | 费率差: 0.0077%
+2026-02-03 18:37:52,196 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.50 (手续费: 3.87) | 持仓时间: 0.5h
+2026-02-03 18:37:52,196 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.055% | 费率差: 0.0077%
+2026-02-03 18:37:52,196 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.49 (手续费: 3.88) | 持仓时间: 0.5h
+2026-02-03 18:37:52,196 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.049% | 费率差: 0.0077%
+2026-02-03 18:37:52,197 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.65 (手续费: 3.87) | 持仓时间: 0.5h
+2026-02-03 18:37:52,197 - INFO - 处理进度: 1000/1440 | 持仓: 0 | 已平仓: 89 | 盈亏: -324.14
+2026-02-03 18:37:52,218 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做多A做空B | 价差方向: same | 价差: 0.044% | 费率差: -0.0006%
+2026-02-03 18:37:52,218 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.40 (手续费: 3.87) | 持仓时间: 0.5h
+2026-02-03 18:37:52,221 - INFO - 📈 开仓 [funding_rate] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.018% | 费率差: 0.0127%
+2026-02-03 18:37:52,222 - INFO - 📉 平仓 [funding_rate] | BNBUSDT | 做空A做多B | 原因: funding_converge | 盈亏: -3.38 (手续费: 3.87) | 费率收益: 0.00 (0次结算) | 持仓时间: 2.0h
+2026-02-03 18:37:52,228 - INFO - 📈 开仓 [funding_rate] condition_a | BNBUSDT | 做多A做空B | 价差方向: same | 价差: 0.035% | 费率差: -0.0100%
+2026-02-03 18:37:52,228 - INFO - 📉 平仓 [funding_rate] | BNBUSDT | 做多A做空B | 原因: spread_profit | 盈亏: -3.45 (手续费: 3.87) | 费率收益: 0.00 (0次结算) | 持仓时间: 0.5h
+2026-02-03 18:37:52,232 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.070% | 费率差: 0.0029%
+2026-02-03 18:37:52,232 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.26 (手续费: 3.85) | 持仓时间: 0.5h
+2026-02-03 18:37:52,232 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.054% | 费率差: 0.0029%
+2026-02-03 18:37:52,233 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.79 (手续费: 3.87) | 持仓时间: 0.5h
+2026-02-03 18:37:52,233 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.046% | 费率差: 0.0029%
+2026-02-03 18:37:52,233 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.77 (手续费: 3.87) | 持仓时间: 1.5h
+2026-02-03 18:37:52,233 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.060% | 费率差: 0.0029%
+2026-02-03 18:37:52,234 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.76 (手续费: 3.86) | 持仓时间: 0.5h
+2026-02-03 18:37:52,234 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.050% | 费率差: 0.0029%
+2026-02-03 18:37:52,234 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.39 (手续费: 3.84) | 持仓时间: 1.5h
+2026-02-03 18:37:52,235 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.108% | 费率差: 0.0089%
+2026-02-03 18:37:52,235 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.60 (手续费: 3.88) | 持仓时间: 0.5h
+2026-02-03 18:37:52,235 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.078% | 费率差: 0.0089%
+2026-02-03 18:37:52,235 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.80 (手续费: 3.85) | 持仓时间: 0.5h
+2026-02-03 18:37:52,235 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.073% | 费率差: 0.0089%
+2026-02-03 18:37:52,236 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.42 (手续费: 3.85) | 持仓时间: 0.5h
+2026-02-03 18:37:52,236 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.063% | 费率差: 0.0089%
+2026-02-03 18:37:52,236 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.79 (手续费: 3.86) | 持仓时间: 1.5h
+2026-02-03 18:37:52,237 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.083% | 费率差: 0.0089%
+2026-02-03 18:37:52,237 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.46 (手续费: 3.85) | 持仓时间: 0.5h
+2026-02-03 18:37:52,237 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.066% | 费率差: 0.0089%
+2026-02-03 18:37:52,238 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.78 (手续费: 3.84) | 持仓时间: 0.5h
+2026-02-03 18:37:52,238 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.059% | 费率差: 0.0089%
+2026-02-03 18:37:52,238 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.79 (手续费: 3.84) | 持仓时间: 1.0h
+2026-02-03 18:37:52,241 - INFO - 📈 开仓 [funding_rate] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.001% | 费率差: 0.0141%
+2026-02-03 18:37:52,246 - INFO - 📉 平仓 [funding_rate] | BNBUSDT | 做空A做多B | 原因: funding_converge | 盈亏: -4.25 (手续费: 3.87) | 费率收益: 0.13 (1次结算) | 持仓时间: 10.0h
+2026-02-03 18:37:52,249 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.050% | 费率差: 0.0047%
+2026-02-03 18:37:52,250 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.77 (手续费: 3.86) | 持仓时间: 1.0h
+2026-02-03 18:37:52,250 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.041% | 费率差: 0.0047%
+2026-02-03 18:37:52,250 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.75 (手续费: 3.84) | 持仓时间: 0.5h
+2026-02-03 18:37:52,250 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.063% | 费率差: 0.0047%
+2026-02-03 18:37:52,251 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.56 (手续费: 3.84) | 持仓时间: 0.5h
+2026-02-03 18:37:52,251 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.049% | 费率差: 0.0047%
+2026-02-03 18:37:52,251 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.64 (手续费: 3.83) | 持仓时间: 0.5h
+2026-02-03 18:37:52,253 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.066% | 费率差: 0.0033%
+2026-02-03 18:37:52,253 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.49 (手续费: 3.85) | 持仓时间: 0.5h
+2026-02-03 18:37:52,253 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.061% | 费率差: 0.0033%
+2026-02-03 18:37:52,254 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.63 (手续费: 3.83) | 持仓时间: 1.0h
+2026-02-03 18:37:52,254 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.047% | 费率差: 0.0033%
+2026-02-03 18:37:52,254 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.80 (手续费: 3.84) | 持仓时间: 1.0h
+2026-02-03 18:37:52,254 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.044% | 费率差: 0.0033%
+2026-02-03 18:37:52,255 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.54 (手续费: 3.84) | 持仓时间: 0.5h
+2026-02-03 18:37:52,255 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.055% | 费率差: 0.0033%
+2026-02-03 18:37:52,255 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.71 (手续费: 3.84) | 持仓时间: 0.5h
+2026-02-03 18:37:52,256 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.069% | 费率差: 0.0033%
+2026-02-03 18:37:52,256 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.51 (手续费: 3.83) | 持仓时间: 0.5h
+2026-02-03 18:37:52,274 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.069% | 费率差: 0.0026%
+2026-02-03 18:37:52,274 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.69 (手续费: 3.83) | 持仓时间: 0.5h
+2026-02-03 18:37:52,275 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.067% | 费率差: 0.0026%
+2026-02-03 18:37:52,275 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.79 (手续费: 3.82) | 持仓时间: 1.0h
+2026-02-03 18:37:52,275 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.074% | 费率差: 0.0026%
+2026-02-03 18:37:52,276 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.76 (手续费: 3.83) | 持仓时间: 1.0h
+2026-02-03 18:37:52,276 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.067% | 费率差: 0.0026%
+2026-02-03 18:37:52,277 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.80 (手续费: 3.82) | 持仓时间: 1.0h
+2026-02-03 18:37:52,277 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.074% | 费率差: 0.0026%
+2026-02-03 18:37:52,277 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.75 (手续费: 3.82) | 持仓时间: 0.5h
+2026-02-03 18:37:52,281 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.066% | 费率差: 0.0074%
+2026-02-03 18:37:52,281 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.49 (手续费: 3.81) | 持仓时间: 1.0h
+2026-02-03 18:37:52,281 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.113% | 费率差: 0.0074%
+2026-02-03 18:37:52,282 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.51 (手续费: 3.82) | 持仓时间: 0.5h
+2026-02-03 18:37:52,282 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.080% | 费率差: 0.0074%
+2026-02-03 18:37:52,282 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.79 (手续费: 3.83) | 持仓时间: 0.5h
+2026-02-03 18:37:52,282 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.077% | 费率差: 0.0074%
+2026-02-03 18:37:52,282 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.48 (手续费: 3.82) | 持仓时间: 1.5h
+2026-02-03 18:37:52,283 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.082% | 费率差: 0.0074%
+2026-02-03 18:37:52,283 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.79 (手续费: 3.82) | 持仓时间: 0.5h
+2026-02-03 18:37:52,283 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.079% | 费率差: 0.0074%
+2026-02-03 18:37:52,283 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.56 (手续费: 3.83) | 持仓时间: 1.0h
+2026-02-03 18:37:52,284 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.103% | 费率差: 0.0008%
+2026-02-03 18:37:52,284 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.49 (手续费: 3.82) | 持仓时间: 0.5h
+2026-02-03 18:37:52,284 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.086% | 费率差: 0.0008%
+2026-02-03 18:37:52,285 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: price_profit | 盈亏: -3.64 (手续费: 3.81) | 持仓时间: 0.5h
+2026-02-03 18:37:52,285 - INFO - 📈 开仓 [price_spread] condition_a | BNBUSDT | 做空A做多B | 价差方向: same | 价差: 0.078% | 费率差: 0.0008%
+2026-02-03 18:37:52,285 - INFO - 📉 平仓 [price_spread] | BNBUSDT | 做空A做多B | 原因: timeout | 盈亏: -3.81 (手续费: 3.81) | 持仓时间: 0.0h
+2026-02-03 18:37:52,286 - INFO -
+============================================================
+2026-02-03 18:37:52,286 - INFO - 回测完成
+2026-02-03 18:37:52,286 - INFO - ============================================================
+2026-02-03 18:37:52,286 - INFO - 总交易次数: 129
+2026-02-03 18:37:52,287 - INFO - 总盈亏: -469.98
+2026-02-03 18:37:52,287 - INFO - 收益率: -4.70%
+2026-02-03 18:37:52,287 - INFO - 胜率: 0.00%
+  BNBUSDT 回测完成: 129 笔交易
+  加载 SOLUSDT: 1440 行, 列: ['binance_open', 'binance_high', 'binance_low', 'binance_close', 'binance_volume']...
+  SOLUSDT 列检测: {'price_col_a': 'binance_close', 'price_col_b': 'kucoin_close', 'funding_col_a': 'binance_funding_rate', 'funding_col_b': 'kucoin_funding_rate'}
+2026-02-03 18:37:52,290 - INFO - 套利系统初始化完成
+2026-02-03 18:37:52,290 - INFO - 参数: X=0.04%, Y=0.01%, A=0.002%, B=0.001%, N=6h, M=6h, P=0.02%, Q=0.1%
+2026-02-03 18:37:52,290 - INFO - 开始回测: SOLUSDT
+2026-02-03 18:37:52,290 - INFO - 数据范围: 2025-12-27 04:00:00 至 2026-01-26 03:30:00
+2026-02-03 18:37:52,290 - INFO - 数据点数: 1440
+2026-02-03 18:37:52,291 - INFO - 处理进度: 0/1440 | 持仓: 0 | 已平仓: 0 | 盈亏: 0.00
+2026-02-03 18:37:52,311 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.058% | 费率差: -0.0074%
+2026-02-03 18:37:52,311 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.65 (手续费: 4.01) | 持仓时间: 1.0h
+2026-02-03 18:37:52,312 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.066% | 费率差: -0.0074%
+2026-02-03 18:37:52,312 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.82 (手续费: 3.99) | 持仓时间: 0.5h
+2026-02-03 18:37:52,313 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.060% | 费率差: -0.0074%
+2026-02-03 18:37:52,313 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.88 (手续费: 4.00) | 持仓时间: 1.0h
+2026-02-03 18:37:52,313 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.057% | 费率差: -0.0074%
+2026-02-03 18:37:52,314 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.97 (手续费: 3.99) | 持仓时间: 2.5h
+2026-02-03 18:37:52,318 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.059% | 费率差: -0.0001%
+2026-02-03 18:37:52,318 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.93 (手续费: 3.99) | 持仓时间: 1.5h
+2026-02-03 18:37:52,320 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.045% | 费率差: -0.0001%
+2026-02-03 18:37:52,321 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.77 (手续费: 4.00) | 持仓时间: 0.5h
+2026-02-03 18:37:52,323 - INFO - 📈 开仓 [combined] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.056% | 费率差: -0.0134%
+2026-02-03 18:37:52,326 - INFO - 📉 平仓 [combined] | SOLUSDT | 做多A做空B | 原因: spread_profit | 盈亏: -3.80 (手续费: 4.02) | 费率收益: 0.00 (0次结算) | 持仓时间: 6.0h
+2026-02-03 18:37:52,326 - INFO - 📈 开仓 [funding_rate] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.033% | 费率差: -0.0134%
+2026-02-03 18:37:52,347 - INFO - 📉 平仓 [funding_rate] | SOLUSDT | 做多A做空B | 原因: spread_profit | 盈亏: -3.19 (手续费: 4.01) | 费率收益: 0.59 (5次结算) | 持仓时间: 45.0h
+2026-02-03 18:37:52,347 - INFO - 📈 开仓 [funding_rate] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.011% | 费率差: -0.0134%
+2026-02-03 18:37:52,354 - INFO - 📉 平仓 [funding_rate] | SOLUSDT | 做多A做空B | 原因: funding_converge | 盈亏: -4.15 (手续费: 4.04) | 费率收益: 0.13 (1次结算) | 持仓时间: 15.5h
+2026-02-03 18:37:52,361 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.050% | 费率差: -0.0012%
+2026-02-03 18:37:52,361 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.77 (手续费: 3.99) | 持仓时间: 0.5h
+2026-02-03 18:37:52,362 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.044% | 费率差: -0.0012%
+2026-02-03 18:37:52,362 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.76 (手续费: 3.98) | 持仓时间: 0.5h
+2026-02-03 18:37:52,362 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.045% | 费率差: -0.0012%
+2026-02-03 18:37:52,362 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.96 (手续费: 3.99) | 持仓时间: 0.5h
+2026-02-03 18:37:52,362 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.043% | 费率差: -0.0012%
+2026-02-03 18:37:52,363 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.83 (手续费: 4.00) | 持仓时间: 2.0h
+2026-02-03 18:37:52,364 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.044% | 费率差: -0.0012%
+2026-02-03 18:37:52,364 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.86 (手续费: 3.98) | 持仓时间: 1.5h
+2026-02-03 18:37:52,370 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.041% | 费率差: -0.0013%
+2026-02-03 18:37:52,370 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.93 (手续费: 3.98) | 持仓时间: 0.5h
+2026-02-03 18:37:52,374 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.042% | 费率差: -0.0016%
+2026-02-03 18:37:52,374 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.83 (手续费: 3.98) | 持仓时间: 0.5h
+2026-02-03 18:37:52,374 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.054% | 费率差: -0.0016%
+2026-02-03 18:37:52,375 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.77 (手续费: 3.97) | 持仓时间: 0.5h
+2026-02-03 18:37:52,375 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.051% | 费率差: -0.0016%
+2026-02-03 18:37:52,375 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.74 (手续费: 3.97) | 持仓时间: 0.5h
+2026-02-03 18:37:52,376 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.045% | 费率差: -0.0016%
+2026-02-03 18:37:52,376 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.84 (手续费: 3.98) | 持仓时间: 0.5h
+2026-02-03 18:37:52,382 - INFO - 📈 开仓 [price_spread] condition_b | SOLUSDT | 做多A做空B | 价差方向: different | 价差: 0.049% | 费率差: 0.0005%
+2026-02-03 18:37:52,382 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.80 (手续费: 3.97) | 持仓时间: 0.5h
+2026-02-03 18:37:52,383 - INFO - 📈 开仓 [price_spread] condition_b | SOLUSDT | 做多A做空B | 价差方向: different | 价差: 0.048% | 费率差: 0.0005%
+2026-02-03 18:37:52,383 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.68 (手续费: 4.00) | 持仓时间: 0.5h
+2026-02-03 18:37:52,385 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.042% | 费率差: -0.0086%
+2026-02-03 18:37:52,385 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.85 (手续费: 3.96) | 持仓时间: 0.5h
+2026-02-03 18:37:52,388 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.042% | 费率差: -0.0086%
+2026-02-03 18:37:52,388 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.88 (手续费: 3.97) | 持仓时间: 0.5h
+2026-02-03 18:37:52,411 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.053% | 费率差: -0.0018%
+2026-02-03 18:37:52,411 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.85 (手续费: 3.98) | 持仓时间: 0.5h
+2026-02-03 18:37:52,414 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.048% | 费率差: -0.0099%
+2026-02-03 18:37:52,414 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.80 (手续费: 3.98) | 持仓时间: 1.0h
+2026-02-03 18:37:52,416 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.048% | 费率差: -0.0099%
+2026-02-03 18:37:52,416 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.62 (手续费: 3.96) | 持仓时间: 0.5h
+2026-02-03 18:37:52,423 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.063% | 费率差: -0.0030%
+2026-02-03 18:37:52,424 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.93 (手续费: 3.97) | 持仓时间: 0.5h
+2026-02-03 18:37:52,424 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.059% | 费率差: -0.0030%
+2026-02-03 18:37:52,424 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.85 (手续费: 3.96) | 持仓时间: 1.0h
+2026-02-03 18:37:52,425 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.055% | 费率差: -0.0030%
+2026-02-03 18:37:52,425 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.81 (手续费: 3.95) | 持仓时间: 1.0h
+2026-02-03 18:37:52,426 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.049% | 费率差: -0.0030%
+2026-02-03 18:37:52,426 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.93 (手续费: 3.96) | 持仓时间: 1.5h
+2026-02-03 18:37:52,427 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.060% | 费率差: -0.0030%
+2026-02-03 18:37:52,427 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.88 (手续费: 3.96) | 持仓时间: 0.5h
+2026-02-03 18:37:52,429 - INFO - 📈 开仓 [combined] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.067% | 费率差: -0.0197%
+2026-02-03 18:37:52,430 - INFO - 📉 平仓 [combined] | SOLUSDT | 做多A做空B | 原因: spread_profit | 盈亏: -3.73 (手续费: 3.95) | 费率收益: 0.00 (0次结算) | 持仓时间: 1.0h
+2026-02-03 18:37:52,430 - INFO - 📈 开仓 [combined] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.062% | 费率差: -0.0197%
+2026-02-03 18:37:52,431 - INFO - 📉 平仓 [combined] | SOLUSDT | 做多A做空B | 原因: spread_profit | 盈亏: -3.75 (手续费: 3.96) | 费率收益: 0.00 (0次结算) | 持仓时间: 1.5h
+2026-02-03 18:37:52,431 - INFO - 📈 开仓 [funding_rate] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.036% | 费率差: -0.0197%
+2026-02-03 18:37:52,445 - INFO - 📉 平仓 [funding_rate] | SOLUSDT | 做多A做空B | 原因: spread_profit | 盈亏: -3.37 (手续费: 4.00) | 费率收益: 0.38 (3次结算) | 持仓时间: 29.5h
+2026-02-03 18:37:52,446 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.040% | 费率差: -0.0046%
+2026-02-03 18:37:52,446 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.94 (手续费: 3.97) | 持仓时间: 1.0h
+2026-02-03 18:37:52,446 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.042% | 费率差: -0.0029%
+2026-02-03 18:37:52,447 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.51 (手续费: 3.94) | 持仓时间: 0.5h
+2026-02-03 18:37:52,457 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.052% | 费率差: -0.0030%
+2026-02-03 18:37:52,458 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.93 (手续费: 3.95) | 持仓时间: 0.5h
+2026-02-03 18:37:52,458 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.050% | 费率差: -0.0030%
+2026-02-03 18:37:52,458 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.90 (手续费: 3.94) | 持仓时间: 0.5h
+2026-02-03 18:37:52,459 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.051% | 费率差: -0.0030%
+2026-02-03 18:37:52,460 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.78 (手续费: 3.94) | 持仓时间: 0.5h
+2026-02-03 18:37:52,460 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.059% | 费率差: -0.0030%
+2026-02-03 18:37:52,460 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.52 (手续费: 3.94) | 持仓时间: 0.5h
+2026-02-03 18:37:52,461 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.062% | 费率差: -0.0063%
+2026-02-03 18:37:52,461 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.55 (手续费: 3.94) | 持仓时间: 0.5h
+2026-02-03 18:37:52,463 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.043% | 费率差: -0.0063%
+2026-02-03 18:37:52,463 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.64 (手续费: 3.93) | 持仓时间: 0.5h
+2026-02-03 18:37:52,482 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.063% | 费率差: -0.0026%
+2026-02-03 18:37:52,482 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.88 (手续费: 3.94) | 持仓时间: 0.5h
+2026-02-03 18:37:52,482 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.058% | 费率差: -0.0026%
+2026-02-03 18:37:52,483 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.93 (手续费: 3.93) | 持仓时间: 1.0h
+2026-02-03 18:37:52,484 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.062% | 费率差: -0.0026%
+2026-02-03 18:37:52,484 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.81 (手续费: 3.93) | 持仓时间: 0.5h
+2026-02-03 18:37:52,484 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.070% | 费率差: -0.0026%
+2026-02-03 18:37:52,485 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.78 (手续费: 3.92) | 持仓时间: 0.5h
+2026-02-03 18:37:52,485 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.066% | 费率差: -0.0026%
+2026-02-03 18:37:52,486 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.70 (手续费: 3.93) | 持仓时间: 0.5h
+2026-02-03 18:37:52,488 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.047% | 费率差: -0.0069%
+2026-02-03 18:37:52,488 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.86 (手续费: 3.94) | 持仓时间: 0.5h
+2026-02-03 18:37:52,489 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.051% | 费率差: -0.0069%
+2026-02-03 18:37:52,489 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.77 (手续费: 3.93) | 持仓时间: 1.5h
+2026-02-03 18:37:52,492 - INFO - 处理进度: 1000/1440 | 持仓: 0 | 已平仓: 49 | 盈亏: -185.68
+2026-02-03 18:37:52,495 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.058% | 费率差: -0.0029%
+2026-02-03 18:37:52,495 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.77 (手续费: 3.93) | 持仓时间: 0.5h
+2026-02-03 18:37:52,495 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.042% | 费率差: -0.0029%
+2026-02-03 18:37:52,496 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.89 (手续费: 3.93) | 持仓时间: 1.0h
+2026-02-03 18:37:52,496 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.058% | 费率差: -0.0029%
+2026-02-03 18:37:52,496 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.91 (手续费: 3.93) | 持仓时间: 0.5h
+2026-02-03 18:37:52,496 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.056% | 费率差: -0.0029%
+2026-02-03 18:37:52,497 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.87 (手续费: 3.92) | 持仓时间: 0.5h
+2026-02-03 18:37:52,497 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.051% | 费率差: -0.0029%
+2026-02-03 18:37:52,497 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.73 (手续费: 3.92) | 持仓时间: 1.0h
+2026-02-03 18:37:52,497 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.058% | 费率差: -0.0029%
+2026-02-03 18:37:52,498 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.74 (手续费: 3.92) | 持仓时间: 1.0h
+2026-02-03 18:37:52,505 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.077% | 费率差: -0.0055%
+2026-02-03 18:37:52,505 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.83 (手续费: 3.92) | 持仓时间: 0.5h
+2026-02-03 18:37:52,505 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.068% | 费率差: -0.0055%
+2026-02-03 18:37:52,505 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.90 (手续费: 3.92) | 持仓时间: 0.5h
+2026-02-03 18:37:52,505 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.067% | 费率差: -0.0055%
+2026-02-03 18:37:52,506 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.90 (手续费: 3.91) | 持仓时间: 1.0h
+2026-02-03 18:37:52,506 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.066% | 费率差: -0.0055%
+2026-02-03 18:37:52,506 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.87 (手续费: 3.92) | 持仓时间: 0.5h
+2026-02-03 18:37:52,507 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.064% | 费率差: -0.0055%
+2026-02-03 18:37:52,507 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.87 (手续费: 3.91) | 持仓时间: 1.0h
+2026-02-03 18:37:52,508 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.066% | 费率差: -0.0055%
+2026-02-03 18:37:52,508 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.76 (手续费: 3.91) | 持仓时间: 0.5h
+2026-02-03 18:37:52,509 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.066% | 费率差: -0.0050%
+2026-02-03 18:37:52,509 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.83 (手续费: 3.91) | 持仓时间: 0.5h
+2026-02-03 18:37:52,509 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.064% | 费率差: -0.0050%
+2026-02-03 18:37:52,510 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.78 (手续费: 3.91) | 持仓时间: 0.5h
+2026-02-03 18:37:52,510 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.067% | 费率差: -0.0050%
+2026-02-03 18:37:52,510 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.62 (手续费: 3.91) | 持仓时间: 0.5h
+2026-02-03 18:37:52,512 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.057% | 费率差: -0.0050%
+2026-02-03 18:37:52,512 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.59 (手续费: 3.85) | 持仓时间: 0.5h
+2026-02-03 18:37:52,513 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.051% | 费率差: -0.0018%
+2026-02-03 18:37:52,513 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.87 (手续费: 3.90) | 持仓时间: 0.5h
+2026-02-03 18:37:52,513 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.048% | 费率差: -0.0018%
+2026-02-03 18:37:52,513 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.86 (手续费: 3.90) | 持仓时间: 1.0h
+2026-02-03 18:37:52,513 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.043% | 费率差: -0.0018%
+2026-02-03 18:37:52,514 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.85 (手续费: 3.89) | 持仓时间: 3.0h
+2026-02-03 18:37:52,515 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.059% | 费率差: -0.0018%
+2026-02-03 18:37:52,515 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.80 (手续费: 3.90) | 持仓时间: 0.5h
+2026-02-03 18:37:52,515 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.064% | 费率差: -0.0018%
+2026-02-03 18:37:52,515 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.79 (手续费: 3.90) | 持仓时间: 0.5h
+2026-02-03 18:37:52,516 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.054% | 费率差: -0.0018%
+2026-02-03 18:37:52,516 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.74 (手续费: 3.90) | 持仓时间: 1.5h
+2026-02-03 18:37:52,521 - INFO - 📈 开仓 [funding_rate] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.034% | 费率差: -0.0103%
+2026-02-03 18:37:52,521 - INFO - 📉 平仓 [funding_rate] | SOLUSDT | 做多A做空B | 原因: spread_profit | 盈亏: -3.58 (手续费: 3.88) | 费率收益: 0.00 (0次结算) | 持仓时间: 1.5h
+2026-02-03 18:37:52,521 - INFO - 📈 开仓 [funding_rate] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.002% | 费率差: -0.0103%
+2026-02-03 18:37:52,545 - INFO - 📉 平仓 [funding_rate] | SOLUSDT | 做多A做空B | 原因: funding_converge | 盈亏: -3.73 (手续费: 3.83) | 费率收益: 0.59 (7次结算) | 持仓时间: 57.0h
+2026-02-03 18:37:52,548 - INFO - 📈 开仓 [price_spread] condition_b | SOLUSDT | 做多A做空B | 价差方向: different | 价差: 0.052% | 费率差: 0.0003%
+2026-02-03 18:37:52,548 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.83 (手续费: 3.89) | 持仓时间: 0.5h
+2026-02-03 18:37:52,548 - INFO - 📈 开仓 [price_spread] condition_b | SOLUSDT | 做多A做空B | 价差方向: different | 价差: 0.045% | 费率差: 0.0003%
+2026-02-03 18:37:52,548 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.76 (手续费: 3.89) | 持仓时间: 0.5h
+2026-02-03 18:37:52,549 - INFO - 📈 开仓 [price_spread] condition_b | SOLUSDT | 做多A做空B | 价差方向: different | 价差: 0.065% | 费率差: 0.0003%
+2026-02-03 18:37:52,549 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.81 (手续费: 3.88) | 持仓时间: 0.5h
+2026-02-03 18:37:52,549 - INFO - 📈 开仓 [price_spread] condition_b | SOLUSDT | 做多A做空B | 价差方向: different | 价差: 0.057% | 费率差: 0.0003%
+2026-02-03 18:37:52,549 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.77 (手续费: 3.90) | 持仓时间: 1.5h
+2026-02-03 18:37:52,550 - INFO - 📈 开仓 [price_spread] condition_b | SOLUSDT | 做多A做空B | 价差方向: different | 价差: 0.058% | 费率差: 0.0003%
+2026-02-03 18:37:52,550 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.57 (手续费: 3.88) | 持仓时间: 0.5h
+2026-02-03 18:37:52,551 - INFO - 📈 开仓 [price_spread] condition_b | SOLUSDT | 做多A做空B | 价差方向: different | 价差: 0.055% | 费率差: 0.0003%
+2026-02-03 18:37:52,551 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.75 (手续费: 3.88) | 持仓时间: 0.5h
+2026-02-03 18:37:52,552 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.051% | 费率差: -0.0005%
+2026-02-03 18:37:52,552 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.75 (手续费: 3.88) | 持仓时间: 1.5h
+2026-02-03 18:37:52,553 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.057% | 费率差: -0.0005%
+2026-02-03 18:37:52,553 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.82 (手续费: 3.87) | 持仓时间: 0.5h
+2026-02-03 18:37:52,553 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.051% | 费率差: -0.0005%
+2026-02-03 18:37:52,554 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.83 (手续费: 3.88) | 持仓时间: 0.5h
+2026-02-03 18:37:52,554 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.061% | 费率差: -0.0005%
+2026-02-03 18:37:52,554 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.76 (手续费: 3.88) | 持仓时间: 0.5h
+2026-02-03 18:37:52,555 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.048% | 费率差: -0.0005%
+2026-02-03 18:37:52,555 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.83 (手续费: 3.86) | 持仓时间: 1.5h
+2026-02-03 18:37:52,556 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.051% | 费率差: -0.0032%
+2026-02-03 18:37:52,556 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.83 (手续费: 3.87) | 持仓时间: 0.5h
+2026-02-03 18:37:52,557 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.058% | 费率差: -0.0032%
+2026-02-03 18:37:52,557 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.85 (手续费: 3.87) | 持仓时间: 1.0h
+2026-02-03 18:37:52,557 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.057% | 费率差: -0.0032%
+2026-02-03 18:37:52,558 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.87 (手续费: 3.88) | 持仓时间: 0.5h
+2026-02-03 18:37:52,558 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.056% | 费率差: -0.0032%
+2026-02-03 18:37:52,558 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.76 (手续费: 3.88) | 持仓时间: 1.5h
+2026-02-03 18:37:52,566 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.047% | 费率差: -0.0040%
+2026-02-03 18:37:52,567 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.84 (手续费: 3.87) | 持仓时间: 1.5h
+2026-02-03 18:37:52,567 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.053% | 费率差: -0.0040%
+2026-02-03 18:37:52,568 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.84 (手续费: 3.87) | 持仓时间: 1.0h
+2026-02-03 18:37:52,568 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.050% | 费率差: -0.0040%
+2026-02-03 18:37:52,569 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.75 (手续费: 3.86) | 持仓时间: 5.0h
+2026-02-03 18:37:52,570 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.065% | 费率差: -0.0031%
+2026-02-03 18:37:52,570 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.64 (手续费: 3.86) | 持仓时间: 0.5h
+2026-02-03 18:37:52,570 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.058% | 费率差: -0.0031%
+2026-02-03 18:37:52,571 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.82 (手续费: 3.86) | 持仓时间: 0.5h
+2026-02-03 18:37:52,571 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.066% | 费率差: -0.0031%
+2026-02-03 18:37:52,571 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.81 (手续费: 3.86) | 持仓时间: 0.5h
+2026-02-03 18:37:52,571 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.062% | 费率差: -0.0031%
+2026-02-03 18:37:52,571 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.82 (手续费: 3.86) | 持仓时间: 0.5h
+2026-02-03 18:37:52,572 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.063% | 费率差: -0.0031%
+2026-02-03 18:37:52,573 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.62 (手续费: 3.86) | 持仓时间: 0.5h
+2026-02-03 18:37:52,576 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.066% | 费率差: -0.0029%
+2026-02-03 18:37:52,576 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.83 (手续费: 3.85) | 持仓时间: 0.5h
+2026-02-03 18:37:52,576 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.064% | 费率差: -0.0029%
+2026-02-03 18:37:52,577 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.77 (手续费: 3.84) | 持仓时间: 0.5h
+2026-02-03 18:37:52,577 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.057% | 费率差: -0.0029%
+2026-02-03 18:37:52,578 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.53 (手续费: 3.79) | 持仓时间: 5.0h
+2026-02-03 18:37:52,579 - INFO - 📈 开仓 [price_spread] condition_a | SOLUSDT | 做多A做空B | 价差方向: same | 价差: 0.069% | 费率差: -0.0029%
+2026-02-03 18:37:52,579 - INFO - 📉 平仓 [price_spread] | SOLUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.61 (手续费: 3.86) | 持仓时间: 0.5h
+2026-02-03 18:37:52,581 - INFO -
+============================================================
+2026-02-03 18:37:52,581 - INFO - 回测完成
+2026-02-03 18:37:52,581 - INFO - ============================================================
+2026-02-03 18:37:52,581 - INFO - 总交易次数: 100
+2026-02-03 18:37:52,581 - INFO - 总盈亏: -378.43
+2026-02-03 18:37:52,581 - INFO - 收益率: -3.78%
+2026-02-03 18:37:52,581 - INFO - 胜率: 0.00%
+  SOLUSDT 回测完成: 100 笔交易
+  加载 ADAUSDT: 1440 行, 列: ['binance_open', 'binance_high', 'binance_low', 'binance_close', 'binance_volume']...
+  ADAUSDT 列检测: {'price_col_a': 'binance_close', 'price_col_b': 'kucoin_close', 'funding_col_a': 'binance_funding_rate', 'funding_col_b': 'kucoin_funding_rate'}
+2026-02-03 18:37:52,584 - INFO - 套利系统初始化完成
+2026-02-03 18:37:52,584 - INFO - 参数: X=0.04%, Y=0.01%, A=0.002%, B=0.001%, N=6h, M=6h, P=0.02%, Q=0.1%
+2026-02-03 18:37:52,584 - INFO - 开始回测: ADAUSDT
+2026-02-03 18:37:52,584 - INFO - 数据范围: 2025-12-27 04:00:00 至 2026-01-26 03:30:00
+2026-02-03 18:37:52,585 - INFO - 数据点数: 1440
+2026-02-03 18:37:52,585 - INFO - 处理进度: 0/1440 | 持仓: 0 | 已平仓: 0 | 盈亏: 0.00
+2026-02-03 18:37:52,585 - INFO - 📈 开仓 [price_spread] condition_b | ADAUSDT | 做多A做空B | 价差方向: different | 价差: 0.059% | 费率差: 0.0002%
+2026-02-03 18:37:52,585 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.81 (手续费: 4.00) | 持仓时间: 1.0h
+2026-02-03 18:37:52,585 - INFO - 📈 开仓 [price_spread] condition_b | ADAUSDT | 做多A做空B | 价差方向: different | 价差: 0.051% | 费率差: 0.0002%
+2026-02-03 18:37:52,586 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.77 (手续费: 4.00) | 持仓时间: 1.0h
+2026-02-03 18:37:52,586 - INFO - 📈 开仓 [price_spread] condition_b | ADAUSDT | 做多A做空B | 价差方向: different | 价差: 0.068% | 费率差: 0.0002%
+2026-02-03 18:37:52,587 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.46 (手续费: 3.99) | 持仓时间: 0.5h
+2026-02-03 18:37:52,587 - INFO - 📈 开仓 [price_spread] condition_b | ADAUSDT | 做多A做空B | 价差方向: different | 价差: 0.042% | 费率差: 0.0002%
+2026-02-03 18:37:52,587 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.56 (手续费: 4.01) | 持仓时间: 0.5h
+2026-02-03 18:37:52,589 - INFO - 📈 开仓 [price_spread] condition_b | ADAUSDT | 做多A做空B | 价差方向: different | 价差: 0.042% | 费率差: 0.0009%
+2026-02-03 18:37:52,589 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.72 (手续费: 4.00) | 持仓时间: 0.5h
+2026-02-03 18:37:52,590 - INFO - 📈 开仓 [price_spread] condition_b | ADAUSDT | 做多A做空B | 价差方向: different | 价差: 0.059% | 费率差: 0.0009%
+2026-02-03 18:37:52,590 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.77 (手续费: 3.99) | 持仓时间: 0.5h
+2026-02-03 18:37:52,591 - INFO - 📈 开仓 [price_spread] condition_b | ADAUSDT | 做多A做空B | 价差方向: different | 价差: 0.058% | 费率差: 0.0009%
+2026-02-03 18:37:52,591 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.97 (手续费: 4.00) | 持仓时间: 0.5h
+2026-02-03 18:37:52,591 - INFO - 📈 开仓 [price_spread] condition_b | ADAUSDT | 做多A做空B | 价差方向: different | 价差: 0.055% | 费率差: 0.0009%
+2026-02-03 18:37:52,592 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.81 (手续费: 4.00) | 持仓时间: 0.5h
+2026-02-03 18:37:52,592 - INFO - 📈 开仓 [price_spread] condition_b | ADAUSDT | 做多A做空B | 价差方向: different | 价差: 0.085% | 费率差: 0.0009%
+2026-02-03 18:37:52,592 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.47 (手续费: 3.99) | 持仓时间: 0.5h
+2026-02-03 18:37:52,592 - INFO - 📈 开仓 [price_spread] condition_b | ADAUSDT | 做多A做空B | 价差方向: different | 价差: 0.077% | 费率差: 0.0009%
+2026-02-03 18:37:52,593 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.50 (手续费: 4.02) | 持仓时间: 1.0h
+2026-02-03 18:37:52,656 - INFO - 📈 开仓 [price_spread] condition_b | ADAUSDT | 做多A做空B | 价差方向: different | 价差: 0.060% | 费率差: 0.0001%
+2026-02-03 18:37:52,656 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.80 (手续费: 3.97) | 持仓时间: 0.5h
+2026-02-03 18:37:52,657 - INFO - 📈 开仓 [price_spread] condition_b | ADAUSDT | 做多A做空B | 价差方向: different | 价差: 0.052% | 费率差: 0.0001%
+2026-02-03 18:37:52,658 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.95 (手续费: 3.98) | 持仓时间: 0.5h
+2026-02-03 18:37:52,658 - INFO - 📈 开仓 [price_spread] condition_b | ADAUSDT | 做多A做空B | 价差方向: different | 价差: 0.050% | 费率差: 0.0001%
+2026-02-03 18:37:52,658 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.81 (手续费: 3.98) | 持仓时间: 0.5h
+2026-02-03 18:37:52,658 - INFO - 📈 开仓 [price_spread] condition_b | ADAUSDT | 做多A做空B | 价差方向: different | 价差: 0.058% | 费率差: 0.0001%
+2026-02-03 18:37:52,659 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.66 (手续费: 3.98) | 持仓时间: 1.0h
+2026-02-03 18:37:52,659 - INFO - 📈 开仓 [price_spread] condition_b | ADAUSDT | 做多A做空B | 价差方向: different | 价差: 0.072% | 费率差: 0.0001%
+2026-02-03 18:37:52,659 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.43 (手续费: 3.98) | 持仓时间: 0.5h
+2026-02-03 18:37:52,676 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.086% | 费率差: -0.0064%
+2026-02-03 18:37:52,676 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.43 (手续费: 3.96) | 持仓时间: 1.0h
+2026-02-03 18:37:52,677 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.075% | 费率差: -0.0064%
+2026-02-03 18:37:52,677 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.70 (手续费: 3.99) | 持仓时间: 0.5h
+2026-02-03 18:37:52,679 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.049% | 费率差: -0.0064%
+2026-02-03 18:37:52,679 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.85 (手续费: 3.99) | 持仓时间: 1.0h
+2026-02-03 18:37:52,680 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.045% | 费率差: -0.0064%
+2026-02-03 18:37:52,680 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.51 (手续费: 3.94) | 持仓时间: 0.5h
+2026-02-03 18:37:52,680 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.071% | 费率差: -0.0064%
+2026-02-03 18:37:52,680 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.63 (手续费: 3.97) | 持仓时间: 0.5h
+2026-02-03 18:37:52,681 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.073% | 费率差: -0.0064%
+2026-02-03 18:37:52,681 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.88 (手续费: 3.98) | 持仓时间: 0.5h
+2026-02-03 18:37:52,681 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.063% | 费率差: -0.0064%
+2026-02-03 18:37:52,681 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.80 (手续费: 3.97) | 持仓时间: 0.5h
+2026-02-03 18:37:52,682 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.046% | 费率差: -0.0064%
+2026-02-03 18:37:52,682 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.62 (手续费: 3.91) | 持仓时间: 2.5h
+2026-02-03 18:37:52,683 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.086% | 费率差: -0.0064%
+2026-02-03 18:37:52,683 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.66 (手续费: 3.95) | 持仓时间: 0.5h
+2026-02-03 18:37:52,683 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.077% | 费率差: -0.0064%
+2026-02-03 18:37:52,683 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.70 (手续费: 3.97) | 持仓时间: 0.5h
+2026-02-03 18:37:52,686 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.060% | 费率差: -0.0027%
+2026-02-03 18:37:52,687 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.93 (手续费: 3.98) | 持仓时间: 0.5h
+2026-02-03 18:37:52,687 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.055% | 费率差: -0.0027%
+2026-02-03 18:37:52,687 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.97 (手续费: 3.97) | 持仓时间: 0.5h
+2026-02-03 18:37:52,689 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.093% | 费率差: -0.0027%
+2026-02-03 18:37:52,689 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.37 (手续费: 3.94) | 持仓时间: 0.5h
+2026-02-03 18:37:52,690 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.046% | 费率差: -0.0027%
+2026-02-03 18:37:52,690 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.62 (手续费: 3.97) | 持仓时间: 0.5h
+2026-02-03 18:37:52,690 - INFO - 📈 开仓 [price_spread] condition_b | ADAUSDT | 做多A做空B | 价差方向: different | 价差: 0.045% | 费率差: 0.0006%
+2026-02-03 18:37:52,691 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.59 (手续费: 3.94) | 持仓时间: 0.5h
+2026-02-03 18:37:52,691 - INFO - 📈 开仓 [price_spread] condition_b | ADAUSDT | 做多A做空B | 价差方向: different | 价差: 0.049% | 费率差: 0.0006%
+2026-02-03 18:37:52,692 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.88 (手续费: 3.95) | 持仓时间: 2.0h
+2026-02-03 18:37:52,692 - INFO - 📈 开仓 [price_spread] condition_b | ADAUSDT | 做多A做空B | 价差方向: different | 价差: 0.074% | 费率差: 0.0006%
+2026-02-03 18:37:52,692 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.62 (手续费: 3.95) | 持仓时间: 0.5h
+2026-02-03 18:37:52,693 - INFO - 📈 开仓 [price_spread] condition_b | ADAUSDT | 做多A做空B | 价差方向: different | 价差: 0.070% | 费率差: 0.0006%
+2026-02-03 18:37:52,693 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.83 (手续费: 3.96) | 持仓时间: 0.5h
+2026-02-03 18:37:52,694 - INFO - 📈 开仓 [price_spread] condition_b | ADAUSDT | 做多A做空B | 价差方向: different | 价差: 0.104% | 费率差: 0.0006%
+2026-02-03 18:37:52,694 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.72 (手续费: 3.95) | 持仓时间: 0.5h
+2026-02-03 18:37:52,694 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.081% | 费率差: -0.0009%
+2026-02-03 18:37:52,694 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.88 (手续费: 3.96) | 持仓时间: 0.5h
+2026-02-03 18:37:52,694 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.073% | 费率差: -0.0009%
+2026-02-03 18:37:52,695 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.71 (手续费: 3.94) | 持仓时间: 0.5h
+2026-02-03 18:37:52,695 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.098% | 费率差: -0.0009%
+2026-02-03 18:37:52,695 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.79 (手续费: 3.94) | 持仓时间: 0.5h
+2026-02-03 18:37:52,695 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.083% | 费率差: -0.0009%
+2026-02-03 18:37:52,696 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.86 (手续费: 3.93) | 持仓时间: 1.0h
+2026-02-03 18:37:52,696 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.076% | 费率差: -0.0009%
+2026-02-03 18:37:52,696 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.42 (手续费: 3.94) | 持仓时间: 0.5h
+2026-02-03 18:37:52,697 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.063% | 费率差: -0.0009%
+2026-02-03 18:37:52,698 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.41 (手续费: 3.93) | 持仓时间: 0.5h
+2026-02-03 18:37:52,713 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.064% | 费率差: -0.0022%
+2026-02-03 18:37:52,713 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.79 (手续费: 3.95) | 持仓时间: 0.5h
+2026-02-03 18:37:52,714 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.059% | 费率差: -0.0022%
+2026-02-03 18:37:52,714 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.90 (手续费: 3.93) | 持仓时间: 0.5h
+2026-02-03 18:37:52,714 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.057% | 费率差: -0.0022%
+2026-02-03 18:37:52,714 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.94 (手续费: 3.94) | 持仓时间: 0.5h
+2026-02-03 18:37:52,714 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.056% | 费率差: -0.0022%
+2026-02-03 18:37:52,715 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.68 (手续费: 3.93) | 持仓时间: 0.5h
+2026-02-03 18:37:52,715 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.061% | 费率差: -0.0022%
+2026-02-03 18:37:52,715 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.66 (手续费: 3.94) | 持仓时间: 0.5h
+2026-02-03 18:37:52,716 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.057% | 费率差: -0.0022%
+2026-02-03 18:37:52,717 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.95 (手续费: 3.95) | 持仓时间: 3.0h
+2026-02-03 18:37:52,719 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.084% | 费率差: -0.0022%
+2026-02-03 18:37:52,720 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.73 (手续费: 3.94) | 持仓时间: 0.5h
+2026-02-03 18:37:52,720 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.082% | 费率差: -0.0022%
+2026-02-03 18:37:52,720 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.78 (手续费: 3.93) | 持仓时间: 0.5h
+2026-02-03 18:37:52,721 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.079% | 费率差: -0.0022%
+2026-02-03 18:37:52,721 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.81 (手续费: 3.93) | 持仓时间: 0.5h
+2026-02-03 18:37:52,728 - INFO - 📈 开仓 [funding_rate] condition_a | ADAUSDT | 做空A做多B | 价差方向: same | 价差: 0.033% | 费率差: 0.0228%
+2026-02-03 18:37:52,732 - INFO - 📉 平仓 [funding_rate] | ADAUSDT | 做空A做多B | 原因: funding_converge | 盈亏: -3.25 (手续费: 3.94) | 费率收益: 0.04 (1次结算) | 持仓时间: 9.5h
+2026-02-03 18:37:52,733 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.048% | 费率差: -0.0001%
+2026-02-03 18:37:52,733 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.48 (手续费: 3.93) | 持仓时间: 0.5h
+2026-02-03 18:37:52,734 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.057% | 费率差: -0.0001%
+2026-02-03 18:37:52,734 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.64 (手续费: 3.91) | 持仓时间: 0.5h
+2026-02-03 18:37:52,735 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.041% | 费率差: -0.0001%
+2026-02-03 18:37:52,736 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.86 (手续费: 3.91) | 持仓时间: 3.5h
+2026-02-03 18:37:52,738 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.067% | 费率差: -0.0017%
+2026-02-03 18:37:52,739 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.86 (手续费: 3.94) | 持仓时间: 1.5h
+2026-02-03 18:37:52,741 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.083% | 费率差: -0.0017%
+2026-02-03 18:37:52,742 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.43 (手续费: 3.92) | 持仓时间: 1.0h
+2026-02-03 18:37:52,742 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.042% | 费率差: -0.0017%
+2026-02-03 18:37:52,743 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.83 (手续费: 3.93) | 持仓时间: 0.5h
+2026-02-03 18:37:52,743 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.076% | 费率差: -0.0017%
+2026-02-03 18:37:52,743 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.39 (手续费: 3.92) | 持仓时间: 0.5h
+2026-02-03 18:37:52,744 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.054% | 费率差: -0.0017%
+2026-02-03 18:37:52,744 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.34 (手续费: 3.91) | 持仓时间: 0.5h
+2026-02-03 18:37:52,745 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.047% | 费率差: -0.0017%
+2026-02-03 18:37:52,745 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.52 (手续费: 3.91) | 持仓时间: 0.5h
+2026-02-03 18:37:52,763 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.071% | 费率差: -0.0004%
+2026-02-03 18:37:52,764 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.56 (手续费: 3.91) | 持仓时间: 1.0h
+2026-02-03 18:37:52,765 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.079% | 费率差: -0.0004%
+2026-02-03 18:37:52,765 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.86 (手续费: 3.91) | 持仓时间: 0.5h
+2026-02-03 18:37:52,765 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.074% | 费率差: -0.0004%
+2026-02-03 18:37:52,766 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.70 (手续费: 3.90) | 持仓时间: 1.0h
+2026-02-03 18:37:52,766 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.061% | 费率差: -0.0004%
+2026-02-03 18:37:52,766 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.79 (手续费: 3.92) | 持仓时间: 0.5h
+2026-02-03 18:37:52,766 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.084% | 费率差: -0.0004%
+2026-02-03 18:37:52,767 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.44 (手续费: 3.91) | 持仓时间: 0.5h
+2026-02-03 18:37:52,767 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.074% | 费率差: -0.0013%
+2026-02-03 18:37:52,768 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.78 (手续费: 3.91) | 持仓时间: 0.5h
+2026-02-03 18:37:52,768 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.069% | 费率差: -0.0013%
+2026-02-03 18:37:52,768 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.68 (手续费: 3.90) | 持仓时间: 0.5h
+2026-02-03 18:37:52,768 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.097% | 费率差: -0.0013%
+2026-02-03 18:37:52,769 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.66 (手续费: 3.91) | 持仓时间: 0.5h
+2026-02-03 18:37:52,769 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.071% | 费率差: -0.0013%
+2026-02-03 18:37:52,769 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.88 (手续费: 3.91) | 持仓时间: 0.5h
+2026-02-03 18:37:52,769 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.069% | 费率差: -0.0013%
+2026-02-03 18:37:52,770 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.84 (手续费: 3.89) | 持仓时间: 1.0h
+2026-02-03 18:37:52,770 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.064% | 费率差: -0.0013%
+2026-02-03 18:37:52,770 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.75 (手续费: 3.90) | 持仓时间: 1.5h
+2026-02-03 18:37:52,771 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.084% | 费率差: -0.0013%
+2026-02-03 18:37:52,771 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.42 (手续费: 3.91) | 持仓时间: 1.5h
+2026-02-03 18:37:52,775 - INFO - 处理进度: 1000/1440 | 持仓: 0 | 已平仓: 71 | 盈亏: -262.09
+2026-02-03 18:37:52,786 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.089% | 费率差: -0.0006%
+2026-02-03 18:37:52,786 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.88 (手续费: 3.90) | 持仓时间: 0.5h
+2026-02-03 18:37:52,786 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.086% | 费率差: -0.0006%
+2026-02-03 18:37:52,787 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.75 (手续费: 3.90) | 持仓时间: 1.0h
+2026-02-03 18:37:52,787 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.071% | 费率差: -0.0006%
+2026-02-03 18:37:52,787 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.72 (手续费: 3.89) | 持仓时间: 0.5h
+2026-02-03 18:37:52,787 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.086% | 费率差: -0.0006%
+2026-02-03 18:37:52,788 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.67 (手续费: 3.89) | 持仓时间: 0.5h
+2026-02-03 18:37:52,788 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.094% | 费率差: -0.0006%
+2026-02-03 18:37:52,788 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.60 (手续费: 3.90) | 持仓时间: 0.5h
+2026-02-03 18:37:52,788 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.084% | 费率差: -0.0006%
+2026-02-03 18:37:52,789 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.66 (手续费: 3.89) | 持仓时间: 0.5h
+2026-02-03 18:37:52,789 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.087% | 费率差: -0.0006%
+2026-02-03 18:37:52,790 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.84 (手续费: 3.89) | 持仓时间: 0.5h
+2026-02-03 18:37:52,790 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.082% | 费率差: -0.0006%
+2026-02-03 18:37:52,790 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.27 (手续费: 3.89) | 持仓时间: 0.5h
+2026-02-03 18:37:52,793 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.099% | 费率差: -0.0078%
+2026-02-03 18:37:52,794 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.38 (手续费: 3.89) | 持仓时间: 0.5h
+2026-02-03 18:37:52,795 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.102% | 费率差: -0.0078%
+2026-02-03 18:37:52,795 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.37 (手续费: 3.87) | 持仓时间: 0.5h
+2026-02-03 18:37:52,795 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.050% | 费率差: -0.0078%
+2026-02-03 18:37:52,797 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.81 (手续费: 3.92) | 持仓时间: 5.0h
+2026-02-03 18:37:52,799 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.073% | 费率差: -0.0073%
+2026-02-03 18:37:52,800 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.73 (手续费: 3.89) | 持仓时间: 0.5h
+2026-02-03 18:37:52,800 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.062% | 费率差: -0.0073%
+2026-02-03 18:37:52,800 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.74 (手续费: 3.87) | 持仓时间: 1.0h
+2026-02-03 18:37:52,801 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.073% | 费率差: -0.0073%
+2026-02-03 18:37:52,801 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.89 (手续费: 3.89) | 持仓时间: 1.0h
+2026-02-03 18:37:52,801 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.073% | 费率差: -0.0073%
+2026-02-03 18:37:52,801 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.83 (手续费: 3.88) | 持仓时间: 0.5h
+2026-02-03 18:37:52,801 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.067% | 费率差: -0.0073%
+2026-02-03 18:37:52,802 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.69 (手续费: 3.87) | 持仓时间: 0.5h
+2026-02-03 18:37:52,805 - INFO - 📈 开仓 [funding_rate] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.022% | 费率差: -0.0137%
+2026-02-03 18:37:52,813 - INFO - 📉 平仓 [funding_rate] | ADAUSDT | 做多A做空B | 原因: funding_converge | 盈亏: -3.98 (手续费: 3.79) | 费率收益: 0.08 (2次结算) | 持仓时间: 18.5h
+2026-02-03 18:37:52,817 - INFO - 📈 开仓 [combined] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.060% | 费率差: -0.0137%
+2026-02-03 18:37:52,820 - INFO - 📉 平仓 [combined] | ADAUSDT | 做多A做空B | 原因: spread_profit | 盈亏: -3.63 (手续费: 3.88) | 费率收益: 0.00 (0次结算) | 持仓时间: 5.0h
+2026-02-03 18:37:52,821 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.054% | 费率差: -0.0073%
+2026-02-03 18:37:52,822 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.84 (手续费: 3.87) | 持仓时间: 1.0h
+2026-02-03 18:37:52,825 - INFO - 📈 开仓 [combined] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.099% | 费率差: -0.0137%
+2026-02-03 18:37:52,825 - INFO - 📉 平仓 [combined] | ADAUSDT | 做多A做空B | 原因: spread_profit | 盈亏: -3.66 (手续费: 3.87) | 费率收益: 0.00 (0次结算) | 持仓时间: 1.0h
+2026-02-03 18:37:52,825 - INFO - 📈 开仓 [combined] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.077% | 费率差: -0.0137%
+2026-02-03 18:37:52,827 - INFO - 📉 平仓 [combined] | ADAUSDT | 做多A做空B | 原因: spread_profit | 盈亏: -3.63 (手续费: 3.87) | 费率收益: 0.00 (0次结算) | 持仓时间: 2.5h
+2026-02-03 18:37:52,827 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.082% | 费率差: -0.0095%
+2026-02-03 18:37:52,828 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.49 (手续费: 3.86) | 持仓时间: 0.5h
+2026-02-03 18:37:52,828 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.116% | 费率差: -0.0095%
+2026-02-03 18:37:52,828 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.36 (手续费: 3.87) | 持仓时间: 0.5h
+2026-02-03 18:37:52,828 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.080% | 费率差: -0.0095%
+2026-02-03 18:37:52,829 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.77 (手续费: 3.87) | 持仓时间: 0.5h
+2026-02-03 18:37:52,837 - INFO - 📈 开仓 [combined] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.092% | 费率差: -0.0137%
+2026-02-03 18:37:52,838 - INFO - 📉 平仓 [combined] | ADAUSDT | 做多A做空B | 原因: spread_profit | 盈亏: -3.28 (手续费: 3.85) | 费率收益: 0.00 (0次结算) | 持仓时间: 0.5h
+2026-02-03 18:37:52,838 - INFO - 📈 开仓 [funding_rate] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.034% | 费率差: -0.0137%
+2026-02-03 18:37:52,839 - INFO - 📉 平仓 [funding_rate] | ADAUSDT | 做多A做空B | 原因: spread_profit | 盈亏: -3.67 (手续费: 3.92) | 费率收益: 0.00 (0次结算) | 持仓时间: 3.0h
+2026-02-03 18:37:52,840 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.087% | 费率差: -0.0041%
+2026-02-03 18:37:52,840 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.30 (手续费: 3.83) | 持仓时间: 1.5h
+2026-02-03 18:37:52,841 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.106% | 费率差: -0.0041%
+2026-02-03 18:37:52,841 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.13 (手续费: 3.85) | 持仓时间: 0.5h
+2026-02-03 18:37:52,842 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.083% | 费率差: -0.0041%
+2026-02-03 18:37:52,842 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.76 (手续费: 3.87) | 持仓时间: 0.5h
+2026-02-03 18:37:52,843 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.072% | 费率差: -0.0041%
+2026-02-03 18:37:52,843 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.62 (手续费: 3.86) | 持仓时间: 0.5h
+2026-02-03 18:37:52,845 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.070% | 费率差: -0.0047%
+2026-02-03 18:37:52,845 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.69 (手续费: 3.85) | 持仓时间: 0.5h
+2026-02-03 18:37:52,847 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.078% | 费率差: -0.0047%
+2026-02-03 18:37:52,847 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.64 (手续费: 3.85) | 持仓时间: 0.5h
+2026-02-03 18:37:52,847 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.056% | 费率差: -0.0047%
+2026-02-03 18:37:52,849 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.69 (手续费: 3.85) | 持仓时间: 3.5h
+2026-02-03 18:37:52,851 - INFO - 📈 开仓 [combined] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.075% | 费率差: -0.0137%
+2026-02-03 18:37:52,858 - INFO - 📉 平仓 [combined] | ADAUSDT | 做多A做空B | 原因: spread_profit | 盈亏: -3.33 (手续费: 3.83) | 费率收益: 0.10 (1次结算) | 持仓时间: 13.5h
+2026-02-03 18:37:52,858 - INFO - 📈 开仓 [funding_rate] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.034% | 费率差: -0.0137%
+2026-02-03 18:37:52,864 - INFO - 📉 平仓 [funding_rate] | ADAUSDT | 做多A做空B | 原因: funding_converge | 盈亏: -4.24 (手续费: 3.78) | 费率收益: 0.05 (1次结算) | 持仓时间: 12.5h
+2026-02-03 18:37:52,866 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.088% | 费率差: -0.0004%
+2026-02-03 18:37:52,866 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.55 (手续费: 3.86) | 持仓时间: 0.5h
+2026-02-03 18:37:52,867 - INFO - 📈 开仓 [price_spread] condition_a | ADAUSDT | 做多A做空B | 价差方向: same | 价差: 0.078% | 费率差: -0.0004%
+2026-02-03 18:37:52,868 - INFO - 📉 平仓 [price_spread] | ADAUSDT | 做多A做空B | 原因: price_profit | 盈亏: -3.45 (手续费: 3.84) | 持仓时间: 0.5h
+2026-02-03 18:37:52,868 - INFO -
+============================================================
+2026-02-03 18:37:52,868 - INFO - 回测完成
+2026-02-03 18:37:52,868 - INFO - ============================================================
+2026-02-03 18:37:52,868 - INFO - 总交易次数: 108
+2026-02-03 18:37:52,869 - INFO - 总盈亏: -396.62
+2026-02-03 18:37:52,869 - INFO - 收益率: -3.97%
+2026-02-03 18:37:52,869 - INFO - 胜率: 0.00%
+  ADAUSDT 回测完成: 108 笔交易
+Run completed: trades=477, pnl=-1774.82, return=-0.0355

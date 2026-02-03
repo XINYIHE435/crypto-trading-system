@@ -1,0 +1,12 @@
+{"time":"2026-02-03T19:07:00.735915+08:00","level":"INFO","msg":"stream: starting","core version":"0.24.1"}
+{"time":"2026-02-03T19:07:01.382745+08:00","level":"INFO","msg":"stream: created new stream","id":"kobsfsx4"}
+{"time":"2026-02-03T19:07:01.382807+08:00","level":"INFO","msg":"handler: started","stream_id":"kobsfsx4"}
+{"time":"2026-02-03T19:07:01.38351+08:00","level":"INFO","msg":"stream: started","id":"kobsfsx4"}
+{"time":"2026-02-03T19:07:01.383613+08:00","level":"INFO","msg":"writer: started","stream_id":"kobsfsx4"}
+{"time":"2026-02-03T19:07:01.383602+08:00","level":"INFO","msg":"sender: started","stream_id":"kobsfsx4"}
+{"time":"2026-02-03T19:07:03.540327+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-02-03T19:07:03.988818+08:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2026-02-03T19:07:03.990409+08:00","level":"INFO","msg":"stream: closing","id":"kobsfsx4"}
+{"time":"2026-02-03T19:07:03.990421+08:00","level":"INFO","msg":"handler: closed","stream_id":"kobsfsx4"}
+{"time":"2026-02-03T19:07:03.99047+08:00","level":"INFO","msg":"sender: closed","stream_id":"kobsfsx4"}
+{"time":"2026-02-03T19:07:03.990476+08:00","level":"INFO","msg":"stream: closed","id":"kobsfsx4"}
