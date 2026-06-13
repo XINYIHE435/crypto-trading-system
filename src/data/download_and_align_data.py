@@ -23,20 +23,20 @@ class CompleteDataDownloader:
         self.symbols = ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'SOLUSDT', 'ADAUSDT']
         self.interval = '30m'
         self.days = 30  # 下载30天数据
-        
+
         # 输出目录
         self.kline_dir = 'data/raw/klines'
         self.funding_dir = 'data/raw/funding_rates'
         self.aligned_dir = 'data/aligned'
-        
+
         os.makedirs(self.kline_dir, exist_ok=True)
         os.makedirs(self.funding_dir, exist_ok=True)
         os.makedirs(self.aligned_dir, exist_ok=True)
-        
+
         # 时间范围
         self.end_time = datetime.now()
         self.start_time = self.end_time - timedelta(days=self.days)
-        
+
         print(f"数据下载时间范围: {self.start_time} 至 {self.end_time}")
         print(f"交易对: {self.symbols}")
 
@@ -228,32 +228,32 @@ class CompleteDataDownloader:
     def download_kucoin_funding_rates(self, symbol: str) -> Optional[pd.DataFrame]:
         """下载 KuCoin 资金费率"""
         print(f"  📥 下载 KuCoin {symbol} 资金费率...")
-        
-        kucoin_symbol = symbol.replace('USDT', 'USDTM')
-        
-        # 尝试多个可能的 API 端点
-        endpoints = [
-            f"https://api-futures.kucoin.com/api/v1/funding-rate/{kucoin_symbol}/current",
-            f"https://api-futures.kucoin.com/api/v1/contract/{kucoin_symbol}",
-        ]
-        
+        KUCOIN_SYMBOL_MAP = {
+            "BTCUSDT": "XBTUSDTM",
+            "ETHUSDT": "ETHUSDTM",
+            "BNBUSDT": "BNBUSDTM",
+            "SOLUSDT": "SOLUSDTM",
+            "ADAUSDT": "ADAUSDTM"
+        }
+        kucoin_symbol = KUCOIN_SYMBOL_MAP.get(symbol)
+
         all_data = []
-        
+
         # 尝试获取历史资金费率
         url = "https://api-futures.kucoin.com/api/v1/contract/funding-rates"
-        
+
         start_ts = int(self.start_time.timestamp() * 1000)
         end_ts = int(self.end_time.timestamp() * 1000)
-        
+
         params = {
             'symbol': kucoin_symbol,
             'from': start_ts,
             'to': end_ts
         }
-        
+
         try:
             response = requests.get(url, params=params, timeout=30)
-            
+
             if response.status_code == 200:
                 result = response.json()
                 if result.get('code') == '200000':
@@ -262,39 +262,56 @@ class CompleteDataDownloader:
                         all_data = data
                     elif isinstance(data, dict) and 'dataList' in data:
                         all_data = data['dataList']
+                else:
+                    print(f"    ⚠️ KuCoin API 返回错误: {result.get('msg', '未知错误')}")
         except Exception as e:
-            print(f"    ⚠️ KuCoin 资金费率 API 1 失败: {e}")
-        
-        # 如果没有数据，尝试逐个获取
+            print(f"    ⚠️ KuCoin 资金费率 API 失败: {e}")
+
+        # 如果没有数据，直接返回 None
         if not all_data:
-            print(f"    ⚠️ KuCoin 历史资金费率不可用")
+            print(f"    ⚠️ KuCoin 历史资金费率不可用，将使用 Bybit 作为后备")
             return None
-        
-        if not all_data:
-            return None
-        
+
         df = pd.DataFrame(all_data)
-        
-        # 动态处理列名
-        if 'timePoint' in df.columns:
-            df['timestamp'] = pd.to_datetime(df['timePoint'], unit='ms')
-        elif 'fundingTime' in df.columns:
-            df['timestamp'] = pd.to_datetime(df['fundingTime'], unit='ms')
-        else:
-            print(f"    ⚠️ 无法识别时间列")
+
+        # 打印可用的列名以便调试
+        print(f"    📋 KuCoin 返回的列: {list(df.columns)}")
+
+        # 动态处理列名 - 扩展更多可能的字段名
+        timestamp_col = None
+        for col in ['timePoint','timepoint', 'fundingTime', 'timestamp', 'time', 'fundingRateTimestamp']:
+            if col in df.columns:
+                timestamp_col = col
+                break
+
+        if timestamp_col is None:
+            print(f"    ⚠️ 无法识别时间列，可用列: {list(df.columns)}")
             return None
-        
-        if 'fundingRate' in df.columns:
-            df['funding_rate'] = pd.to_numeric(df['fundingRate'], errors='coerce')
-        elif 'rate' in df.columns:
-            df['funding_rate'] = pd.to_numeric(df['rate'], errors='coerce')
-        else:
-            print(f"    ⚠️ 无法识别费率列")
+
+        # 安全地转换时间戳
+        try:
+            df['timestamp'] = pd.to_datetime(pd.to_numeric(df[timestamp_col], errors='coerce'), unit='ms')
+        except Exception as e:
+            print(f"    ⚠️ 时间戳转换失败: {e}")
             return None
-        
+
+        # 处理资金费率列
+        rate_col = None
+        for col in ['fundingRate', 'rate', 'funding_rate']:
+            if col in df.columns:
+                rate_col = col
+                break
+
+        if rate_col is None:
+            print(f"    ⚠️ 无法识别费率列，可用列: {list(df.columns)}")
+            return None
+
+        df['funding_rate'] = pd.to_numeric(df[rate_col], errors='coerce')
+
         df = df[['timestamp', 'funding_rate']]
+        df = df.dropna(subset=['timestamp', 'funding_rate'])
         df = df.drop_duplicates(subset=['timestamp']).sort_values('timestamp')
-        
+
         print(f"    ✅ 下载完成: {len(df)} 条")
         return df
 
@@ -330,6 +347,8 @@ class CompleteDataDownloader:
                     break
                 
                 data = result.get('result', {}).get('list', [])
+                print("timestamp=", data[-1][0])
+                print(type(data[-1][0]))
                 if not data:
                     break
                 
@@ -348,7 +367,15 @@ class CompleteDataDownloader:
         
         # Bybit 返回格式: [startTime, open, high, low, close, volume, turnover]
         df = pd.DataFrame(all_data, columns=['timestamp', 'open', 'high', 'low', 'close', 'volume', 'turnover'])
-        df['timestamp'] = pd.to_datetime(df['timestamp'].astype(int), unit='ms')
+        df['timestamp'] = pd.to_numeric(df['timestamp'], errors='coerce')
+        # print("timestamp range:", df['timestamp'].min(), df['timestamp'].max())
+        abnormal = df[(df['timestamp'] < 1000000000000)|(df['timestamp'] > 2000000000000)]
+        if len(abnormal):
+            print("异常时间戳:")
+            print(abnormal.head())
+        df = df.dropna(subset=['timestamp'])
+        df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms', errors='coerce')
+        
         for col in ['open', 'high', 'low', 'close', 'volume']:
             df[col] = pd.to_numeric(df[col], errors='coerce')
         
@@ -364,13 +391,13 @@ class CompleteDataDownloader:
     def download_bybit_funding_rates(self, symbol: str) -> Optional[pd.DataFrame]:
         """下载 Bybit 资金费率（作为 KuCoin 的备用）"""
         print(f"  📥 下载 Bybit {symbol} 资金费率...")
-        
+
         url = "https://api.bybit.com/v5/market/funding/history"
         all_data = []
-        
+
         start_ts = int(self.start_time.timestamp() * 1000)
         end_ts = int(self.end_time.timestamp() * 1000)
-        
+
         params = {
             'category': 'linear',
             'symbol': symbol,
@@ -378,47 +405,63 @@ class CompleteDataDownloader:
             'endTime': end_ts,
             'limit': 200
         }
-        
+
         cursor = None
-        
+
         while True:
             if cursor:
                 params['cursor'] = cursor
-            
+
             try:
                 response = requests.get(url, params=params, timeout=30)
                 response.raise_for_status()
                 result = response.json()
-                
+
                 if result.get('retCode') != 0:
                     print(f"    ⚠️ Bybit API 错误: {result.get('retMsg')}")
                     break
-                
+
                 data = result.get('result', {}).get('list', [])
+                print("timestamp=", data[-1][0])
+                print(type(data[-1][0]))
                 if not data:
                     break
-                
+
                 all_data.extend(data)
-                
+
                 cursor = result.get('result', {}).get('nextPageCursor')
                 if not cursor:
                     break
-                
+
                 time.sleep(0.2)
-                
+
             except Exception as e:
-                print(f"    ❌ Bybit 资金费率下载错误: {e}")
+                print(f"    ❌ {symbol} 下载失败: {e}")
                 break
-        
+
         if not all_data:
             return None
-        
+
         df = pd.DataFrame(all_data)
-        df['timestamp'] = pd.to_datetime(df['fundingRateTimestamp'].astype(int), unit='ms')
+
+        # 安全地转换时间戳 - 使用 pd.to_numeric 避免溢出
+        try:
+            df['timestamp'] = pd.to_datetime(
+                pd.to_numeric(df['fundingRateTimestamp'], errors='coerce'),
+                unit='ms',
+                errors='coerce'
+            )
+        except Exception as e:
+            print(f"    ⚠️ 时间戳转换失败: {e}")
+            return None
+
         df['funding_rate'] = pd.to_numeric(df['fundingRate'], errors='coerce')
         df = df[['timestamp', 'funding_rate']]
+
+        # 移除无效数据
+        df = df.dropna(subset=['timestamp', 'funding_rate'])
         df = df.drop_duplicates(subset=['timestamp']).sort_values('timestamp')
-        
+
         print(f"    ✅ 下载完成: {len(df)} 条")
         return df
 

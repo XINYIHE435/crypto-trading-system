@@ -1,0 +1,129 @@
+{
+  "timestamp": "2026-06-09T19:15:15.495109",
+  "config": {
+    "X": 0.5,
+    "Y": 0.1,
+    "A": 0.01,
+    "B": 0.005,
+    "N": 4,
+    "M": 2,
+    "P": 1.0,
+    "Q": 1.0
+  },
+  "summary": {
+    "total_symbols": 5,
+    "successful_symbols": 5,
+    "total_trades": 0,
+    "total_pnl": 0.0,
+    "avg_return_rate": 0.0,
+    "avg_win_rate": 0.0
+  },
+  "by_type": {},
+  "results": {
+    "BTCUSDT": {
+      "total_trades": 0,
+      "total_pnl": 0.0,
+      "return_rate": 0.0,
+      "win_rate": 0.0,
+      "by_type": {},
+      "by_condition": {},
+      "trades": [],
+      "symbol": "BTCUSDT",
+      "status": "success",
+      "config": {
+        "X": 0.5,
+        "Y": 0.1,
+        "A": 0.01,
+        "B": 0.005,
+        "N": 4,
+        "M": 2,
+        "P": 1.0,
+        "Q": 1.0
+      }
+    },
+    "ETHUSDT": {
+      "total_trades": 0,
+      "total_pnl": 0.0,
+      "return_rate": 0.0,
+      "win_rate": 0.0,
+      "by_type": {},
+      "by_condition": {},
+      "trades": [],
+      "symbol": "ETHUSDT",
+      "status": "success",
+      "config": {
+        "X": 0.5,
+        "Y": 0.1,
+        "A": 0.01,
+        "B": 0.005,
+        "N": 4,
+        "M": 2,
+        "P": 1.0,
+        "Q": 1.0
+      }
+    },
+    "BNBUSDT": {
+      "total_trades": 0,
+      "total_pnl": 0.0,
+      "return_rate": 0.0,
+      "win_rate": 0.0,
+      "by_type": {},
+      "by_condition": {},
+      "trades": [],
+      "symbol": "BNBUSDT",
+      "status": "success",
+      "config": {
+        "X": 0.5,
+        "Y": 0.1,
+        "A": 0.01,
+        "B": 0.005,
+        "N": 4,
+        "M": 2,
+        "P": 1.0,
+        "Q": 1.0
+      }
+    },
+    "SOLUSDT": {
+      "total_trades": 0,
+      "total_pnl": 0.0,
+      "return_rate": 0.0,
+      "win_rate": 0.0,
+      "by_type": {},
+      "by_condition": {},
+      "trades": [],
+      "symbol": "SOLUSDT",
+      "status": "success",
+      "config": {
+        "X": 0.5,
+        "Y": 0.1,
+        "A": 0.01,
+        "B": 0.005,
+        "N": 4,
+        "M": 2,
+        "P": 1.0,
+        "Q": 1.0
+      }
+    },
+    "ADAUSDT": {
+      "total_trades": 0,
+      "total_pnl": 0.0,
+      "return_rate": 0.0,
+      "win_rate": 0.0,
+      "by_type": {},
+      "by_condition": {},
+      "trades": [],
+      "symbol": "ADAUSDT",
+      "status": "success",
+      "config": {
+        "X": 0.5,
+        "Y": 0.1,
+        "A": 0.01,
+        "B": 0.005,
+        "N": 4,
+        "M": 2,
+        "P": 1.0,
+        "Q": 1.0
+      }
+    }
+  }
+}

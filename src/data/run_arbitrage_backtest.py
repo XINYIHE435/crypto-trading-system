@@ -94,38 +94,41 @@ class ArbitrageBacktestRunner:
         
         return columns
     
-    def run_single_backtest(self, symbol: str, config: ArbitrageConfig = None) -> Dict:
+    def run_single_backtest(self, symbol: str, config: ArbitrageConfig = None, debug: bool = False) -> Dict:
         """
         运行单个交易对的回测
-        
+
         Args:
             symbol: 交易对符号
             config: 可选的配置覆盖
-        
+            debug: 是否启用调试模式
+
         Returns:
             回测结果字典
         """
         print(f"\n{'='*60}")
         print(f"运行 {symbol} 套利回测")
         print(f"{'='*60}")
-        
+
         # 加载数据
         df = self.load_data(symbol)
         if df is None:
             return {'symbol': symbol, 'status': 'error', 'message': '数据文件不存在'}
-        
+
         # 检测列名
         columns = self.detect_columns(df)
-        
+
         if columns['price_col_a'] is None or columns['price_col_b'] is None:
             return {'symbol': symbol, 'status': 'error', 'message': '无法检测到价格列'}
-        
+
         print(f"📊 检测到的列: {columns}")
-        
+        print(f"📈 数据行数: {len(df)}")
+        print(f"📅 时间范围: {df.index[0]} 至 {df.index[-1]}")
+
         # 初始化系统
         use_config = config or self.config
         system = ArbitrageSystem(use_config)
-        
+
         try:
             # 运行回测
             results = system.run_backtest(
@@ -134,7 +137,8 @@ class ArbitrageBacktestRunner:
                 price_col_a=columns['price_col_a'],
                 price_col_b=columns['price_col_b'],
                 funding_col_a=columns.get('funding_col_a', 'binance_funding_rate'),
-                funding_col_b=columns.get('funding_col_b', 'kucoin_funding_rate')
+                funding_col_b=columns.get('funding_col_b', 'kucoin_funding_rate'),
+                debug=debug
             )
             
             results['symbol'] = symbol
@@ -354,6 +358,113 @@ class ArbitrageBacktestRunner:
                         print(f"    - {type_name}: {stats['count']}笔, 胜率{stats['win_rate']:.2%}")
             else:
                 print(f"\n❌ {symbol}: {result.get('message', '未知错误')}")
+
+    def generate_visualizations(self, report: Dict):
+        """
+        生成回测结果的可视化图表
+
+        为每个交易对生成时间序列分析图表，保存到 data/results/ 目录
+        """
+        print(f"\n{'='*60}")
+        print("📊 生成可视化图表...")
+        print(f"{'='*60}")
+
+        results_dir = 'data/results'
+        os.makedirs(results_dir, exist_ok=True)
+
+        for symbol, result in report['results'].items():
+            if result.get('status') != 'success':
+                continue
+
+            try:
+                # 加载数据
+                df = self.load_data(symbol)
+                if df is None:
+                    print(f"  ⚠️ {symbol}: 无法加载数据")
+                    continue
+
+                # 检测列名
+                columns = self.detect_columns(df)
+
+                print(f"  📈 生成 {symbol} 图表...")
+
+                # 创建图表
+                fig, axes = plt.subplots(4, 1, figsize=(14, 12))
+                fig.suptitle(f'{symbol} 时间序列分析', fontsize=16, fontweight='bold')
+
+                # 1. 价格对比图
+                ax1 = axes[0]
+                ax1.plot(df.index, df[columns['price_col_a']], label='Binance', linewidth=1.5, alpha=0.8)
+                ax1.plot(df.index, df[columns['price_col_b']], label='KuCoin/Bybit', linewidth=1.5, alpha=0.8)
+                ax1.set_ylabel('价格 (USDT)', fontsize=10)
+                ax1.set_title('交易所价格对比', fontsize=12)
+                ax1.legend(loc='best')
+                ax1.grid(True, alpha=0.3)
+
+                # 2. 价差百分比图
+                ax2 = axes[1]
+                price_spread_pct = abs(df[columns['price_col_a']] - df[columns['price_col_b']]) / \
+                                   df[[columns['price_col_a'], columns['price_col_b']]].min(axis=1) * 100
+                ax2.plot(df.index, price_spread_pct, color='orange', linewidth=1.0, alpha=0.7)
+
+                # 添加阈值线
+                config = report.get('config', {})
+                if config:
+                    ax2.axhline(y=config.get('X', 0.5), color='red', linestyle='--',
+                               label=f'触发阈值 X={config.get("X", 0.5)}%', alpha=0.5)
+
+                ax2.set_ylabel('价差 (%)', fontsize=10)
+                ax2.set_title('价差百分比', fontsize=12)
+                ax2.legend(loc='best')
+                ax2.grid(True, alpha=0.3)
+
+                # 3. 资金费率对比图
+                ax3 = axes[2]
+                if columns.get('funding_col_a') and columns.get('funding_col_b'):
+                    funding_a = df[columns['funding_col_a']] * 100
+                    funding_b = df[columns['funding_col_b']] * 100
+                    ax3.plot(df.index, funding_a, label='Binance', linewidth=1.0, alpha=0.7)
+                    ax3.plot(df.index, funding_b, label='KuCoin/Bybit', linewidth=1.0, alpha=0.7)
+                    ax3.set_ylabel('资金费率 (%)', fontsize=10)
+                    ax3.set_title('资金费率对比', fontsize=12)
+                    ax3.legend(loc='best')
+                    ax3.grid(True, alpha=0.3)
+                    ax3.axhline(y=0, color='black', linestyle='-', alpha=0.3)
+
+                # 4. 资金费率差图
+                ax4 = axes[3]
+                if columns.get('funding_col_a') and columns.get('funding_col_b'):
+                    funding_spread = abs(df[columns['funding_col_a']] - df[columns['funding_col_b']]) * 100
+                    ax4.plot(df.index, funding_spread, color='green', linewidth=1.0, alpha=0.7)
+
+                    # 添加阈值线
+                    if config:
+                        ax4.axhline(y=config.get('Y', 0.1), color='red', linestyle='--',
+                                   label=f'触发阈值 Y={config.get("Y", 0.1)}%', alpha=0.5)
+
+                    ax4.set_ylabel('费率差 (%)', fontsize=10)
+                    ax4.set_title('资金费率差', fontsize=12)
+                    ax4.set_xlabel('时间', fontsize=10)
+                    ax4.legend(loc='best')
+                    ax4.grid(True, alpha=0.3)
+
+                # 调整布局
+                plt.tight_layout()
+
+                # 保存图表
+                filepath = os.path.join(results_dir, f'{symbol}_time_series_analysis.png')
+                plt.savefig(filepath, dpi=100, bbox_inches='tight')
+                plt.close(fig)
+
+                print(f"    ✅ 已保存: {filepath}")
+
+            except Exception as e:
+                print(f"    ❌ {symbol} 图表生成失败: {e}")
+                import traceback
+                traceback.print_exc()
+
+        print(f"\n✅ 可视化图表生成完成！")
+
 
 
 def main():

@@ -121,25 +121,25 @@ class ArbitragePosition:
 class ArbitrageConfig:
     """套利系统配置参数"""
     # 核心参数（来自文档）
-    X: float = 0.5          # 套利差价触发阈值（百分比）
-    Y: float = 0.1          # 资金费率差触发阈值（百分比）
-    A: float = 0.1          # 可忽视的差价百分比阈值
-    B: float = 0.05         # 可忽视的资金费率差价百分比阈值
+    X: float = 0.05          # 套利差价触发阈值（百分比）
+    Y: float = 0.01          # 资金费率差触发阈值（百分比）
+    A: float = 0.01          # 可忽视的差价百分比阈值
+    B: float = 0.005         # 可忽视的资金费率差价百分比阈值
     N: int = 8              # 历史记录数据的小时数量
     M: int = 4              # 资金费率不利持续时间（小时）
-    P: float = 0.3          # 价差盈利百分比
-    Q: float = 0.5          # 价差亏损百分比
-    
+    P: float = 1.0          # 价差盈利百分比（提高到1.0%让价差充分收敛）
+    Q: float = 0.8          # 价差亏损百分比（调整到0.8%）
+
     # K线时间间隔配置
     kline_interval: str = '30T'       # K线时间间隔（如 '30T', '1H', '4H'）
     kline_interval_minutes: int = 30  # K线间隔分钟数（与kline_interval保持同步）
-    
+
     # 其他配置
     initial_balance: float = 10000.0
     position_size_pct: float = 0.1    # 单次开仓占总资金百分比
     max_positions: int = 5            # 最大同时持仓数
-    transaction_fee: float = 0.001    # 交易手续费率
-    
+    transaction_fee: float = 0.0002    # 交易手续费率（Maker费率0.02%）
+
     # 资金费率配置
     funding_settlement_hours: float = 8.0   # 资金费率结算周期（小时）
     funding_income_multiplier: float = 1.0  # 资金费率收益系数（用于模拟杠杆）
@@ -866,31 +866,43 @@ class ArbitrageSystem:
         price_col_a: str = "binance_close",
         price_col_b: str = "kucoin_close",
         funding_col_a: str = "binance_funding_rate",
-        funding_col_b: str = "kucoin_funding_rate"
+        funding_col_b: str = "kucoin_funding_rate",
+        debug: bool = False
     ):
         """
         处理单个时间点的数据
-        
+
         执行开仓检查和平仓检查
         """
         row = df.iloc[idx]
         current_time = row.name if isinstance(row.name, datetime) else pd.to_datetime(row.name)
-        
+
         # 获取当前数据
         price_a = row.get(price_col_a, 0)
         price_b = row.get(price_col_b, 0)
         funding_a = row.get(funding_col_a, 0) or 0
         funding_b = row.get(funding_col_b, 0) or 0
-        
+
         if price_a <= 0 or price_b <= 0:
             return
-        
+
         # 计算指标
         _, price_spread_pct, price_direction = self.calculate_price_spread(price_a, price_b)
         funding_spread_pct, funding_direction = self.calculate_funding_spread(funding_a, funding_b)
         direction = self.check_direction(price_direction, funding_direction)
         historical_avg = self.get_historical_price_spread_avg(df, idx, price_col_a, price_col_b)
         funding_history_valid = self.check_funding_rate_history(df, idx, funding_col_a, funding_col_b)
+
+        # 调试输出：每100行或找到符合条件的时候打印
+        if debug and (idx % 100 == 0 or price_spread_pct >= self.config.X * 0.5):
+            print(f"\n🔍 [{current_time}] {symbol} 调试信息:")
+            print(f"  价格: A={price_a:.2f}, B={price_b:.2f}")
+            print(f"  价差: {price_spread_pct:.4f}% (阈值X={self.config.X}%, 历史均值={historical_avg:.4f}%)")
+            print(f"  资金费率: A={funding_a:.6f}, B={funding_b:.6f}")
+            print(f"  费率差: {funding_spread_pct:.4f}% (阈值Y={self.config.Y}%, B={self.config.B}%)")
+            print(f"  方向: 价差={price_direction}, 费率={funding_direction}, 综合={direction.value}")
+            print(f"  费率历史有效: {funding_history_valid}")
+            print(f"  当前持仓数: {len(self.positions)}/{self.config.max_positions}")
         
         # ========== 资金费率结算 ==========
         for pos_id, position in self.positions.items():
@@ -940,50 +952,110 @@ class ArbitrageSystem:
         
         # ========== 开仓检查 ==========
         if len(self.positions) >= self.config.max_positions:
+            if debug:
+                print(f"  ⚠️ 已达到最大持仓数 {self.config.max_positions}")
             return
-        
+
         # 检查是否已有该symbol的持仓
         existing_position = any(p.symbol == symbol for p in self.positions.values())
         if existing_position:
+            if debug:
+                print(f"  ⚠️ {symbol} 已有持仓")
             return
-        
+
         # 修复GPT指出的问题：当任一方向为0时，禁止开仓
         # 方向为0表示价差或费率差为0，无法确定套利方向
         if price_direction == 0 or funding_direction == 0:
+            if debug:
+                print(f"  ⚠️ 方向为0，禁止开仓 (价差方向={price_direction}, 费率方向={funding_direction})")
             return
-        
+
+        # 检查各种开仓条件
+        if debug:
+            print(f"  🔎 检查开仓条件:")
+
+            # 组合套利条件
+            combined_ok = (price_spread_pct >= self.config.X and
+                          price_spread_pct > historical_avg and
+                          funding_spread_pct >= self.config.Y and
+                          funding_history_valid and
+                          direction == Direction.SAME)
+            print(f"    组合套利: {combined_ok}")
+            if not combined_ok:
+                print(f"      - 价差>={self.config.X}%: {price_spread_pct >= self.config.X}")
+                print(f"      - 价差>{historical_avg:.4f}%: {price_spread_pct > historical_avg}")
+                print(f"      - 费率差>={self.config.Y}%: {funding_spread_pct >= self.config.Y}")
+                print(f"      - 费率历史有效: {funding_history_valid}")
+                print(f"      - 方向相同: {direction == Direction.SAME}")
+
+            # 差价套利条件a
+            price_a_ok = (price_spread_pct >= self.config.X and
+                         price_spread_pct > historical_avg and
+                         direction == Direction.SAME and
+                         funding_spread_pct < self.config.Y)
+            print(f"    差价套利A: {price_a_ok}")
+
+            # 差价套利条件b
+            price_b_ok = (price_spread_pct >= self.config.X and
+                         price_spread_pct > historical_avg and
+                         direction == Direction.DIFFERENT and
+                         funding_spread_pct < self.config.B)
+            print(f"    差价套利B: {price_b_ok}")
+
+            # 资金费率套利条件a
+            funding_a_ok = (funding_spread_pct >= self.config.Y and
+                           funding_history_valid and
+                           direction == Direction.SAME and
+                           price_spread_pct < self.config.X)
+            print(f"    费率套利A: {funding_a_ok}")
+
+            # 资金费率套利条件b
+            funding_b_ok = (funding_spread_pct >= self.config.Y and
+                           funding_history_valid and
+                           direction == Direction.DIFFERENT and
+                           price_spread_pct < self.config.A)
+            print(f"    费率套利B: {funding_b_ok}")
+
         # 1. 检查组合套利（优先级最高）
         if self.check_combined_arbitrage(
-            price_spread_pct, historical_avg, funding_spread_pct, 
+            price_spread_pct, historical_avg, funding_spread_pct,
             funding_history_valid, direction
         ):
+            if debug:
+                print(f"  ✅ 触发组合套利！")
             self.open_position(
                 symbol, ArbitrageType.COMBINED, OpenCondition.CONDITION_A,
                 direction, price_a, price_b, funding_a, funding_b,
                 price_spread_pct, historical_avg, current_time
             )
             return
-        
+
         # 不触发：差价>=X 且 资金费率差>=Y 但方向不同
-        if (price_spread_pct >= self.config.X and 
-            funding_spread_pct >= self.config.Y and 
+        if (price_spread_pct >= self.config.X and
+            funding_spread_pct >= self.config.Y and
             direction == Direction.DIFFERENT):
+            if debug:
+                print(f"  ⚠️ 价差和费率差都大但方向不同，不开仓")
             return
-        
+
         # 2. 检查差价套利
         if self.check_price_spread_arbitrage_condition_a(
             price_spread_pct, historical_avg, direction, funding_spread_pct
         ):
+            if debug:
+                print(f"  ✅ 触发差价套利A！")
             self.open_position(
                 symbol, ArbitrageType.PRICE_SPREAD, OpenCondition.CONDITION_A,
                 direction, price_a, price_b, funding_a, funding_b,
                 price_spread_pct, historical_avg, current_time
             )
             return
-        
+
         if self.check_price_spread_arbitrage_condition_b(
             price_spread_pct, historical_avg, direction, funding_spread_pct
         ):
+            if debug:
+                print(f"  ✅ 触发差价套利B！")
             self.open_position(
                 symbol, ArbitrageType.PRICE_SPREAD, OpenCondition.CONDITION_B,
                 direction, price_a, price_b, funding_a, funding_b,
@@ -995,16 +1067,20 @@ class ArbitrageSystem:
         if self.check_funding_rate_arbitrage_condition_a(
             funding_spread_pct, funding_history_valid, direction, price_spread_pct
         ):
+            if debug:
+                print(f"  ✅ 触发费率套利A！")
             self.open_position(
                 symbol, ArbitrageType.FUNDING_RATE, OpenCondition.CONDITION_A,
                 direction, price_a, price_b, funding_a, funding_b,
                 price_spread_pct, historical_avg, current_time
             )
             return
-        
+
         if self.check_funding_rate_arbitrage_condition_b(
             funding_spread_pct, funding_history_valid, direction, price_spread_pct
         ):
+            if debug:
+                print(f"  ✅ 触发费率套利B！")
             self.open_position(
                 symbol, ArbitrageType.FUNDING_RATE, OpenCondition.CONDITION_B,
                 direction, price_a, price_b, funding_a, funding_b,
@@ -1019,7 +1095,8 @@ class ArbitrageSystem:
         price_col_a: str = "binance_close",
         price_col_b: str = "kucoin_close",
         funding_col_a: str = "binance_funding_rate",
-        funding_col_b: str = "kucoin_funding_rate"
+        funding_col_b: str = "kucoin_funding_rate",
+        debug: bool = False
     ) -> Dict:
         """
         运行回测
@@ -1027,20 +1104,34 @@ class ArbitrageSystem:
         logger.info(f"开始回测: {symbol}")
         logger.info(f"数据范围: {df.index[0]} 至 {df.index[-1]}")
         logger.info(f"数据点数: {len(df)}")
-        
+
+        # 打印实际使用的参数
+        print(f"\n📊 回测参数配置:")
+        print(f"  差价触发阈值 X = {self.config.X}%")
+        print(f"  费率差触发阈值 Y = {self.config.Y}%")
+        print(f"  可忽视差价 A = {self.config.A}%")
+        print(f"  可忽视费率差 B = {self.config.B}%")
+        print(f"  历史窗口 N = {self.config.N} 小时")
+        print(f"  费率不利持续 M = {self.config.M} 小时")
+        print(f"  盈利目标 P = {self.config.P}%")
+        print(f"  止损阈值 Q = {self.config.Q}%")
+        print(f"  最大持仓数 = {self.config.max_positions}")
+        print(f"  交易手续费 = {self.config.transaction_fee * 100}%")
+
         # 重置状态
         self.positions.clear()
         self.closed_positions.clear()
         self.total_pnl = 0.0
         self.balance = self.config.initial_balance
         self.trade_count = 0
-        
+
         # 逐个处理
         for idx in range(len(df)):
             self.process_tick(
                 df, idx, symbol,
                 price_col_a, price_col_b,
-                funding_col_a, funding_col_b
+                funding_col_a, funding_col_b,
+                debug=debug
             )
             
             if idx % 1000 == 0:
@@ -1064,7 +1155,7 @@ class ArbitrageSystem:
         
         # 生成结果
         results = self.generate_results()
-        
+
         logger.info(f"\n{'='*60}")
         logger.info(f"回测完成")
         logger.info(f"{'='*60}")
@@ -1072,8 +1163,97 @@ class ArbitrageSystem:
         logger.info(f"总盈亏: {results['total_pnl']:.2f}")
         logger.info(f"收益率: {results['return_rate']:.2%}")
         logger.info(f"胜率: {results['win_rate']:.2%}")
-        
+
+        # 输出前10笔交易的详细分析
+        self.print_detailed_trades(10)
+
         return results
+
+    def print_detailed_trades(self, n: int = 10):
+        """
+        打印前N笔交易的详细信息，用于问题排查
+
+        包括：开仓/平仓时间、方向、价差、手续费、资金费率收益、最终PnL
+        """
+        if not self.closed_positions:
+            print("\n⚠️ 没有已平仓的交易")
+            return
+
+        print(f"\n{'='*100}")
+        print(f"📋 前 {min(n, len(self.closed_positions))} 笔交易详细分析")
+        print(f"{'='*100}")
+
+        for i, pos in enumerate(self.closed_positions[:n], 1):
+            print(f"\n【交易 #{i}】{pos.symbol} - {pos.arbitrage_type.value}")
+            print(f"  🔸 开仓时间: {pos.open_time}")
+            print(f"  🔸 平仓时间: {pos.close_time}")
+            print(f"  🔸 持仓时长: {pos.holding_hours:.2f} 小时")
+            print(f"  🔸 套利类型: {pos.arbitrage_type.value} ({pos.open_condition.value})")
+
+            # 交易方向
+            direction_str = "做空A做多B" if pos.short_a_long_b else "做多A做空B"
+            print(f"  🔸 交易方向: {direction_str}")
+            print(f"      开仓: A价格={pos.open_price_a:.2f}, B价格={pos.open_price_b:.2f}")
+            print(f"      平仓: A价格={pos.close_price_a:.2f}, B价格={pos.close_price_b:.2f}")
+
+            # 价差分析
+            print(f"  🔸 价差变化:")
+            print(f"      开仓价差: {pos.open_price_spread_pct:.4f}%")
+            print(f"      平仓价差: {pos.close_price_spread_pct:.4f}%")
+            spread_change = pos.close_price_spread_pct - pos.open_price_spread_pct
+            print(f"      价差变化: {spread_change:+.4f}%")
+
+            # 计算价差盈亏（不含手续费）
+            size = pos.position_size
+            if pos.short_a_long_b:
+                # 做空A做多B：期待价差缩小
+                pnl_a = (pos.open_price_a - pos.close_price_a) * size
+                pnl_b = (pos.close_price_b - pos.open_price_b) * size
+            else:
+                # 做多A做空B：期待价差缩小
+                pnl_a = (pos.close_price_a - pos.open_price_a) * size
+                pnl_b = (pos.open_price_b - pos.close_price_b) * size
+
+            price_pnl = pnl_a + pnl_b
+            print(f"      价差盈亏: ${price_pnl:.2f} (A: ${pnl_a:.2f}, B: ${pnl_b:.2f})")
+
+            # 手续费分析
+            fee_open_a = pos.open_price_a * size * self.config.transaction_fee
+            fee_open_b = pos.open_price_b * size * self.config.transaction_fee
+            fee_close_a = pos.close_price_a * size * self.config.transaction_fee
+            fee_close_b = pos.close_price_b * size * self.config.transaction_fee
+            total_fee = fee_open_a + fee_open_b + fee_close_a + fee_close_b
+            print(f"  🔸 手续费: ${total_fee:.2f}")
+            print(f"      开仓: A=${fee_open_a:.2f}, B=${fee_open_b:.2f}")
+            print(f"      平仓: A=${fee_close_a:.2f}, B=${fee_close_b:.2f}")
+
+            # 资金费率分析
+            if pos.arbitrage_type in [ArbitrageType.FUNDING_RATE, ArbitrageType.COMBINED]:
+                print(f"  🔸 资金费率:")
+                print(f"      开仓费率: A={pos.open_funding_a:.6f}, B={pos.open_funding_b:.6f}")
+                print(f"      费率差: {pos.open_funding_spread:.6f}")
+                print(f"      结算次数: {pos.funding_settlement_count}")
+                print(f"      累计收益: ${pos.accumulated_funding_pnl:.2f}")
+
+            # 最终盈亏
+            print(f"  🔸 最终盈亏: ${pos.realized_pnl:.2f}")
+            print(f"      计算: 价差盈亏${price_pnl:.2f} + 费率收益${pos.accumulated_funding_pnl:.2f} - 手续费${total_fee:.2f}")
+            print(f"      验证: ${price_pnl + pos.accumulated_funding_pnl - total_fee:.2f}")
+
+            # 平仓原因
+            print(f"  🔸 平仓原因: {pos.close_reason.value if pos.close_reason else 'N/A'}")
+
+            # 问题诊断
+            print(f"  🔍 问题诊断:")
+            if pos.realized_pnl < 0:
+                if abs(price_pnl) < total_fee:
+                    print(f"      ⚠️ 价差收益(${price_pnl:.2f})不足以覆盖手续费(${total_fee:.2f})")
+                if pos.short_a_long_b and spread_change > 0:
+                    print(f"      ⚠️ 做空A做多B，但价差扩大了({spread_change:+.4f}%)，方向错误")
+                elif not pos.short_a_long_b and spread_change < 0:
+                    print(f"      ⚠️ 做多A做空B，但价差扩大了({spread_change:+.4f}%)，方向错误")
+
+        print(f"\n{'='*100}\n")
 
     def generate_results(self) -> Dict:
         """生成回测结果"""
@@ -1122,10 +1302,18 @@ class ArbitrageSystem:
                 'type': p.arbitrage_type.value,
                 'condition': p.open_condition.value,
                 'direction': p.direction.value,
+                'short_a_long_b': p.short_a_long_b,
                 'open_time': str(p.open_time),
                 'close_time': str(p.close_time),
+                'open_price_a': p.open_price_a,
+                'open_price_b': p.open_price_b,
+                'close_price_a': p.close_price_a,
+                'close_price_b': p.close_price_b,
+                'open_funding_a': p.open_funding_a,
+                'open_funding_b': p.open_funding_b,
                 'open_spread_pct': p.open_price_spread_pct,
                 'close_spread_pct': p.close_price_spread_pct,
+                'position_size': p.position_size,
                 'close_reason': p.close_reason.value if p.close_reason else None,
                 'realized_pnl': p.realized_pnl,
                 'accumulated_funding_pnl': p.accumulated_funding_pnl,
@@ -1156,10 +1344,10 @@ def main():
     """测试主函数"""
     # 创建配置
     config = ArbitrageConfig(
-        X=0.5,    # 0.5% 价差触发
-        Y=0.1,    # 0.1% 资金费率差触发
-        A=0.1,    # 0.1% 可忽视价差
-        B=0.05,   # 0.05% 可忽视资金费率差
+        X=0.05,    # 0.05% 价差触发
+        Y=0.01,    # 0.1% 资金费率差触发
+        A=0.01,    # 0.1% 可忽视价差
+        B=0.005,   # 0.05% 可忽视资金费率差
         N=8,      # 8小时历史
         M=4,      # 4小时持续时间
         P=0.3,    # 0.3% 盈利目标

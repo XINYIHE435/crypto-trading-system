@@ -1,0 +1,168 @@
+{
+  "timestamp": "2026-06-10T11:54:33.182304",
+  "config": {
+    "X": 0.2,
+    "Y": 0.1,
+    "A": 0.01,
+    "B": 0.005,
+    "N": 4,
+    "M": 2,
+    "P": 0.3,
+    "Q": 0.5
+  },
+  "summary": {
+    "total_symbols": 5,
+    "successful_symbols": 5,
+    "total_trades": 1,
+    "total_pnl": -0.27951030927830134,
+    "avg_return_rate": -5.590206185566027e-06,
+    "avg_win_rate": 0.0
+  },
+  "by_type": {
+    "price_spread": {
+      "total_trades": 1,
+      "total_pnl": -0.27951030927830134
+    }
+  },
+  "results": {
+    "BTCUSDT": {
+      "total_trades": 0,
+      "total_pnl": 0.0,
+      "return_rate": 0.0,
+      "win_rate": 0.0,
+      "by_type": {},
+      "by_condition": {},
+      "trades": [],
+      "symbol": "BTCUSDT",
+      "status": "success",
+      "config": {
+        "X": 0.2,
+        "Y": 0.1,
+        "A": 0.01,
+        "B": 0.005,
+        "N": 4,
+        "M": 2,
+        "P": 0.3,
+        "Q": 0.5
+      }
+    },
+    "ETHUSDT": {
+      "total_trades": 0,
+      "total_pnl": 0.0,
+      "return_rate": 0.0,
+      "win_rate": 0.0,
+      "by_type": {},
+      "by_condition": {},
+      "trades": [],
+      "symbol": "ETHUSDT",
+      "status": "success",
+      "config": {
+        "X": 0.2,
+        "Y": 0.1,
+        "A": 0.01,
+        "B": 0.005,
+        "N": 4,
+        "M": 2,
+        "P": 0.3,
+        "Q": 0.5
+      }
+    },
+    "BNBUSDT": {
+      "total_trades": 0,
+      "total_pnl": 0.0,
+      "return_rate": 0.0,
+      "win_rate": 0.0,
+      "by_type": {},
+      "by_condition": {},
+      "trades": [],
+      "symbol": "BNBUSDT",
+      "status": "success",
+      "config": {
+        "X": 0.2,
+        "Y": 0.1,
+        "A": 0.01,
+        "B": 0.005,
+        "N": 4,
+        "M": 2,
+        "P": 0.3,
+        "Q": 0.5
+      }
+    },
+    "SOLUSDT": {
+      "total_trades": 0,
+      "total_pnl": 0.0,
+      "return_rate": 0.0,
+      "win_rate": 0.0,
+      "by_type": {},
+      "by_condition": {},
+      "trades": [],
+      "symbol": "SOLUSDT",
+      "status": "success",
+      "config": {
+        "X": 0.2,
+        "Y": 0.1,
+        "A": 0.01,
+        "B": 0.005,
+        "N": 4,
+        "M": 2,
+        "P": 0.3,
+        "Q": 0.5
+      }
+    },
+    "ADAUSDT": {
+      "total_trades": 1,
+      "total_pnl": -0.27951030927830134,
+      "total_funding_pnl": 0.0,
+      "return_rate": -2.7951030927830135e-05,
+      "win_rate": 0.0,
+      "max_profit": -0.27951030927830134,
+      "max_loss": -0.27951030927830134,
+      "avg_profit": -0.27951030927830134,
+      "avg_holding_hours": 0.5,
+      "by_type": {
+        "price_spread": {
+          "count": 1,
+          "total_pnl": -0.27951030927830134,
+          "win_rate": 0.0
+        }
+      },
+      "by_condition": {
+        "condition_b": {
+          "count": 1,
+          "total_pnl": -0.27951030927830134,
+          "win_rate": 0.0
+        }
+      },
+      "trades": [
+        {
+          "position_id": "ADAUSDT_price_spread_20260529_223000",
+          "symbol": "ADAUSDT",
+          "type": "price_spread",
+          "condition": "condition_b",
+          "direction": "different",
+          "open_time": "2026-05-29 22:30:00",
+          "close_time": "2026-05-29 23:00:00",
+          "open_spread_pct": 0.2018900343642604,
+          "close_spread_pct": 0.030172413793097732,
+          "close_reason": "price_profit",
+          "realized_pnl": -0.27951030927830134,
+          "accumulated_funding_pnl": 0.0,
+          "funding_settlement_count": 0,
+          "holding_hours": 0.5
+        }
+      ],
+      "symbol": "ADAUSDT",
+      "status": "success",
+      "config": {
+        "X": 0.2,
+        "Y": 0.1,
+        "A": 0.01,
+        "B": 0.005,
+        "N": 4,
+        "M": 2,
+        "P": 0.3,
+        "Q": 0.5
+      }
+    }
+  }
+}
